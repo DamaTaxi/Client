@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <g id="그룹_328" data-name="그룹 328" transform="translate(-125 -517)">
+    <rect id="사각형_334" data-name="사각형 334" width="160" height="160" rx="25" transform="translate(125 517)" fill="#ffc044"/>
+    <g id="사각형_338" data-name="사각형 338" transform="translate(151 554)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="54" height="102" stroke="none"/>
+      <rect x="2.5" y="2.5" width="49" height="97" fill="none"/>
+    </g>
+    <g id="패스_38" data-name="패스 38" transform="translate(204 554.512)" fill="none">
+      <path d="M0,0,17.287-16.512V84.872L0,102Z" stroke="none"/>
+      <path d="M 12.28663063049316 -4.821578979492188 L 4.999990463256836 2.138496398925781 L 4.999990463256836 90.00725555419922 L 12.28663063049316 82.78754425048828 L 12.28663063049316 -4.821578979492188 M 17.28663063049316 -16.51190948486328 L 17.28663063049316 84.87213134765625 L -9.5367431640625e-06 101.9999847412109 L -9.5367431640625e-06 -7.62939453125e-06 L 17.28663063049316 -16.51190948486328 Z" stroke="none" fill="#fff"/>
+    </g>
+    <g id="패스_39" data-name="패스 39" transform="translate(151 531)" fill="none">
+      <path d="M27.144,7.24h42.6L53.513,25.293-.849,23.67Z" stroke="none"/>
+      <path d="M 28.50254058837891 12.24019813537598 L 16.66069793701172 19.19085311889648 L 51.34470367431641 20.22620010375977 L 58.52320861816406 12.24019813537598 L 28.50254058837891 12.24019813537598 M 27.14355087280273 7.240198135375977 L 69.74072265625 7.240198135375977 L 53.51317596435547 25.29315757751465 L -0.8486328125 23.67041015625 L 27.14355087280273 7.240198135375977 Z" stroke="none" fill="#fff"/>
+    </g>
+    <g id="타원_38" data-name="타원 38" transform="translate(204 632)" fill="#ffc044" stroke="#fff" stroke-width="5">
+      <ellipse cx="30.5" cy="17" rx="30.5" ry="17" stroke="none"/>
+      <ellipse cx="30.5" cy="17" rx="28" ry="14.5" fill="none"/>
+    </g>
+    <rect id="사각형_339" data-name="사각형 339" width="60" height="61" transform="translate(206 591)" fill="#ffc044"/>
+    <line id="선_95" data-name="선 95" y2="65" transform="translate(206.5 587.5)" fill="none" stroke="#fff" stroke-width="5"/>
+    <line id="선_96" data-name="선 96" x1="2" y2="61.5" transform="translate(261.5 591)" fill="none" stroke="#fff" stroke-width="5"/>
+    <rect id="사각형_340" data-name="사각형 340" width="51" height="21" transform="translate(209 616)" fill="#ffc044"/>
+    <g id="타원_40" data-name="타원 40" transform="translate(204 616)" fill="#ffc044" stroke="#fff" stroke-width="5">
+      <ellipse cx="30.5" cy="17" rx="30.5" ry="17" stroke="none"/>
+      <ellipse cx="30.5" cy="17" rx="28" ry="14.5" fill="none"/>
+    </g>
+    <rect id="사각형_341" data-name="사각형 341" width="51" height="21" transform="translate(209 612)" fill="#ffc044"/>
+    <g id="타원_41" data-name="타원 41" transform="translate(204 595)" fill="#ffc044" stroke="#fff" stroke-width="5">
+      <ellipse cx="30.5" cy="17" rx="30.5" ry="17" stroke="none"/>
+      <ellipse cx="30.5" cy="17" rx="28" ry="14.5" fill="none"/>
+    </g>
+    <rect id="사각형_342" data-name="사각형 342" width="51" height="21" transform="translate(209 591)" fill="#ffc044"/>
+    <g id="타원_37" data-name="타원 37" transform="translate(205 574)" fill="#ffc044" stroke="#fff" stroke-width="5">
+      <ellipse cx="30.5" cy="17" rx="30.5" ry="17" stroke="none"/>
+      <ellipse cx="30.5" cy="17" rx="28" ry="14.5" fill="none"/>
+    </g>
+    <g id="사각형_343" data-name="사각형 343" transform="translate(161 564)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="34" height="46" stroke="none"/>
+      <rect x="2.5" y="2.5" width="29" height="41" fill="none"/>
+    </g>
+    <g id="사각형_344" data-name="사각형 344" transform="translate(161 613)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="34" height="11" stroke="none"/>
+      <rect x="2.5" y="2.5" width="29" height="6" fill="none"/>
+    </g>
+  </g>
+</svg>

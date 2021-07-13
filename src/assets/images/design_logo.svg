@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <g id="그룹_332" data-name="그룹 332" transform="translate(-881 -768)">
+    <rect id="사각형_337" data-name="사각형 337" width="160" height="160" rx="25" transform="translate(881 768)" fill="#ffc044"/>
+    <g id="사각형_369" data-name="사각형 369" transform="translate(892 795)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="75" height="55" stroke="none"/>
+      <rect x="2.5" y="2.5" width="70" height="50" fill="none"/>
+    </g>
+    <g id="사각형_370" data-name="사각형 370" transform="translate(892 857)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="75" height="55" stroke="none"/>
+      <rect x="2.5" y="2.5" width="70" height="50" fill="none"/>
+    </g>
+    <g id="사각형_371" data-name="사각형 371" transform="translate(972 795)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="28" height="55" stroke="none"/>
+      <rect x="2.5" y="2.5" width="23" height="50" fill="none"/>
+    </g>
+    <g id="사각형_372" data-name="사각형 372" transform="translate(1003 795)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="28" height="55" stroke="none"/>
+      <rect x="2.5" y="2.5" width="23" height="50" fill="none"/>
+    </g>
+    <g id="사각형_373" data-name="사각형 373" transform="translate(972 857)" fill="none" stroke="#fff" stroke-width="5">
+      <rect width="28" height="55" stroke="none"/>
+      <rect x="2.5" y="2.5" width="23" height="50" fill="none"/>
+    </g>
+  </g>
+</svg>
