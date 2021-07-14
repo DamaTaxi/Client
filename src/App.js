@@ -1,5 +1,7 @@
+import AdminMain from './components/AdminMain/AdminMain';
+
 function App() {
-  return <div>준비 끝</div>;
+  return <AdminMain />;
 }
 
 export default App;
