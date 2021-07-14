@@ -12,15 +12,21 @@ export const Wrapper = styled.div`
 
 export const Header = styled.header`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 80px;
+  padding: 30px 40px;
 
   & span {
     color: white;
     font-size: 45px;
-    padding: 30px 0 30px 45px;
     font-family: 'BlackHanSans';
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  & div {
+    display: flex;
+    gap: 30px;
   }
 `;
 
@@ -67,16 +73,22 @@ export const Subtitle = styled.div`
   }
 
   & > span {
-    margin-left: 120px;
+    margin-left: 100px;
   }
 `;
 
 export const BackgroundBottom = styled.div`
   width: 100%;
-  height: 500px;
+  height: 450px;
   margin: auto 0 0 0;
   background-color: #ffffff;
   border-radius: 75px 75px 0 0;
+
+  & div {
+    display: flex;
+    gap: 160px;
+    margin: 60px 0 0 120px;
+  }
 `;
 
 export const TaxiImg = styled.img`
