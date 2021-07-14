@@ -86,7 +86,7 @@ export const BackgroundBottom = styled.div`
 
   & div {
     display: flex;
-    gap: 160px;
+    gap: 120px;
     margin: 60px 0 0 120px;
   }
 `;
@@ -95,6 +95,7 @@ export const TaxiImg = styled.img`
   width: 800px;
   height: 800px;
   position: absolute;
+  bottom: 120px;
   right: 0;
   margin-right: -230px;
 `;
