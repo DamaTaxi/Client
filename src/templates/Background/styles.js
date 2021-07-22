@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 1000px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,24 +13,19 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   padding: 30px 40px;
 
   & span {
     color: white;
-    font-size: 45px;
+    font-size: 3.75rem;
     font-family: 'BlackHanSans';
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-  }
-
-  & div {
-    display: flex;
-    gap: 30px;
   }
 `;
 
 export const Section = styled.section`
-  padding-left: 200px;
+  padding-left: 180px;
 `;
 
 export const Title = styled.div`
@@ -39,24 +33,19 @@ export const Title = styled.div`
   align-items: center;
   margin-bottom: 40px;
 
-  & img {
-    width: 450px;
-  }
-
   & span {
     font-family: 'BlackHanSans';
-    font-size: 3.75rem;
+    font-size: 5rem;
     color: white;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    margin-left: 30px;
+    margin-left: 40px;
     position: relative;
-    top: 20px;
+    top: 30px;
   }
 `;
 
 export const Subtitle = styled.div`
   display: flex;
-
   align-items: flex-end;
 
   & div {
@@ -67,35 +56,29 @@ export const Subtitle = styled.div`
   & span {
     font-family: 'NotoSansKR';
     color: white;
-    font-size: 1.875rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   }
 
   & > span {
-    margin-left: 100px;
+    margin-left: 120px;
   }
 `;
 
 export const BackgroundBottom = styled.div`
   width: 100%;
-  height: 450px;
-  margin: auto 0 0 0;
+  height: 500px;
+  margin-top: 80px;
   background-color: #ffffff;
   border-radius: 75px 75px 0 0;
-
-  & div {
-    display: flex;
-    gap: 120px;
-    margin: 60px 0 0 120px;
-  }
 `;
 
 export const TaxiImg = styled.img`
-  width: 800px;
-  height: 800px;
+  width: 1200px;
+  height: 1200px;
   position: absolute;
-  bottom: 120px;
+  bottom: 30px;
   right: 0;
-  margin-right: -230px;
+  margin-right: -350px;
 `;
