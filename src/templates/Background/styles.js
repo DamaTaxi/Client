@@ -51,6 +51,7 @@ export const Subtitle = styled.div`
   & div {
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
   & span {
