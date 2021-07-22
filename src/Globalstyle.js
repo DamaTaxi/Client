@@ -17,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
     src: url(${NotoSansKRFont});
   }
 
+  @font-face {
+    font-family: 'DoHyeon';
+    src: url(${DoHyeonFont});
+  }
+
   html, body, #root {
         height: 100%;
     }
