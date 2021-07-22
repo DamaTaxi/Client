@@ -1,7 +1,15 @@
-import AdminMain from './components/AdminMain/AdminMain';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { GlobalStyle } from './GlobalStyle';
+import Routing from './Routing';
 
-function App() {
-  return <AdminMain />;
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routing />
+    </BrowserRouter>
+  );
+};
 
 export default App;
