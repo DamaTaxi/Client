@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const Wrapper = styled.div``;
+
 export const HeaderRightWrapper = styled.div`
   display: flex;
   gap: 30px;
@@ -65,6 +67,7 @@ export const Toggle = styled.button`
   bottom: 40px;
   right: 40px;
   background: none;
+  z-index: 5;
   border: none;
   cursor: pointer;
 `;
