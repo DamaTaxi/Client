@@ -1,31 +1,32 @@
 import { createGlobalStyle } from 'styled-components';
 import { default as BlackHansSansFont } from './assets/fonts/BlackHanSans-Regular.ttf';
-import { default as NotoSansKRFont } from './assets/fonts/NotoSansCJKkr-Regular.otf';
+import { default as NotoSansKRFont } from './assets/fonts/NotoSansKR-Black.otf';
 import { default as DoHyeonFont } from './assets/fonts/DoHyeon-Regular.ttf';
+import { default as NotoSansCJKFont } from './assets/fonts/NotoSansCJKkr-Regular.otf';
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
-
   @font-face {
     font-family: 'BlackHanSans';
     src: url(${BlackHansSansFont});
   }
-
   @font-face {
     font-family: 'NotoSansKR';
     src: url(${NotoSansKRFont});
   }
-
   @font-face {
     font-family: 'DoHyeon';
     src: url(${DoHyeonFont});
   }
-
+  @font-face {
+    font-family: 'NotoSansCJK';
+    src: url(${NotoSansCJKFont})
+  }
   html, body, #root {
-        height: 100%;
-    }
+    height: 100%;
+  }
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
