@@ -11,8 +11,11 @@ const TaxiPot = () => {
         <img src={headerLogoYellow} alt="header-logo-yellow" />
         <img src={headerLineYellow} alt="header-line-yellow" />
       </S.Header>
+      <S.MiddleHeaderTitle>
+        <h1>현재 모집중인 택시 팟</h1>
+      </S.MiddleHeaderTitle>
       <S.TaxiPotSlideContainer>
-        <TaxiPotSlider> </TaxiPotSlider>
+        <TaxiPotSlider></TaxiPotSlider>
       </S.TaxiPotSlideContainer>
     </>
   );
