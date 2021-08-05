@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Background from '../../templates/Background/Background';
 import * as S from './styles';
 import ErrorReport from '../../assets/images/error_report.svg';
@@ -7,7 +7,12 @@ import UpToggle from '../../assets/images/up_toggle.svg';
 import List from '../../templates/List/List';
 
 const AdminMain = () => {
-  const toTopPage = () => {};
+  const toTopPage = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const HeaderRightTag = (
     <S.HeaderRightWrapper>

@@ -70,4 +70,5 @@ export const Toggle = styled.button`
   z-index: 5;
   border: none;
   cursor: pointer;
+  outline: none;
 `;
