@@ -24,6 +24,34 @@ const swiperSliderList = [
     all: 2,
     price: 123123,
   },
+  {
+    title: '대덕소프트웨어마이스터고등학교',
+    target: '3학년',
+    reserve: 1,
+    all: 2,
+    price: 123123,
+  },
+  {
+    title: '대덕소프트웨어마이스터고등학교',
+    target: '3학년',
+    reserve: 1,
+    all: 2,
+    price: 123123,
+  },
+  {
+    title: '대덕소프트웨어마이스터고등학교',
+    target: '3학년',
+    reserve: 1,
+    all: 2,
+    price: 123123,
+  },
+  {
+    title: '대덕소프트웨어마이스터고등학교',
+    target: '3학년',
+    reserve: 1,
+    all: 2,
+    price: 123123,
+  },
 ];
 
 const TaxiPotSlider = () => {
@@ -47,7 +75,6 @@ const TaxiPotSlider = () => {
 
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
-        console.log(swiperSliderList);
         const { title, target, reserve, all, price } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
@@ -77,8 +104,16 @@ const TaxiPotSlider = () => {
 
   return (
     <S.TaxiPotSlideBox>
-      <p>{current}</p>
-      <p>{total}</p>
+      <S.TaxiPotPageLine width={percentFunc(current, total)}>
+        <div className="currentContainer">
+          <div>
+            <p>{current}번째</p>
+          </div>
+        </div>
+        <div className="allContainer">
+          <p>{total}</p>
+        </div>
+      </S.TaxiPotPageLine>
       <Swiper
         slidesPerView={4}
         spaceBetween={100}

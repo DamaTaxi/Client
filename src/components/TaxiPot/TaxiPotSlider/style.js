@@ -4,12 +4,17 @@ import prevButton from '../../../assets/images/TaxiPot/prev-button.png';
 import slideYellowBox from '../../../assets/images/TaxiPot/slide-yellow-box.png';
 import slideGrayBox from '../../../assets/images/TaxiPot/slide-gray-box.png';
 import SlideSection from '../../../assets/images/TaxiPot/slider-section.png';
+import taxiOnBar from '../../../assets/images/taxi_on_bar.svg';
+import locationOnBar from '../../../assets/images/TaxiPot/location_on_bar.png';
 
 export const TaxiPotSlideBox = styled.div`
   position: relative;
   width: 100%;
   height: 475px;
   background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .test {
     width: 100%;
     background-color: red;
@@ -103,7 +108,41 @@ export const TaxiPotSlideBox = styled.div`
   }
 `;
 
-export const TaxiPotPageLine = styled.div``;
+export const TaxiPotPageLine = styled.div`
+  display: flex;
+  width: 1400px;
+  height: 34px;
+  background-color: #f4e458;
+  border-radius: 20px;
+  .currentContainer {
+    transition: 1s;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: ${(props) => (props.width ? `${props.width}%` : `0`)};
+    border-radius: 20px;
+    background-color: #ffc044;
+    div {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      display: flex;
+      align-items: center;
+      background-image: url(${taxiOnBar});
+      width: 93px;
+      height: 55px;
+      text-align: center;
+      p {
+        font-size: 1.25rem;
+        font-family: 'NotoSansKR';
+        font-weight: bold;
+        color: #ffffff;
+        padding-left: 6.5px;
+      }
+    }
+  }
+`;
 
 export const GraphContainer = styled.div`
   width: 100%;
