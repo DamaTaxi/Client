@@ -142,6 +142,11 @@ export const TaxiPotPageLine = styled.div`
       }
     }
   }
+  .allContainer{
+    p{
+      position: absolute;
+    }
+  }
 `;
 
 export const GraphContainer = styled.div`

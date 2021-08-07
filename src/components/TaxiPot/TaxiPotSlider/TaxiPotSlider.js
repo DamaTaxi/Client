@@ -111,7 +111,7 @@ const TaxiPotSlider = () => {
           </div>
         </div>
         <div className="allContainer">
-          <p>{total}</p>
+          <p>{total}개 중</p>
         </div>
       </S.TaxiPotPageLine>
       <Swiper
