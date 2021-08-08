@@ -17,41 +17,6 @@ const swiperSliderList = [
     all: 4,
     price: 10000,
   },
-  {
-    title: '대덕소프트웨어마이스터고등학교',
-    target: '3학년',
-    reserve: 1,
-    all: 2,
-    price: 123123,
-  },
-  {
-    title: '대덕소프트웨어마이스터고등학교',
-    target: '3학년',
-    reserve: 1,
-    all: 2,
-    price: 123123,
-  },
-  {
-    title: '대덕소프트웨어마이스터고등학교',
-    target: '3학년',
-    reserve: 1,
-    all: 2,
-    price: 123123,
-  },
-  {
-    title: '대덕소프트웨어마이스터고등학교',
-    target: '3학년',
-    reserve: 1,
-    all: 2,
-    price: 123123,
-  },
-  {
-    title: '대덕소프트웨어마이스터고등학교',
-    target: '3학년',
-    reserve: 1,
-    all: 2,
-    price: 123123,
-  },
 ];
 
 const TaxiPotSlider = () => {
@@ -75,11 +40,11 @@ const TaxiPotSlider = () => {
 
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
-        const { title, target, reserve, all, price } = swiperSliderList;
+        const { title, target, reserve, all, price, latitude, longitude } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
             <Link to="/">
-              <div className="grayBox">구글맵</div>
+              <div className="kakaoMap">카카오 맵</div>
               <div className="slideSection">
                 <h1>{title}</h1>
                 <p>대상자 : {target}</p>
@@ -111,7 +76,7 @@ const TaxiPotSlider = () => {
           </div>
         </div>
         <div className="allContainer">
-          <p>{total}개 중</p>
+          <div>{total}개</div>
         </div>
       </S.TaxiPotPageLine>
       <Swiper

@@ -36,7 +36,7 @@ export const TaxiPotSlideBox = styled.div`
     width: 299px;
     height: 378px;
     border-radius: 15px;
-    .grayBox {
+    .kakaoMap {
       background-image: url(${slideGrayBox});
       width: 100%;
       height: 270px;
@@ -109,6 +109,7 @@ export const TaxiPotSlideBox = styled.div`
 `;
 
 export const TaxiPotPageLine = styled.div`
+  position: relative;
   display: flex;
   width: 1400px;
   height: 34px;
@@ -123,6 +124,7 @@ export const TaxiPotPageLine = styled.div`
     width: ${(props) => (props.width ? `${props.width}%` : `0`)};
     border-radius: 20px;
     background-color: #ffc044;
+    z-index: 10;
     div {
       position: absolute;
       top: -10px;
@@ -142,9 +144,23 @@ export const TaxiPotPageLine = styled.div`
       }
     }
   }
-  .allContainer{
-    p{
+  .allContainer {
+    div {
       position: absolute;
+      width: 79px;
+      height: 105px;
+      background-size: cover;
+      right: 0;
+      top: -65px;
+      background-image: url(${locationOnBar});
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 10px;
+      font-size: 1.25rem;
+      font-family: 'NotoSansKR';
+      font-weight: bold;
+      color: #ffffff;
     }
   }
 `;
