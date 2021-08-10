@@ -17,6 +17,41 @@ const swiperSliderList = [
     all: 4,
     price: 10000,
   },
+  {
+    title: '둔산동 꿀잼동전노래연습장',
+    target: '2학년',
+    reserve: 3,
+    all: 4,
+    price: 10000,
+  },
+  {
+    title: '둔산동 꿀잼동전노래연습장',
+    target: '2학년',
+    reserve: 3,
+    all: 4,
+    price: 10000,
+  },
+  {
+    title: '둔산동 꿀잼동전노래연습장',
+    target: '2학년',
+    reserve: 3,
+    all: 4,
+    price: 10000,
+  },
+  {
+    title: '둔산동 꿀잼동전노래연습장',
+    target: '2학년',
+    reserve: 3,
+    all: 4,
+    price: 10000,
+  },
+  {
+    title: '둔산동 꿀잼동전노래연습장',
+    target: '2학년',
+    reserve: 3,
+    all: 4,
+    price: 10000,
+  },
 ];
 
 const TaxiPotSlider = () => {
@@ -38,6 +73,7 @@ const TaxiPotSlider = () => {
     return result;
   };
 
+  //슬라이더 리스트 map 함수
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
         const { title, target, reserve, all, price, latitude, longitude } = swiperSliderList;
@@ -81,7 +117,7 @@ const TaxiPotSlider = () => {
       </S.TaxiPotPageLine>
       <Swiper
         slidesPerView={4}
-        spaceBetween={100}
+        spaceBetween={70}
         slidesPerGroup={4}
         loop={true}
         loopFillGroupWithBlank={true}
@@ -99,7 +135,6 @@ const TaxiPotSlider = () => {
       >
         {SwiperSlideList}
       </Swiper>
-      <div className="test"></div>
     </S.TaxiPotSlideBox>
   );
 };

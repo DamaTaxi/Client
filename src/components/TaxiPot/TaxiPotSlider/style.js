@@ -15,15 +15,11 @@ export const TaxiPotSlideBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  .test {
-    width: 100%;
-    background-color: red;
-  }
   .swiper-container {
     position: static;
   }
   .mySwiper {
-    width: 1607px;
+    width: 1400px;
     height: 450px;
   }
   .swiper-pagination {
@@ -49,9 +45,9 @@ export const TaxiPotSlideBox = styled.div`
       color: red;
     }
     .slideSection {
-      left: 7%;
+      left: 5%;
       bottom: 3%;
-      padding-left: 12px;
+      padding-left: 8px;
       position: absolute;
       background-image: url(${SlideSection});
       background-size: cover;
@@ -116,7 +112,7 @@ export const TaxiPotPageLine = styled.div`
   background-color: #f4e458;
   border-radius: 20px;
   .currentContainer {
-    transition: 1s;
+    transition: 1.23s;
     position: relative;
     display: flex;
     justify-content: flex-end;
