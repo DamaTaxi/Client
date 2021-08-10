@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 
-const List = ({ title, list, pageNum }) => {
+const List = ({ showModal, title, list, pageNum }) => {
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
       <S.ListContainer>
         {list.map((ele) => (
-          <S.List key={ele.id}>
+          <S.List
+            onClick={() => {
+              showModal(ele.id);
+            }}
+            key={ele.id}
+          >
             <span>{ele.id}</span>
             <span>{ele.title}</span>
           </S.List>
