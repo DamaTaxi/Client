@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 
-const List = ({ showModal, title, list, pageNum }) => {
+const List = ({ getListModal, title, list, pageNum }) => {
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
@@ -9,7 +9,7 @@ const List = ({ showModal, title, list, pageNum }) => {
         {list.map((ele) => (
           <S.List
             onClick={() => {
-              showModal(ele.id);
+              getListModal(ele.id);
             }}
             key={ele.id}
           >
@@ -26,7 +26,7 @@ const List = ({ showModal, title, list, pageNum }) => {
             <S.Left />
           </span>
           {pageNum.map((ele) => (
-            <span>{ele}</span>
+            <span key={ele}>{ele}</span>
           ))}
           <span>
             <S.Right />
