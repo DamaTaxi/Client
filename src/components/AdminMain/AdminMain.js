@@ -5,8 +5,21 @@ import ErrorReport from '../../assets/images/error_report.svg';
 import Suggestion from '../../assets/images/suggestion.svg';
 import UpToggle from '../../assets/images/up_toggle.svg';
 import List from '../../templates/List/List';
+import LoginModal from '../../Modal/LoginModal/LoginModal';
+import ListModal from '../../Modal/ListModal/ListModal';
 
 const AdminMain = () => {
+  const [isShowLogin, setIsShowLogin] = useState(true);
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const showModal = () => {
+    setIsShowModal(true);
+  };
+
+  const closeModal = () => {
+    setIsShowModal(false);
+  };
+
   const toTopPage = () => {
     window.scrollTo({
       top: 0,
@@ -17,7 +30,7 @@ const AdminMain = () => {
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
       <S.LinkButton to="/1">DATA 페이지로 이동</S.LinkButton>
-      <S.LoginButton>LOGIN</S.LoginButton>
+      {isShowLogin || <S.LoginButton onClick={showModal}>LOGIN</S.LoginButton>}
     </S.HeaderRightWrapper>
   );
 
@@ -75,8 +88,14 @@ const AdminMain = () => {
   return (
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
-      <List title={titles.error} list={list} pageNum={pageNum} />
-      <List title={titles.suggestion} list={list} pageNum={pageNum} />
+      {isShowLogin && (
+        <>
+          <List showModal={showModal} title={titles.error} list={list} pageNum={pageNum} />
+          <List showModal={showModal} title={titles.suggestion} list={list} pageNum={pageNum} />
+        </>
+      )}
+      <LoginModal isShowModal={isShowModal} closeModal={closeModal} />
+      <ListModal isShowModal={isShowModal} closeModal={closeModal} />
     </S.Wrapper>
   );
 };
