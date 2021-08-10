@@ -28,20 +28,8 @@ export const Section = styled.section`
   padding-left: 180px;
 `;
 
-export const Title = styled.div`
-  display: flex;
-  align-items: center;
+export const Title = styled.img`
   margin-bottom: 40px;
-
-  & span {
-    font-family: 'BlackHanSans';
-    font-size: 5rem;
-    color: white;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    margin-left: 40px;
-    position: relative;
-    top: 30px;
-  }
 `;
 
 export const Subtitle = styled.div`

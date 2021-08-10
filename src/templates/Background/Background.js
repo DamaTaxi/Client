@@ -11,10 +11,7 @@ const Background = ({ HeaderRightTag, BottomLeftTag, AsideToggleTag }) => {
         <div>{HeaderRightTag}</div>
       </S.Header>
       <S.Section>
-        <S.Title>
-          <img src={HeaderLogo} alt="" />
-          <span>ADMIN</span>
-        </S.Title>
+        <S.Title src={HeaderLogo} />
         <S.Subtitle>
           <div>
             <span>같이 택시 타실래요?</span>
