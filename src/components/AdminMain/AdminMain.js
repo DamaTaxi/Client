@@ -11,8 +11,17 @@ import ListModal from '../../Modal/ListModal/ListModal';
 const AdminMain = () => {
   const [isShowLogin, setIsShowLogin] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState({});
 
-  const showModal = () => {
+  const showLoginModal = () => {
+    setIsShowModal(true);
+  };
+
+  const getListModal = (id) => {
+    // await res = async api호출하는함수(id)
+    /* setModalContent({
+      ...res
+    }) */
     setIsShowModal(true);
   };
 
@@ -27,21 +36,35 @@ const AdminMain = () => {
     });
   };
 
+  const toErrorReport = () => {
+    window.scrollTo({
+      top: 1134,
+      behavior: 'smooth',
+    });
+  };
+
+  const toSuggestion = () => {
+    window.scrollTo({
+      top: 2177,
+      behavior: 'smooth',
+    });
+  };
+
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
       <S.LinkButton to="/1">DATA 페이지로 이동</S.LinkButton>
-      {isShowLogin || <S.LoginButton onClick={showModal}>LOGIN</S.LoginButton>}
+      {isShowLogin || <S.LoginButton onClick={showLoginModal}>LOGIN</S.LoginButton>}
     </S.HeaderRightWrapper>
   );
 
   const BottomLeftTag = (
     <S.BottomLeftWrapper>
-      <S.BottomButton>
+      <S.BottomButton onClick={toErrorReport}>
         <img src={ErrorReport} alt="" />
         <h1>오류 신고 리스트</h1>
         <p>오류 신고 확인</p>
       </S.BottomButton>
-      <S.BottomButton>
+      <S.BottomButton onClick={toSuggestion}>
         <img src={Suggestion} alt="" />
         <h1>기능 건의 리스트</h1>
         <p>기능 건의 사항 확인</p>
@@ -70,15 +93,15 @@ const AdminMain = () => {
       title: '오류신고가 진짜 되지 않습니다.',
     },
     {
-      id: 1,
+      id: 3,
       title: '오류신고가 되지 않습니다.',
     },
     {
-      id: 2,
+      id: 4,
       title: '오류신고가 진짜 되지 않습니다.',
     },
     {
-      id: 1,
+      id: 5,
       title: '오류신고가 되지 않습니다.',
     },
   ];
@@ -90,12 +113,12 @@ const AdminMain = () => {
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
       {isShowLogin && (
         <>
-          <List showModal={showModal} title={titles.error} list={list} pageNum={pageNum} />
-          <List showModal={showModal} title={titles.suggestion} list={list} pageNum={pageNum} />
+          <List getListModal={getListModal} title={titles.error} list={list} pageNum={pageNum} />
+          <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} />
         </>
       )}
       <LoginModal isShowModal={isShowModal} closeModal={closeModal} />
-      <ListModal isShowModal={isShowModal} closeModal={closeModal} />
+      <ListModal modalContent={modalContent} isShowModal={isShowModal} closeModal={closeModal} />
     </S.Wrapper>
   );
 };
