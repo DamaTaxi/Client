@@ -45,13 +45,6 @@ const swiperSliderList = [
     all: 4,
     price: 10000,
   },
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-    price: 10000,
-  },
 ];
 
 const TaxiPotSlider = () => {
