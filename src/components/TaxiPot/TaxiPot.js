@@ -3,6 +3,7 @@ import * as S from './style';
 import headerLogoYellow from '../../assets/images/TaxiPot/header-logo-yellow.png';
 import headerLineYellow from '../../assets/images/TaxiPot/header-line-yellow.png';
 import TaxiPotSlider from './TaxiPotSlider/TaxiPotSlider';
+import TaxiPotList from './TaxiPotList/TaxiPotList';
 
 const TaxiPot = () => {
   return (
@@ -17,6 +18,7 @@ const TaxiPot = () => {
       <S.TaxiPotSlideContainer>
         <TaxiPotSlider></TaxiPotSlider>
       </S.TaxiPotSlideContainer>
+      <TaxiPotList></TaxiPotList>
     </>
   );
 };
