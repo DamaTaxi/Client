@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-/* import Home from './Home'; */
+import UserMain from './components/UserMain/UserMain';
 
 const Routing = () => {
   return (
     <>
       <Switch>
-        {/* <Route path="/" exact component={Home} /> */}
+        <Route path="/user-main" exact component={UserMain} />
       </Switch>
     </>
   );
