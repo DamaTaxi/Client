@@ -15,9 +15,7 @@ const TaxiPot = () => {
       <S.MiddleHeaderTitle>
         <h1>현재 모집중인 택시 팟</h1>
       </S.MiddleHeaderTitle>
-      <S.TaxiPotSlideContainer>
-        <TaxiPotSlider></TaxiPotSlider>
-      </S.TaxiPotSlideContainer>
+      <TaxiPotSlider></TaxiPotSlider>
       <TaxiPotList></TaxiPotList>
     </>
   );

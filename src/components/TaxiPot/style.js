@@ -20,8 +20,3 @@ export const MiddleHeaderTitle = styled.div`
     font-weight: bold;
   }
 `;
-
-export const TaxiPotSlideContainer = styled.div`
-  width: 100%;
-  height: 587px;
-`;
