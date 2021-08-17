@@ -66,6 +66,10 @@ const TaxiPotSlider = () => {
     return result;
   };
 
+/*   useEffect(()=> {
+    api.getlist();
+  }, [page]) */
+
   //슬라이더 리스트 map 함수
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
@@ -73,23 +77,27 @@ const TaxiPotSlider = () => {
         return (
           <SwiperSlide key={index}>
             <Link to="/">
-              <div className="kakaoMap">카카오 맵</div>
-              <div className="slideSection">
-                <h1>{title}</h1>
-                <p>대상자 : {target}</p>
-                <p>km: 9.8km</p>
-                <p>예상가격: {numberWithCommas(price)}원</p>
-                <S.GraphContainer width={percentFunc(reserve, all)}>
-                  <p>현재 인원수 : </p>
-                  <div className="yellowBorderBox">
-                    <div className="filledBox">
-                      <p>
-                        {reserve}/{all}
-                      </p>
+              <>
+                <div className="kakaoMap">카카오 맵</div>
+              </>
+              <>
+                <div className="slideSection">
+                  <h1>{title}</h1>
+                  <p>대상자 : {target}</p>
+                  <p>km: 9.8km</p>
+                  <p>예상가격: {numberWithCommas(price)}원</p>
+                  <S.GraphContainer width={percentFunc(reserve, all)}>
+                    <p>현재 인원수 : </p>
+                    <div className="yellowBorderBox">
+                      <div className="filledBox">
+                        <p>
+                          {reserve}/{all}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </S.GraphContainer>
-              </div>
+                  </S.GraphContainer>
+                </div>
+              </>
             </Link>
           </SwiperSlide>
         );
@@ -108,26 +116,28 @@ const TaxiPotSlider = () => {
           <div>{total}개</div>
         </div>
       </S.TaxiPotPageLine>
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={70}
-        slidesPerGroup={4}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          type: 'custom',
-          renderCustom: function (swiper, current, total) {
-            setCurrent(current);
-            setTotal(total);
-            return current + total;
-          },
-        }}
-        navigation={true}
-        className="mySwiper"
-        autoplay={{ delay: 3500 }}
-      >
-        {SwiperSlideList}
-      </Swiper>
+      <>
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={70}
+          slidesPerGroup={4}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            type: 'custom',
+            renderCustom: function (swiper, current, total) {
+              setCurrent(current);
+              setTotal(total);
+              return current + total;
+            },
+          }}
+          navigation={true}
+          className="mySwiper"
+          autoplay={{ delay: 3500 }}
+        >
+          {SwiperSlideList}
+        </Swiper>
+      </>
     </S.TaxiPotSlideBox>
   );
 };
