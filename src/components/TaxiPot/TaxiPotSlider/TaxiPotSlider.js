@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './style';
+import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
@@ -66,7 +67,7 @@ const TaxiPotSlider = () => {
     return result;
   };
 
-/*   useEffect(()=> {
+  /*   useEffect(()=> {
     api.getlist();
   }, [page]) */
 
@@ -86,16 +87,7 @@ const TaxiPotSlider = () => {
                   <p>대상자 : {target}</p>
                   <p>km: 9.8km</p>
                   <p>예상가격: {numberWithCommas(price)}원</p>
-                  <S.GraphContainer width={percentFunc(reserve, all)}>
-                    <p>현재 인원수 : </p>
-                    <div className="yellowBorderBox">
-                      <div className="filledBox">
-                        <p>
-                          {reserve}/{all}
-                        </p>
-                      </div>
-                    </div>
-                  </S.GraphContainer>
+                  <GraphContainer reserve={reserve} all={all} width={118} height={20} />
                 </div>
               </>
             </Link>
