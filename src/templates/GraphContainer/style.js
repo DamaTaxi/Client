@@ -10,7 +10,13 @@ export const GraphContainer = styled.div`
     width: ${(props) => (props.width ? `${props.width}px` : '118px')};
     height: ${(props) => (props.height ? `${props.height}px` : '20px')};
     border: #ffc044 1px solid;
-    margin: 5px 0 0 14px;
+    p {
+      position: absolute;
+      text-align: center;
+      left: ${(props) => (props.left ? `${props.left}%` : `42.08%`)};
+      z-index: 10;
+      font-size: 1rem;
+    }
   }
   .filledBox {
     position: absolute;
@@ -20,11 +26,5 @@ export const GraphContainer = styled.div`
     height: 100%;
     background-color: #ffc044;
     text-align: center;
-    p {
-      text-align: center;
-      position: absolute;
-      left: 45px;
-      top: -6px;
-    }
   }
 `;
