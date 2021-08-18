@@ -62,4 +62,7 @@ export const taxiPotList = styled.div`
   height: 172px;
   border: solid #ffc044 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  .list-title-wrapper{
+    
+  }
 `;

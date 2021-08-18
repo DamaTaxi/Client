@@ -45,7 +45,7 @@ export const TaxiPotSlideBox = styled.div`
       color: red;
     }
     .slideSection {
-      left: 5%;
+      left: 3%;
       bottom: 3%;
       padding-left: 8px;
       position: absolute;

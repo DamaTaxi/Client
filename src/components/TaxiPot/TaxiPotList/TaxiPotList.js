@@ -19,8 +19,11 @@ const TaxiPotList = () => {
           <Link>
             <S.taxiPotList>
               <div>
-                <div className=""></div>
-                <div className=""></div>
+                <div className="list-title-wrapper">
+                  <h1>둔산동 꿀잼동전노래연습장</h1>
+                  <p>2004.12.03 작성</p>
+                </div>
+                <div className="list-section-wrapper"></div>
               </div>
               <div className="kakaoMap"></div>
             </S.taxiPotList>
