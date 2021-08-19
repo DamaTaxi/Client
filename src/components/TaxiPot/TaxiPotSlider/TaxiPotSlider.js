@@ -10,6 +10,7 @@ import 'swiper/components/pagination/pagination.scss';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
+//더미 데이터
 const swiperSliderList = [
   {
     title: '둔산동 꿀잼동전노래연습장',
@@ -87,7 +88,7 @@ const TaxiPotSlider = () => {
                   <p>대상자 : {target}</p>
                   <p>km: 9.8km</p>
                   <p>예상가격: {numberWithCommas(price)}원</p>
-                  <GraphContainer reserve={reserve} all={all} width={118} height={20} />
+                  <GraphContainer reserve={reserve} all={all} left={40} width={118} height={20} />
                 </div>
               </>
             </Link>

@@ -62,7 +62,7 @@ export const TaxiPotSlideBox = styled.div`
         margin-top: 12px;
         padding-top: 2px;
       }
-      p {
+      p:nth-child(-1+3) {
         padding-top: 6px;
         font-family: 'NotoSansKR';
         font-weight: 540;
