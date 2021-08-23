@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div``;
+
 export const HeaderRightWrapper = styled.div`
   display: flex;
   gap: 30px;
@@ -50,7 +52,7 @@ export const TimeBar = styled.div`
   width: 700px;
   height: 60px;
 
-  & div {
+  & time {
     height: 60px;
     position: absolute;
     display: flex;
@@ -62,14 +64,14 @@ export const TimeBar = styled.div`
     font-weight: bold;
   }
 
-  & div:first-child {
+  & time:first-child {
     width: 100%;
     padding-right: 20px;
     background-color: #f1b53d;
     justify-content: flex-end;
   }
 
-  & div:last-child {
+  & time:last-child {
     width: 65%;
     background-color: #ffc044;
     justify-content: center;

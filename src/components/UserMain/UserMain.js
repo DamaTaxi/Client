@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Background from '../../templates/Background/Background';
 import * as S from './styles';
 import UpToggle from '../../assets/images/up_toggle.svg';
+import Clock from 'react-live-clock';
+import RecentTaxi from '../RecentTaxi/RecentTaxi';
 
 const UserMain = () => {
-  const [isUserLogin, setIsUserLogin] = useState(false);
+  const [isUserLogin, setIsUserLogin] = useState(true);
 
   const toTopPage = () => {
     window.scrollTo({
@@ -28,8 +30,8 @@ const UserMain = () => {
       <S.TimeContainer>
         <span>이 그래프는</span>
         <S.TimeBar>
-          <div>12시 31분</div>
-          <div>2021년 05월 26일</div>
+          <Clock format={'HH시 mm분'} ticking={true} />
+          <Clock format={'YYYY년 MM월 DD일'} ticking={true} />
         </S.TimeBar>
         <span>에 예약 중인 택시 팟과 예약 완료된 택시 팟입니다</span>
       </S.TimeContainer>
@@ -42,7 +44,12 @@ const UserMain = () => {
     </S.Toggle>
   );
 
-  return <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />;
+  return (
+    <S.Wrapper>
+      <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
+      <RecentTaxi />
+    </S.Wrapper>
+  );
 };
 
 export default UserMain;
