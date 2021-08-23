@@ -7,6 +7,7 @@ export const TaxiPotWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const TaxiPotLogo = styled.div`
@@ -21,11 +22,13 @@ export const TaxiPotLogo = styled.div`
 
 export const TaxiPotArticle = styled.div`
   margin-top: 35px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const TaxiPotMainContainer = styled.div`
   width: 1580px;
-  height: 690px;
+  height: 685px;
   background-color: #ffffff;
   border-radius: 36px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -39,8 +42,9 @@ export const LeftAside = styled.aside`
   justify-content: flex-start;
   margin-left: 65px;
   .dayAndName {
-    margin-top: 35px;
+    margin-top: ${(props) => (props.isClick ? '35px' : '80px')}; //클릭했을때 : 35px; 클릭 안했을때 : 75px;
     width: 225px;
+    transition: 0.4s;
     p {
       font-size: 20px;
       color: #3a3232;
@@ -95,7 +99,7 @@ export const LeftAsideSection = styled.section`
   margin-top: 35px;
   height: 310px;
   p {
-    font-size: 28px;
+    font-size: 26px;
     font-family: 'NotoSansCJK';
     color: #3a3232;
     font-weight: 500;
@@ -120,7 +124,7 @@ export const MemberListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-top: 30px;
   button {
     width: 156px;
     height: 53px;
@@ -130,6 +134,7 @@ export const MemberListWrapper = styled.div`
     font-family: 'NotoSansCJK';
     font-weight: 500;
     border: none;
+    cursor: pointer;
   }
   ul {
     width: 418px;
@@ -137,6 +142,10 @@ export const MemberListWrapper = styled.div`
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 16%);
+    z-index: 10;
+    transition: 1s;
+    display: ${(props) => (props.isClick ? 'flex' : 'none')}; //클릭 했을떄 flex, 안하면 none
+    flex-direction: column;
   }
   li {
     display: flex;
@@ -147,5 +156,39 @@ export const MemberListWrapper = styled.div`
   }
   li:nth-child(n + 2) {
     border-top: 1px solid #d4d4d4;
+  }
+`;
+
+export const OptionWrapper = styled.div`
+  width: 100%;
+  height: 100px;
+  background-color: #f5efe7;
+  border-radius: 26px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  p {
+    font-family: 'DoHyeon';
+    font-size: 28px;
+    color: #9a9a9a;
+    margin-left: 57px;
+  }
+  button {
+    font-family: 'NotoSansCJK';
+    font-size: 24px;
+    font-weight: 500;
+    width: 198px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:nth-child(2) {
+    margin-left: 385px;
+    background-color: #ffffff;
+  }
+  a > button {
+    background-color: #ffc044;
+    margin-left: 23px;
   }
 `;

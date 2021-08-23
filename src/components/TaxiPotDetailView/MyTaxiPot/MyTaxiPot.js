@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import * as S from './style';
@@ -14,9 +14,22 @@ const memberList = [
     name: '김재현',
     phoneNumber: '010-9564-0889',
   },
+  {
+    number: 2205,
+    name: '김재현',
+    phoneNumber: '010-9564-0889',
+  },
+  {
+    number: 2205,
+    name: '김재현',
+    phoneNumber: '010-9564-0889',
+  },
 ];
 
 const MyTaxiPot = () => {
+  const [isClick, setIsClick] = useState(false);
+  const toggle = () => setIsClick(!isClick);
+
   const memberListMap = memberList.length
     ? memberList.map((memberList, index) => {
         const { number, name, phoneNumber } = memberList;
@@ -28,14 +41,14 @@ const MyTaxiPot = () => {
           </li>
         );
       })
-    : '리스트 불러오는중...';
+    : '';
 
   return (
     <S.TaxiPotWrapper>
       <S.TaxiPotLogo />
       <S.TaxiPotArticle>
         <S.TaxiPotMainContainer>
-          <S.LeftAside>
+          <S.LeftAside isClick={isClick}>
             <div className="dayAndName">
               <p>2004/12/23</p>
               <p>2205 김재현</p>
@@ -56,8 +69,8 @@ const MyTaxiPot = () => {
               <p>약속 장소 : 기숙사 정문</p>
               <p>상세 설명 : 우리 모두 벌점을 받자</p>
             </S.LeftAsideSection>
-            <S.MemberListWrapper>
-              <button>멤버 보기</button>
+            <S.MemberListWrapper isClick={isClick}>
+              <button onClick={toggle}>멤버 보기</button>
               <ul>{memberListMap}</ul>
             </S.MemberListWrapper>
           </S.LeftAside>
@@ -65,6 +78,13 @@ const MyTaxiPot = () => {
             <div className="kakaoMap"></div>
           </S.RigthAside>
         </S.TaxiPotMainContainer>
+        <S.OptionWrapper>
+          <p>내가 만든 팟입니다! 팟을 삭제하거나 가입한 멤버를 볼 수 있습니다.</p>
+          <button>팟 삭제</button>
+          <Link to="/taxi-pot">
+            <button>목록으로</button>
+          </Link>
+        </S.OptionWrapper>
       </S.TaxiPotArticle>
     </S.TaxiPotWrapper>
   );
