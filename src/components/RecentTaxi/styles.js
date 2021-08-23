@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 320px;
-  margin-bottom: 150px;
+  margin-bottom: 250px;
 `;
 
 export const GraphsContainer = styled.div`
