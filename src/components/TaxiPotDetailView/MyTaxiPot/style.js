@@ -112,12 +112,6 @@ export const RigthAside = styled.aside`
   display: flex;
   justify-content: center;
   align-items: center;
-  & > .kakaoMap {
-    width: 650px;
-    height: 590px;
-    border-radius: 31px;
-    background-color: #d4d4d4;
-  }
 `;
 
 export const MemberListWrapper = styled.div`
