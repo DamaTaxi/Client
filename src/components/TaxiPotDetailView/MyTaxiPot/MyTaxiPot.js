@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
+import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
 import * as S from './style';
 
 const memberList = [
@@ -75,7 +76,7 @@ const MyTaxiPot = () => {
             </S.MemberListWrapper>
           </S.LeftAside>
           <S.RigthAside>
-            <div className="kakaoMap"></div>
+            <CreateKakaoMap lat={33.450701} lng={126.570667} width={`650px`} height={`595px`}></CreateKakaoMap>
           </S.RigthAside>
         </S.TaxiPotMainContainer>
         <S.OptionWrapper>
