@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 
 const TaxiPotList = () => {
   return (
-    <S.taxiPotListWrapper>
+    <S.TaxiPotListWrapper>
       <>
-        <S.listHeader>
+        <S.ListHeader>
           <h1>택시 팟 리스트</h1>
           <Link to="#">
             <p>+</p>
             <p>택시 팟 만들기</p>
           </Link>
-        </S.listHeader>
+        </S.ListHeader>
       </>
       <>
-        <S.listContainer>
+        <S.ListContainer>
           <Link>
-            <S.taxiPotList>
+            <S.TaxiPotList>
               <div>
                 <div className="list-title-wrapper">
                   <h1>둔산동 꿀잼동전노래연습장</h1>
@@ -26,14 +26,14 @@ const TaxiPotList = () => {
                 <div className="list-section-wrapper"></div>
               </div>
               <div className="kakaoMap"></div>
-            </S.taxiPotList>
+            </S.TaxiPotList>
           </Link>
           <Link>
-            <S.taxiPotList></S.taxiPotList>
+            <S.TaxiPotList></S.TaxiPotList>
           </Link>
-        </S.listContainer>
+        </S.ListContainer>
       </>
-    </S.taxiPotListWrapper>
+    </S.TaxiPotListWrapper>
   );
 };
 
