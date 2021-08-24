@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const taxiPotListWrapper = styled.div`
+export const TaxiPotListWrapper = styled.div`
   width: 100%;
   height: auto;
   display: flex;
@@ -8,7 +8,7 @@ export const taxiPotListWrapper = styled.div`
   align-items: center;
 `;
 
-export const listHeader = styled.div`
+export const ListHeader = styled.div`
   margin-top: 35px;
   width: 1470px;
   height: 65px;
@@ -45,7 +45,7 @@ export const listHeader = styled.div`
   }
 `;
 
-export const listContainer = styled.div`
+export const ListContainer = styled.div`
   width: 1487px;
   height: auto;
   margin-top: 20px;
@@ -57,12 +57,11 @@ export const listContainer = styled.div`
   }
 `;
 
-export const taxiPotList = styled.div`
+export const TaxiPotList = styled.div`
   width: 1457px;
   height: 172px;
   border: solid #ffc044 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  .list-title-wrapper{
-    
+  .list-title-wrapper {
   }
 `;
