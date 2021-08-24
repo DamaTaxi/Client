@@ -4,6 +4,7 @@ import modifyImg from '../../../assets/images/modify.svg';
 
 export const TaxiPotWrapper = styled.div`
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,12 +156,13 @@ export const MemberListWrapper = styled.div`
 
 export const OptionWrapper = styled.div`
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: #f5efe7;
   border-radius: 26px;
-  margin-top: 15px;
+  margin-top: 21px;
   display: flex;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   p {
     font-family: 'DoHyeon';
     font-size: 28px;
@@ -169,16 +171,16 @@ export const OptionWrapper = styled.div`
   }
   button {
     font-family: 'NotoSansCJK';
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500;
-    width: 198px;
+    width: 188px;
     height: 60px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
   }
   button:nth-child(2) {
-    margin-left: 385px;
+    margin-left: 411px;
     background-color: #ffffff;
   }
   a > button {
