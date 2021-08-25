@@ -48,8 +48,6 @@ const MyTaxiPot = () => {
     <S.TaxiPotWrapper>
       <S.TaxiPotLogo />
       <S.TaxiPotArticle>
-
-
         <S.TaxiPotMainContainer>
           <S.LeftAside isClick={isClick}>
             <div className="dayAndName">
@@ -89,7 +87,7 @@ const MyTaxiPot = () => {
           </Link>
         </S.OptionWrapper>
       </S.TaxiPotArticle>
-      <S.BackgroundColor/>
+      <S.BackgroundColor />
     </S.TaxiPotWrapper>
   );
 };
