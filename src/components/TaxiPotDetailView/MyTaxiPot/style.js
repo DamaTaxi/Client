@@ -11,6 +11,15 @@ export const TaxiPotWrapper = styled.div`
   overflow: hidden;
 `;
 
+export const BackgroundColor = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 710px;
+  background-color: #f2f2f2;
+  z-index: -100;
+`;
+
+
 export const TaxiPotLogo = styled.div`
   background-image: url(${taxiPotSmallLogo});
   width: 266px;
