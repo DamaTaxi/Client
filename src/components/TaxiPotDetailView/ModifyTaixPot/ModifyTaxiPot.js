@@ -23,6 +23,7 @@ const ModifyTaxiPot = () => {
             </S.SearchContainer>
             <S.PromisePlaceContainer>
               <h1>약속 장소</h1>
+              <input type="text" placeholder="약속 장소를 입력해 주세요" />
             </S.PromisePlaceContainer>
           </S.FirstFloorContainer>
         </S.TaxiPotForm>

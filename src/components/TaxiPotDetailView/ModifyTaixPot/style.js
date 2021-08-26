@@ -61,7 +61,9 @@ export const TaxiPotForm = styled.form`
 export const FirstFloorContainer = styled.div`
   width: 100%;
   height: 110px;
-  margin: 43px 0 0 60px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
 `;
 
 export const SearchContainer = styled.div`
@@ -70,7 +72,7 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   .searchWrapper {
-    width: 700px;
+    width: 600px;
     display: flex;
     align-items: center;
     position: relative;
@@ -113,5 +115,29 @@ export const PromisePlaceContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 600px;
   height: 100%;
+  input {
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    font-family: 'NotoSansCJK';
+    font-size: 22px;
+    font-weight: 500;
+    padding-left: 20px;
+    border: solid #8d8d8d 2px;
+  }
+  input::placeholder {
+    font-family: 'NotoSansCJK';
+    font-size: 22px;
+    font-weight: 500;
+  }
+  input:focus {
+    outline: none;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'NotoSansCJK';
+  }
 `;
