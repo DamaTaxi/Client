@@ -49,7 +49,18 @@ const ModifyTaxiPot = () => {
               <input type="time" />
             </div>
           </S.SecondFloorContainer>
+          <S.ThirdFloorContainer>
+            <h1>상세설명</h1>
+            <textarea></textarea>
+          </S.ThirdFloorContainer>
         </S.TaxiPotForm>
+        <S.OptionWrapper>
+          <p>변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!</p>
+          <button>수정 완료</button>
+          <Link to="/taxi-pot">
+            <button>취소</button>
+          </Link>
+        </S.OptionWrapper>
       </S.TaxiPotArticle>
       <S.BackgroundColor />
     </S.TaxiPotWrapper>

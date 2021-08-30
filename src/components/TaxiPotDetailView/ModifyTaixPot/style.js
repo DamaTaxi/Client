@@ -228,3 +228,61 @@ export const SecondFloorContainer = styled.div`
     }
   }
 `;
+
+export const ThirdFloorContainer = styled.div`
+  margin: 65px 0 0 90px;
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'NotoSansCJK';
+    margin-bottom: 17px;
+  }
+  textarea {
+    width: 1380px;
+    height: 163px;
+    border: #8d8d8d 1px solid;
+    border-radius: 12px;
+    font-family: 'NotoSansCJK';
+    font-size: 19px;
+    font-weight: 500;
+    padding: 7px 0 0 20px;
+  }
+  textarea:focus {
+    outline: none;
+  }
+`;
+
+export const OptionWrapper = styled.div`
+  width: 100%;
+  height: 80px;
+  background-color: #f5efe7;
+  border-radius: 26px;
+  margin-top: 21px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  p {
+    font-family: 'DoHyeon';
+    font-size: 28px;
+    color: #9a9a9a;
+    margin-left: 57px;
+  }
+  button {
+    font-family: 'NotoSansCJK';
+    font-size: 23px;
+    font-weight: 500;
+    width: 188px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:nth-child(2) {
+    margin-left: 411px;
+    background-color: #ffffff;
+  }
+  a > button {
+    background-color: #ffc044;
+    margin-left: 23px;
+  }
+`;
