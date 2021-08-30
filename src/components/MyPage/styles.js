@@ -7,88 +7,88 @@ export const Wrapper = styled.div`
   margin-bottom: 350px;
 `;
 
-export const Title = styled.span`
-  margin-bottom: 120px;
+export const UserName = styled.p`
+  margin-bottom: 125px;
   font-size: 60px;
   font-family: 'NotoSansKR';
   font-weight: bold;
 `;
 
-export const Content = styled.div`
+export const NumberContainer = styled.div`
+  width: 70%;
+  height: 70px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  & div {
-    width: 1400px;
-    display: flex;
-  }
-
-  & div div:first-child {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px 0 0 20px;
-    background-color: #ffc044;
-    color: white;
-    font-size: 36px;
-    font-family: 'NotoSansKR';
-    font-weight: bold;
-  }
+  justify-content: center;
+  margin-bottom: 25px;
 `;
 
-export const UserInfo = styled.div`
+export const EmailContainer = styled(NumberContainer)``;
+
+export const PlaceContainer = styled(NumberContainer)``;
+
+export const TaxiPotContainer = styled(NumberContainer)`
+  height: 350px;
+`;
+
+export const Title = styled.p`
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc044;
+  color: white;
+  font-size: 36px;
+  font-family: 'NotoSansKR';
+  font-weight: bold;
+  border-radius: 20px 0 0 20px;
+`;
+
+export const Content = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 30px;
-  padding-left: 80px;
-  font-size: 36px;
-  font-family: 'DoHyeon';
-  font-weight: 400;
+  padding: 0 50px;
   border: 3px solid #ffc044;
+
+  & div {
+    display: flex;
+    align-items: center;
+    font-family: 'DoHyeon';
+    font-size: 36px;
+    font-weight: 400;
+  }
 `;
 
-export const NumberBox = styled.div`
-  height: 70px;
-`;
-
-export const EmailBox = styled.div`
-  height: 70px;
-`;
-
-export const PlaceBox = styled.div`
-  height: 120px;
-`;
-
-export const PotBox = styled.div`
-  height: 340px;
-`;
-
-export const ModifyBox = styled.span`
+export const ModifyBox = styled.div`
+  display: flex;
+  align-items: center;
   cursor: pointer;
+
   & span {
+    position: relative;
+    top: 10px;
     font-size: 16px;
   }
 `;
 
-export const PotInfo = styled.div`
+export const LeftBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px solid #ffc044;
-  padding-left: 80px;
-  font-family: 'DoHyeon';
-  font-weight: 400;
-
-  & span {
-    font-size: 36px;
-    margin-bottom: 100px;
-  }
+  align-items: flex-start;
 
   & p {
-    font-size: 30px;
+    margin-bottom: 120px;
   }
+
+  & span {
+    font-size: 30px;
+    width: 100%;
+  }
+`;
+
+export const KakaoMap = styled.img`
+  width: 50%;
+  height: 60%;
 `;
