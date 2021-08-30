@@ -11,7 +11,7 @@ export const TaxiPotSlideBox = styled.div`
   position: relative;
   width: 100%;
   height: 475px;
-  background-color: #f1f1f1;
+  background-color: rgba(204, 158, 29, 19%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,46 +27,42 @@ export const TaxiPotSlideBox = styled.div`
   }
   .swiper-slide {
     position: relative;
-    background-image: url(${slideYellowBox});
     margin-top: 35px;
     width: 299px;
     height: 378px;
     border-radius: 15px;
-    .kakaoMap {
-      background-image: url(${slideGrayBox});
-      width: 100%;
-      height: 270px;
-      background-size: cover;
-      object-fit: cover;
-      text-align: center;
-      padding-top: 50px;
-    }
     .swiper-pagination-current {
       color: red;
     }
     .slideSection {
-      left: 3%;
-      bottom: 3%;
-      padding-left: 8px;
-      position: absolute;
-      background-image: url(${SlideSection});
-      background-size: cover;
-      width: 278px;
-      height: 153px;
-      h1 {
-        font-size: 0.9375rem;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-family: 'NotoSansKR';
-        font-weight: bold;
-        margin-top: 12px;
-        padding-top: 2px;
+      width: 300px;
+      height: 353px;
+      background-color: #ffffff;
+      box-shadow: 0 15px 10px rgba(0, 0, 0, 19%);
+      border-top-right-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      padding-left: 21px;
+      #titleBox {
+        width: 270px;
+        height: 50px;
+        margin: 19px 0 55px 0;
+        h1 {
+          font-size: 24px;
+          font-family: 'NotoSansKR';
+          font-weight: bold;
+          margin-top: 20px;
+          flex-wrap: wrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
       }
       p {
-        padding-top: 6px;
         font-family: 'NotoSansKR';
         font-weight: 540;
-        font-size: 0.875rem;
+        font-size: 22px;
+        padding-top: 12px;
       }
     }
     #currentId {
@@ -166,6 +162,7 @@ export const GraphContainer = styled.div`
   height: 26px;
   display: flex;
   align-items: center;
+  margin-top: 5px;
   .yellowBorderBox {
     position: relative;
     width: 118px;
@@ -186,6 +183,7 @@ export const GraphContainer = styled.div`
       position: absolute;
       left: 45px;
       top: -6px;
+      padding-top: 6px !important;
     }
   }
 `;

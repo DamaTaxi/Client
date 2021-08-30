@@ -11,7 +11,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const swiperSliderList = [
   {
-    title: '둔산동 꿀잼동전노래연습장',
+    title: '대덕소프트웨어마이스터고등학교 니엄마 13시 레게노 ㅁㄴ안마ㅁㄴㅇㅁㄴㅁㄴㄴㅇㅁㄴㅁㄴㅁ',
     target: '2학년',
     reserve: 3,
     all: 4,
@@ -66,23 +66,22 @@ const TaxiPotSlider = () => {
     return result;
   };
 
-/*   useEffect(()=> {
+  /*   useEffect(()=> {
     api.getlist();
   }, [page]) */
 
   //슬라이더 리스트 map 함수
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
-        const { title, target, reserve, all, price, latitude, longitude } = swiperSliderList;
+        const { title, target, reserve, all, price } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
             <Link to="/">
-              <>
-                <div className="kakaoMap">카카오 맵</div>
-              </>
-              <>
-                <div className="slideSection">
+              <div className="slideSection">
+                <div id="titleBox">
                   <h1>{title}</h1>
+                </div>
+                <div>
                   <p>대상자 : {target}</p>
                   <p>km: 9.8km</p>
                   <p>예상가격: {numberWithCommas(price)}원</p>
@@ -90,14 +89,14 @@ const TaxiPotSlider = () => {
                     <p>현재 인원수 : </p>
                     <div className="yellowBorderBox">
                       <div className="filledBox">
-                        <p>
+                        <p id="filledSection">
                           {reserve}/{all}
                         </p>
                       </div>
                     </div>
                   </S.GraphContainer>
                 </div>
-              </>
+              </div>
             </Link>
           </SwiperSlide>
         );
