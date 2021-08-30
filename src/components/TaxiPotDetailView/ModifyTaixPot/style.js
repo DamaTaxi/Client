@@ -143,7 +143,7 @@ export const PromisePlaceContainer = styled.div`
 `;
 
 export const SecondFloorContainer = styled.div`
-  width: 80%;
+  width: 85%;
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
@@ -153,6 +153,12 @@ export const SecondFloorContainer = styled.div`
       font-weight: bold;
       font-family: 'NotoSansCJK';
       margin-bottom: 17px;
+    }
+    input {
+      width: 150px;
+      height: 40px;
+      border-radius: 8px;
+      border: #8d8d8d 2px solid;
     }
   }
   .targetPerson {
