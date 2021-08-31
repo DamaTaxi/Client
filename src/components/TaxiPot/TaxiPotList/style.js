@@ -55,6 +55,9 @@ export const ListContainer = styled.div`
   a:nth-child(n + 2) {
     margin-top: 50px;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const TaxiPotList = styled.div`
@@ -64,4 +67,16 @@ export const TaxiPotList = styled.div`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   .list-title-wrapper {
   }
+`;
+
+export const FirstFloorWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const SecondFloorWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;

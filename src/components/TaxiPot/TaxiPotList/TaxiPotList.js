@@ -23,7 +23,19 @@ const TaxiPotList = () => {
                   <h1>둔산동 꿀잼동전노래연습장</h1>
                   <p>2004.12.03 작성</p>
                 </div>
-                <div className="list-section-wrapper"></div>
+                <div className="list-section-wrapper">
+                  <S.FirstFloorWrapper>
+                    <p>모집자: 김재현</p>
+                    <p>예상가격: 10,000원</p>
+                    <p>현재 인원수 : </p>
+                    <p>약속장소 : 기숙사 정문</p>
+                  </S.FirstFloorWrapper>
+                  <S.SecondFloorWrapper>
+                    <p>대상자 : 2학년</p>
+                    <p>거리 : 9.8km</p>
+                    <p>날짜와 시간: 2021-03-01-16:00</p>
+                  </S.SecondFloorWrapper>
+                </div>
               </div>
               <div className="kakaoMap"></div>
             </S.TaxiPotList>
