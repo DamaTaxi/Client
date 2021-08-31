@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const GraphContainer = styled.div`
-  width: 100%;
   height: 26px;
   display: flex;
   align-items: center;
@@ -10,6 +9,7 @@ export const GraphContainer = styled.div`
   }
   .yellowBorderBox {
     position: relative;
+    margin-bottom: 4px;
     width: ${(props) => `${props.width}px`};
     height: ${(props) => `${props.height}px`};
     border: #ffc044 1px solid;
@@ -18,7 +18,7 @@ export const GraphContainer = styled.div`
       text-align: center;
       left: ${(props) => `${props.left}%`};
       z-index: 10;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
   .filledBox {
