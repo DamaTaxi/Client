@@ -66,6 +66,7 @@ export const TaxiPotList = styled.div`
   border: solid #ffc044 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   .list-title-wrapper {
+    display: flex;
   }
 `;
 
@@ -78,5 +79,16 @@ export const FirstFloorWrapper = styled.div`
 export const SecondFloorWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  position: relative;
+  p:first-child {
+    margin-left: 78px;
+  }
+  p:nth-child(2) {
+    margin-left: 160px;
+  }
+  p:nth-child(3) {
+    position: absolute;
+    right: 25px;
+  }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
+import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 
 const TaxiPotList = () => {
   return (
@@ -27,7 +28,7 @@ const TaxiPotList = () => {
                   <S.FirstFloorWrapper>
                     <p>모집자: 김재현</p>
                     <p>예상가격: 10,000원</p>
-                    <p>현재 인원수 : </p>
+                    <GraphContainer reserve={2} all={4} width={250} left={45} height={15} />
                     <p>약속장소 : 기숙사 정문</p>
                   </S.FirstFloorWrapper>
                   <S.SecondFloorWrapper>
