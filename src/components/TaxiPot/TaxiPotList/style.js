@@ -21,9 +21,9 @@ export const ListHeader = styled.div`
     font-weight: bold;
   }
   a {
+    //택시팟 만들기 버튼(Link)
     display: flex;
     align-items: center;
-    //택시팟 만들기 버튼(Link)
     background-color: #ffc044;
     width: 177px;
     height: 50px;
