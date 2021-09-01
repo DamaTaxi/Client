@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import nextButton from '../../../assets/images/TaxiPot/next-button.png';
 import prevButton from '../../../assets/images/TaxiPot/prev-button.png';
-import slideYellowBox from '../../../assets/images/TaxiPot/slide-yellow-box.png';
-import slideGrayBox from '../../../assets/images/TaxiPot/slide-gray-box.png';
-import SlideSection from '../../../assets/images/TaxiPot/slider-section.png';
 import taxiOnBar from '../../../assets/images/taxi_on_bar.svg';
 import locationOnBar from '../../../assets/images/TaxiPot/location_on_bar.png';
 
