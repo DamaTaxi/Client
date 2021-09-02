@@ -3,14 +3,20 @@ import * as S from './style';
 import { Link } from 'react-router-dom';
 
 const ModifyTaxiPot = () => {
+  const test = (e) => {
+    e.preventDefault();
+    console.log(e);
+  };
   return (
     <S.TaxiPotWrapper>
-      <S.TaxiPotLogo />
+      <Link to="/" id="taxiPotLogoA">
+        <S.TaxiPotLogo />
+      </Link>
       <S.TaxiPotArticle>
         <div className="modifyButton">
           <p>택시 팟 수정하기</p>
         </div>
-        <S.TaxiPotForm>
+        <S.TaxiPotForm id="taxiPotForm" onSubmit={test}>
           <S.FirstFloorContainer>
             <S.SearchContainer>
               <h1>도착지(제목)</h1>
@@ -56,7 +62,7 @@ const ModifyTaxiPot = () => {
         </S.TaxiPotForm>
         <S.OptionWrapper>
           <p>변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!</p>
-          <button>수정 완료</button>
+          <input type="submit" form="taxiPotForm" value="수정 완료" />
           <Link to="/taxi-pot">
             <button>취소</button>
           </Link>
