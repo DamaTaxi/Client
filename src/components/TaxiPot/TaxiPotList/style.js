@@ -57,6 +57,7 @@ export const ListContainer = styled.div`
   }
   a {
     text-decoration: none;
+    color: #000000;
   }
 `;
 
@@ -65,8 +66,23 @@ export const TaxiPotList = styled.div`
   height: 172px;
   border: solid #ffc044 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
   .list-title-wrapper {
     display: flex;
+    margin: 20px 0 22px 79px;
+    align-items: center;
+    h1 {
+      font-family: 'NotoSansCJK';
+      font-size: 25px;
+      font-weight: bold;
+      margin-right: 36px;
+    }
+    p {
+      font-family: 'NotoSansCJK';
+      font-size: 16px;
+      font-weight: bold;
+      color: #9a9a9a;
+    }
   }
 `;
 
@@ -74,6 +90,12 @@ export const FirstFloorWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 13.5px;
+  p {
+    font-family: 'NotoSansCJK';
+    font-size: 20px;
+    font-weight: bold;
+  }
 `;
 
 export const SecondFloorWrapper = styled.div`
@@ -81,8 +103,13 @@ export const SecondFloorWrapper = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+  p {
+    font-family: 'NotoSansCJK';
+    font-size: 20px;
+    font-weight: bold;
+  }
   p:first-child {
-    margin-left: 78px;
+    margin-left: 79px;
   }
   p:nth-child(2) {
     margin-left: 160px;
