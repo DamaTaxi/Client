@@ -8,6 +8,9 @@ export const TaxiPotWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  #taxiPotLogoA{
+    width: 100%;
+  }
 `;
 
 export const TaxiPotLogo = styled.div`
@@ -83,7 +86,7 @@ export const SearchContainer = styled.div`
     font-family: 'NotoSansCJK';
     margin-left: 8px;
   }
-  a {
+  a {   
     margin-right: 12px;
     position: absolute;
     right: 0;
@@ -167,6 +170,10 @@ export const SecondFloorContainer = styled.div`
       font-weight: bold;
       font-family: 'NotoSansCJK';
       margin-bottom: 25px;
+    }
+    input,
+    label {
+      cursor: pointer;
     }
     input:nth-child(n + 3) {
       margin-left: 36px;
@@ -267,6 +274,7 @@ export const OptionWrapper = styled.div`
     color: #9a9a9a;
     margin-left: 57px;
   }
+  input[type='submit'],
   button {
     font-family: 'NotoSansCJK';
     font-size: 23px;
@@ -277,7 +285,7 @@ export const OptionWrapper = styled.div`
     border: none;
     cursor: pointer;
   }
-  button:nth-child(2) {
+  input[type='submit'] {
     margin-left: 411px;
     background-color: #ffffff;
   }
