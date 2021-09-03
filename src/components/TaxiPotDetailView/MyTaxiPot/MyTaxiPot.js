@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
+import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import * as S from './style';
 
 const memberList = [
@@ -79,13 +80,12 @@ const MyTaxiPot = () => {
             <CreateKakaoMap lat={33.450701} lng={126.570667} width={`650px`} height={`595px`}></CreateKakaoMap>
           </S.RigthAside>
         </S.TaxiPotMainContainer>
-        <S.OptionWrapper>
-          <p>내가 만든 팟입니다! 팟을 삭제하거나 가입한 멤버를 볼 수 있습니다.</p>
-          <button>팟 삭제</button>
-          <Link to="/taxi-pot">
-            <button>목록으로</button>
-          </Link>
-        </S.OptionWrapper>
+        <OptionWrapper
+          contents="내가 만든 팟입니다! 팟을 삭제하거나 가입한 멤버를 볼 수 있습니다."
+          buttonName="팟 삭제"
+          cansleName="목록으로"
+          link="/taxi-pot"
+        />
       </S.TaxiPotArticle>
       <S.BackgroundColor />
     </S.TaxiPotWrapper>
