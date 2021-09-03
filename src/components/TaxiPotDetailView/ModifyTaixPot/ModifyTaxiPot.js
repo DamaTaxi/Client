@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
+import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 
 const ModifyTaxiPot = () => {
   const test = (e) => {
@@ -60,13 +61,12 @@ const ModifyTaxiPot = () => {
             <textarea></textarea>
           </S.ThirdFloorContainer>
         </S.TaxiPotForm>
-        <S.OptionWrapper>
-          <p>변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!</p>
-          <input type="submit" form="taxiPotForm" value="수정 완료" />
-          <Link to="/taxi-pot">
-            <button>취소</button>
-          </Link>
-        </S.OptionWrapper>
+        <OptionWrapper
+          contents="변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!"
+          buttonName="수정 완료"
+          cansleName="취소"
+          link="#"
+        />
       </S.TaxiPotArticle>
       <S.BackgroundColor />
     </S.TaxiPotWrapper>
