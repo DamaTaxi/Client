@@ -126,7 +126,7 @@ const TaxiPotSlider = () => {
           }}
           navigation={true}
           className="mySwiper"
-          autoplay={{ delay: 3500 }}
+          autoplay={{ delay: 7000 }}
         >
           {SwiperSlideList}
         </Swiper>
