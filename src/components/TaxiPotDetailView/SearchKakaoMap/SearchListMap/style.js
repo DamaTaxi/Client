@@ -33,7 +33,7 @@ export const KakaoMapWrapper = styled.div`
     align-items: center;
     align-self: flex-end;
   }
-  #map   {
+  #map {
     width: 100%;
     height: 630px;
     border-radius: 17px;
@@ -68,9 +68,11 @@ export const SearchList = styled.div`
 export const SearchListItem = styled.div`
   width: 100%;
   height: 112px;
-  border-bottom: #d4d4d4 solid 2px;
+  border-bottom: #d4d4d4 solid 2px; /* #d4d4d4 solid 2px; */
+  transition: 0.6s;
   display: flex;
   align-items: center;
+  cursor: pointer;
   #location-image {
     background-image: url(${location_on_bar});
     background-size: cover;
