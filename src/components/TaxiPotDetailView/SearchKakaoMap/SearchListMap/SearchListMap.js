@@ -4,27 +4,10 @@ import SearchForm from '../SearchForm/SearchForm';
 
 const { kakao } = window;
 
-const SearchListMap = () => {
-  const [onChagneSearchContent, setOnChagneSearchContent] = useState('');
-  const [onSubmitSearchContent, setOnSubmitSearchContent] = useState('');
-  const [clickList, setClickList] = useState([]);
-  const [isSearch, setIsSearch] = useState(false);
+const SearchListMap = (props) => {
+  const { onChagneSearchContent, onSubmitSearchContent, currentItemIndex, onSubmitEvent, onChangeSearch, onClickList } =
+    props;
   const [places, setPlaces] = useState([]);
-
-  const onSubmitEvent = (e) => {
-    e.preventDefault();
-    setOnSubmitSearchContent(onChagneSearchContent);
-    setOnChagneSearchContent('');
-    setIsSearch(true);
-  };
-  const onChangeSearch = (e) => {
-    const { value } = e.target;
-    setOnChagneSearchContent(value);
-    setIsSearch(false);
-  };
-  const onClickList = (data) => {
-    setClickList(data);
-  };
 
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
@@ -76,9 +59,19 @@ const SearchListMap = () => {
           value={onChagneSearchContent}
         ></SearchForm>
         <S.SearchList>
-          {places.map((item, i) => {
+          {places.map((item, index) => {
             return (
-              <S.SearchListItem key={i}>
+              <S.SearchListItem
+                key={index}
+                onClick={() => {
+                  onClickList(item, index);
+                }}
+                style={
+                  currentItemIndex === index
+                    ? { background: 'rgba(255, 192, 68, 0.28)', borderBottom: '#FFC044 solid 3px' }
+                    : {}
+                }
+              >
                 <div id="location-image"></div>
                 <div>
                   <h1>{item.place_name}</h1>
