@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './style';
+import * as S from './styles';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
@@ -47,7 +47,7 @@ const swiperSliderList = [
   },
 ];
 
-const TaxiPotSlider = () => {
+const TaxiPotSlide = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
 
@@ -141,8 +141,8 @@ const TaxiPotSlider = () => {
   );
 };
 
-TaxiPotSlider.defaultProps = {
+TaxiPotSlide.defaultProps = {
   swiperSliderList: [],
 };
 
-export default TaxiPotSlider;
+export default TaxiPotSlide;
