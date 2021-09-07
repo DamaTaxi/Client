@@ -6,6 +6,7 @@ import Clock from 'react-live-clock';
 import RecentTaxi from '../RecentTaxi/RecentTaxi';
 import MyPage from '../MyPage/MyPage';
 import Additional from '../Additional/Additional';
+import Footer from '../Footer/Footer';
 
 const UserMain = () => {
   const [isUserLogin, setIsUserLogin] = useState(true);
@@ -52,6 +53,7 @@ const UserMain = () => {
       <RecentTaxi />
       <MyPage />
       <Additional />
+      <Footer />
     </S.Wrapper>
   );
 };
