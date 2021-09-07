@@ -7,6 +7,7 @@ import RecentTaxi from '../RecentTaxi/RecentTaxi';
 import MyPage from '../MyPage/MyPage';
 import Additional from '../Additional/Additional';
 import Footer from '../Footer/Footer';
+import TaxiPotPreview from '../TaxiPotPreview/TaxiPotPreview';
 
 const UserMain = () => {
   const [isUserLogin, setIsUserLogin] = useState(true);
@@ -18,11 +19,39 @@ const UserMain = () => {
     });
   };
 
+  const toTaxiPot = () => {
+    window.scrollTo({
+      top: 1830,
+      behavior: 'smooth',
+    });
+  };
+
+  const toMyPage = () => {
+    window.scrollTo({
+      top: 2830,
+      behavior: 'smooth',
+    });
+  };
+
+  const toAdditional = () => {
+    if (isUserLogin) {
+      window.scrollTo({
+        top: 4000,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo({
+        top: 2800,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
-      <button>택시 팟</button>
-      {isUserLogin && <button>마이페이지</button>}
-      <button>부가 기능</button>
+      <button onClick={toTaxiPot}>택시 팟</button>
+      {isUserLogin && <button onClick={toMyPage}>마이페이지</button>}
+      <button onClick={toAdditional}>부가 기능</button>
       {isUserLogin ? <button>LOGOUT</button> : <button>LOGIN</button>}
     </S.HeaderRightWrapper>
   );
@@ -51,7 +80,8 @@ const UserMain = () => {
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
       <RecentTaxi />
-      <MyPage />
+      <TaxiPotPreview />
+      {isUserLogin && <MyPage />}
       <Additional />
       <Footer />
     </S.Wrapper>
