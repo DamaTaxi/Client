@@ -19,7 +19,7 @@ export const OptionWrapper = styled.div`
   #buttonWrapper {
     margin-right: 57px;
   }
-  #buttonWrapper > input[type='submit'],
+  #buttonWrapper > a > input[type='submit'],
   button {
     font-family: 'NotoSansCJK';
     font-size: 23px;
