@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="333.192" height="94.001" viewBox="0 0 333.192 94.001">
+  <defs>
+    <filter id="합치기_11" x="0" y="0" width="333.192" height="94.001" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#합치기_11)">
+    <path id="합치기_11-2" data-name="합치기 11" d="M179.538-89a2,2,0,0,1-2-2v-55.577H165.6V-89H138.946a2,2,0,0,1-2-2v-72a2,2,0,0,1,2-2h65.246a2,2,0,0,1,2,2v74ZM64.922-89a2,2,0,0,1-2-2v-72a2,2,0,0,1,2-2h64.859v18.425h-38.2V-89Zm-38.2,0a2,2,0,0,1-2-2v-55.577H12.778V-165H51.372a2,2,0,0,1,2,2v74Zm-40.593,0a2,2,0,0,1-2-2v-72a2,2,0,0,1,2-2H12.778v76Zm-66.471,0H-107a2,2,0,0,1-2-2v-72a2,2,0,0,1,2-2h69.635a14.191,14.191,0,0,1,14.129,11.516h.2v50.667A14.08,14.08,0,0,1-37.365-89Zm28.654-18.425v-39.152H-80.347v39.152Z" transform="translate(118 171)" fill="#ffc044"/>
+  </g>
+</svg>
