@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-/* import Home from './Home'; */
+import DeveloperPage from './components/DeveloperPage/DeveloperPage';
 
 const Routing = () => {
   return (
     <>
       <Switch>
-        {/* <Route path="/" exact component={Home} /> */}
+        <Route path="/developer-information" exact component={DeveloperPage} />
       </Switch>
     </>
   );
