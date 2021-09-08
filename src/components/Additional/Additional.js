@@ -4,10 +4,12 @@ import Developer from '../../assets/images/developer_information.svg';
 import Error from '../../assets/images/error_report.svg';
 import Suggestion from '../../assets/images/suggestion.svg';
 import ReportModal from '../../modal/ReportModal/ReportModal';
+import { useHistory } from 'react-router';
 
 const Additional = () => {
   const [isShowSuggestionModal, setIsShowSuggestionModal] = useState(false);
   const [isShowReportModal, setIsShowReportModal] = useState(false);
+  const history = useHistory();
 
   const contentTexts = [
     {
@@ -29,7 +31,11 @@ const Additional = () => {
     <S.Wrapper>
       <S.Title>부가 기능</S.Title>
       <S.Content>
-        <S.MenuButton>
+        <S.MenuButton
+          onClick={() => {
+            history.push('/developer-information');
+          }}
+        >
           <img src={Developer} alt="" />
           <h1>개발자 정보 보러가기</h1>
           <p>대마택시 version.1 개발자 정보</p>
