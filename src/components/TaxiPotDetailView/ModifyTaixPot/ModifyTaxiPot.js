@@ -3,6 +3,7 @@ import * as S from './style';
 import { Link } from 'react-router-dom';
 import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import RadioWrapper from './radioWrapper/RadioWrapper';
+import SearchContainer from './searchContainer/SearchContainer';
 
 const ModifyTaxiPot = (props) => {
   const data = props.location.state;
@@ -21,21 +22,7 @@ const ModifyTaxiPot = (props) => {
         </div>
         <S.TaxiPotForm id="taxiPotForm" onSubmit={test}>
           <S.FirstFloorContainer>
-            <S.SearchContainer>
-              <h1>도착지(제목)</h1>
-              <div className="searchWrapper">
-                <input
-                  className="searchBar"
-                  type="text"
-                  placeholder={'검색 버튼을 이용해 주세요.'}
-                  readOnly
-                  value={typeof data != 'undefined' ? data.data.place_name : '검색 버튼을 이용해 주세요.'}
-                />
-                <Link to="/search-kakao">
-                  <button>검색</button>
-                </Link>
-              </div>
-            </S.SearchContainer>
+            <SearchContainer data={data} />
             <S.PromisePlaceContainer>
               <h1>약속 장소</h1>
               <input type="text" placeholder="약속 장소를 입력해 주세요" />
@@ -59,7 +46,7 @@ const ModifyTaxiPot = (props) => {
             <textarea></textarea>
           </S.ThirdFloorContainer>
         </S.TaxiPotForm>
-        <OptionWrapper /* contents, buttonName, cansleName, cansleLink, successLink, data */
+        <OptionWrapper
           contents="변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!"
           buttonName="수정 완료"
           cansleName="취소"
