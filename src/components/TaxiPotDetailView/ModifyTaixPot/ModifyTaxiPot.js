@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
 import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
+import RadioWrapper from './radioWrapper/RadioWrapper';
 
 const ModifyTaxiPot = (props) => {
-  const { data } = props.location.state;
+  const data = props.location.state;
   const test = (e) => {
     e.preventDefault();
   };
-
+  console.log(data);
   return (
     <S.TaxiPotWrapper>
       <Link to="/" id="taxiPotLogoA">
@@ -28,7 +29,7 @@ const ModifyTaxiPot = (props) => {
                   type="text"
                   placeholder={'검색 버튼을 이용해 주세요.'}
                   readOnly
-                  value={typeof data.place_name !== undefined ? data.place_name : '검색 버튼을 이용해 주세요.'}
+                  value={typeof data != 'undefined' ? data.data.place_name : '검색 버튼을 이용해 주세요.'}
                 />
                 <Link to="/search-kakao">
                   <button>검색</button>
@@ -41,17 +42,7 @@ const ModifyTaxiPot = (props) => {
             </S.PromisePlaceContainer>
           </S.FirstFloorContainer>
           <S.SecondFloorContainer>
-            <div className="targetPerson">
-              <h1>대상자</h1>
-              <input id="radio-freshman" type="radio" name="target" value="FRESHMAN" />
-              <label htmlFor="radio-freshman">1학년</label>
-              <input id="radio-sophomore" type="radio" name="target" value="SOPHOMORE" />
-              <label htmlFor="radio-sophomore">2학년</label>
-              <input id="radio-senior" type="radio" name="target" value="SENIOR" />
-              <label htmlFor="radio-senior">3학년</label>
-              <input id="radio-all" type="radio" name="target" value="ALL" />
-              <label htmlFor="radio-all">전체</label>
-            </div>
+            <RadioWrapper />
             <div className="maxPersonNumber">
               <h1>최대 인원 수</h1>
               <input type="number" min="1" max="4" defaultValue="1" />
@@ -68,16 +59,21 @@ const ModifyTaxiPot = (props) => {
             <textarea></textarea>
           </S.ThirdFloorContainer>
         </S.TaxiPotForm>
-        <OptionWrapper
+        <OptionWrapper /* contents, buttonName, cansleName, cansleLink, successLink, data */
           contents="변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!"
           buttonName="수정 완료"
           cansleName="취소"
-          link="#"
+          successLink="/my-taxi-pot"
+          cansleLink="/my-taxi-pot"
         />
       </S.TaxiPotArticle>
       <S.BackgroundColor />
     </S.TaxiPotWrapper>
   );
+};
+
+ModifyTaxiPot.defaultProps = {
+  data: [],
 };
 
 export default ModifyTaxiPot;

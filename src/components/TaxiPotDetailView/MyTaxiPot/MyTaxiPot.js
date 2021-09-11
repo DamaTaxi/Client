@@ -57,7 +57,7 @@ const MyTaxiPot = () => {
             </div>
             <div className="titleAndModify">
               <h1>둔산동 꿀잼동전노래연습장</h1>
-              <Link>
+              <Link to="/modify-my-taxi-pot">
                 <div></div>
                 <p>수정</p>
               </Link>
