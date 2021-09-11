@@ -8,17 +8,14 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
-
   @font-face {
     font-family: 'BlackHanSans';
     src: url(${BlackHansSansFont});
   }
-
   @font-face {
     font-family: 'NotoSansKR';
     src: url(${NotoSansKRFont});
   }
-
   @font-face {
     font-family: 'DoHyeon';
     src: url(${DoHyeonFont});
