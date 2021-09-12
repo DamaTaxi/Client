@@ -12,7 +12,7 @@ const Routing = () => {
         <Route path="/taxi-pot" exact component={TaxiPot} />
         <Route path="/my-taxi-pot" exact component={MyTaxiPot} />
         <Route path="/modify-my-taxi-pot" exact component={ModifyTaxiPot} />
-        <Route path="/search-kakao" exact component={SearchKakaoMap} />
+        <Route path="/search-kakao:id" exact component={SearchKakaoMap} />
       </Switch>
     </>
   );
