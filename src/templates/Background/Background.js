@@ -3,17 +3,15 @@ import * as S from './styles';
 import HeaderLogo from '../../assets/images/header_logo.svg';
 import TaxiImage from '../../assets/images/taxi_image.png';
 
-const Background = () => {
+const Background = ({ HeaderRightTag, BottomLeftTag, AsideToggleTag }) => {
   return (
     <S.Wrapper>
       <S.Header>
         <span>DAMATAXI</span>
+        <div>{HeaderRightTag}</div>
       </S.Header>
       <S.Section>
-        <S.Title>
-          <img src={HeaderLogo} alt="" />
-          <span>ADMIN</span>
-        </S.Title>
+        <S.Title src={HeaderLogo} />
         <S.Subtitle>
           <div>
             <span>같이 택시 타실래요?</span>
@@ -22,8 +20,11 @@ const Background = () => {
           <span>version 0.1</span>
         </S.Subtitle>
       </S.Section>
-      <S.BackgroundBottom />
+      <S.BackgroundBottom>
+        <div>{BottomLeftTag}</div>
+      </S.BackgroundBottom>
       <S.TaxiImg src={TaxiImage} />
+      <div>{AsideToggleTag}</div>
     </S.Wrapper>
   );
 };
