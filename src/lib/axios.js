@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://3.36.161.36';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const request = (method, url, headers, body) => {
   return axios({
