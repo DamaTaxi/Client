@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import RadioWrapper from './radioWrapper/RadioWrapper';
 import SearchContainer from './searchContainer/SearchContainer';
 
-const ModifyTaxiPot = (props) => {
-  const data = props.location.state;
+const ModifyTaxiPot = () => {
+  const location = useLocation();
+  const data = location.state.data;
+  const onKeyPressEvent = (e) => {
+    if (e.key == 'Enter') e.preventDefault();
+  };
+
   const test = (e) => {
     e.preventDefault();
   };
-  console.log(data);
   return (
     <S.TaxiPotWrapper>
       <Link to="/" id="taxiPotLogoA">
@@ -20,22 +24,22 @@ const ModifyTaxiPot = (props) => {
         <div className="modifyButton">
           <p>택시 팟 수정하기</p>
         </div>
-        <S.TaxiPotForm id="taxiPotForm" onSubmit={test}>
+        <S.TaxiPotForm id="taxiPotForm" name="myForm" onSubmit={test}>
           <S.FirstFloorContainer>
-            <SearchContainer data={data} />
+            <SearchContainer data={data} id={1} />
             <S.PromisePlaceContainer>
               <h1>약속 장소</h1>
-              <input type="text" placeholder="약속 장소를 입력해 주세요" />
+              <input type="text" placeholder="약속 장소를 입력해 주세요" onKeyPress={onKeyPressEvent} />
             </S.PromisePlaceContainer>
           </S.FirstFloorContainer>
           <S.SecondFloorContainer>
-            <RadioWrapper />
-            <div className="maxPersonNumber">
+            <RadioWrapper onKeyPressEvent={onKeyPressEvent} />
+            <div className="maxPersonNumber" onKeyPress={onKeyPressEvent}>
               <h1>최대 인원 수</h1>
               <input type="number" min="1" max="4" defaultValue="1" />
               <span>명</span>
             </div>
-            <div className="dayAndTime">
+            <div className="dayAndTime" onKeyPress={onKeyPressEvent}>
               <h1>날짜와 시간</h1>
               <input type="date" />
               <input type="time" />
@@ -45,6 +49,7 @@ const ModifyTaxiPot = (props) => {
             <h1>상세설명</h1>
             <textarea></textarea>
           </S.ThirdFloorContainer>
+          <input type="submit" />
         </S.TaxiPotForm>
         <OptionWrapper
           contents="변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!"
