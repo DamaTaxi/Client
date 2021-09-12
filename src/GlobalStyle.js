@@ -20,12 +20,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'DoHyeon';
     src: url(${DoHyeonFont});
   }
-
   @font-face {
     font-family: 'NotoSansCJK';
     src: url(${NotoSansCJKFont})
   }
-
   html, body, #root {
     height: 100%;
   }
