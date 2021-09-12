@@ -1,9 +1,10 @@
 import React from 'react';
 import * as S from './style';
 
-const RadioWrapper = () => {
+const RadioWrapper = (props) => {
+  const { onKeyPressEvent } = props;
   return (
-    <S.RadioMainWrapper>
+    <S.RadioMainWrapper onKeyPress={onKeyPressEvent}>
       <h1>대상자</h1>
       <input
         id="radio-freshman"
