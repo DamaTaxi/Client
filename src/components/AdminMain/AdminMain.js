@@ -9,12 +9,13 @@ import LoginModal from '../../Modal/LoginModal/LoginModal';
 import ListModal from '../../Modal/ListModal/ListModal';
 
 const AdminMain = () => {
-  const [isShowLogin, setIsShowLogin] = useState(true);
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isCheckLogin, setIsCheckLogin] = useState(false);
+  const [isShowLoginModal, setIsShowLoginModal] = useState(false);
+  const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
 
   const showLoginModal = () => {
-    setIsShowModal(true);
+    setIsShowLoginModal(true);
   };
 
   const getListModal = (id) => {
@@ -22,11 +23,12 @@ const AdminMain = () => {
     /* setModalContent({
       ...res
     }) */
-    setIsShowModal(true);
+    setIsShowListModal(true);
   };
 
   const closeModal = () => {
-    setIsShowModal(false);
+    setIsShowLoginModal(false);
+    setIsShowListModal(false);
   };
 
   const toTopPage = () => {
@@ -53,7 +55,7 @@ const AdminMain = () => {
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
       <S.LinkButton to="/1">DATA 페이지로 이동</S.LinkButton>
-      {isShowLogin || <S.LoginButton onClick={showLoginModal}>LOGIN</S.LoginButton>}
+      {isCheckLogin || <S.LoginButton onClick={showLoginModal}>LOGIN</S.LoginButton>}
     </S.HeaderRightWrapper>
   );
 
@@ -111,14 +113,14 @@ const AdminMain = () => {
   return (
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
-      {isShowLogin && (
+      {isCheckLogin && (
         <>
           <List getListModal={getListModal} title={titles.error} list={list} pageNum={pageNum} />
           <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} />
         </>
       )}
-      <LoginModal isShowModal={isShowModal} closeModal={closeModal} />
-      <ListModal modalContent={modalContent} isShowModal={isShowModal} closeModal={closeModal} />
+      <LoginModal setIsCheckLogin={setIsCheckLogin} isShowModal={isShowLoginModal} closeModal={closeModal} />
+      <ListModal modalContent={modalContent} isShowModal={isShowListModal} closeModal={closeModal} />
     </S.Wrapper>
   );
 };
