@@ -13,7 +13,7 @@ const SearchContainer = (props) => {
           type="text"
           placeholder={'검색 버튼을 이용해 주세요.'}
           readOnly
-          value={typeof data != 'undefined' ? data.place_name : '검색 버튼을 이용해 주세요.'}
+          value={typeof data != 'undefined' ? data.data.place_name : '검색 버튼을 이용해 주세요.'}
         />
         <Link to={`/search-kakao:${id}`}>
           <button>검색</button>
