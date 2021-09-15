@@ -14,9 +14,14 @@ const ModifyTaxiPot = () => {
     if (e.key == 'Enter') e.preventDefault();
   };
 
+  const onChangeEvent = (e) => {
+
+  }
+
   const test = (e) => {
     e.preventDefault();
   };
+
   return (
     <S.TaxiPotWrapper>
       <Link to="/" id="taxiPotLogoA">
