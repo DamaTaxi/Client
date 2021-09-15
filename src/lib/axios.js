@@ -24,5 +24,11 @@ export const requestWithAccessToken = (method, url, headers, data) => {
     url: BASE_URL + url,
     headers: { ...headers, Authorization: ACCESS_TOKEN },
     data,
-  });
+  })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      throw err.response;
+    });
 };
