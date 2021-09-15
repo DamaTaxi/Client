@@ -7,7 +7,9 @@ import SearchContainer from './searchContainer/SearchContainer';
 
 const ModifyTaxiPot = () => {
   const location = useLocation();
-  const data = location.state.data;
+  const data = location.state;
+  console.log(data);
+
   const onKeyPressEvent = (e) => {
     if (e.key == 'Enter') e.preventDefault();
   };
@@ -49,7 +51,6 @@ const ModifyTaxiPot = () => {
             <h1>상세설명</h1>
             <textarea></textarea>
           </S.ThirdFloorContainer>
-          <input type="submit" />
         </S.TaxiPotForm>
         <OptionWrapper
           contents="변경사항이 있다면 수정완료 버튼을 눌러 팟을 수정해 주세요!"
