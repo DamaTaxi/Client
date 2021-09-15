@@ -13,7 +13,7 @@ export const request = (method, url, headers, data) => {
       return res.data;
     })
     .catch((err) => {
-      throw new Error(err);
+      throw err.response;
     });
 };
 
@@ -24,5 +24,11 @@ export const requestWithAccessToken = (method, url, headers, data) => {
     url: BASE_URL + url,
     headers: { ...headers, Authorization: ACCESS_TOKEN },
     data,
-  });
+  })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      throw err.response;
+    });
 };
