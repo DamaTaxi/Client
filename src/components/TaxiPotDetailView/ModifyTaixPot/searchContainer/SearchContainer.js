@@ -3,12 +3,14 @@ import * as S from './style';
 import { Link } from 'react-router-dom';
 
 const SearchContainer = (props) => {
-  const { data, id } = props;
+  const { data, id, onChangeEvent } = props;
   return (
     <S.SearchContainer>
       <h1>도착지(제목)</h1>
       <div className="searchWrapper">
         <input
+          onChange={onChangeEvent}
+          name="title"
           className="searchBar"
           type="text"
           placeholder={'검색 버튼을 이용해 주세요.'}
