@@ -7,9 +7,10 @@ import UpToggle from '../../assets/images/up_toggle.svg';
 import List from '../../templates/List/List';
 import LoginModal from '../../Modal/LoginModal/LoginModal';
 import ListModal from '../../Modal/ListModal/ListModal';
+import UseLocalStorage from '../../templates/UseLocalStorage/UseLocalStorage';
 
 const AdminMain = () => {
-  const [isCheckLogin, setIsCheckLogin] = useState(false);
+  const [isCheckLogin, setIsCheckLogin] = UseLocalStorage('isCheckLogin', false);
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
   const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
