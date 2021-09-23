@@ -17,14 +17,11 @@ const MakeTaxiPot = () => {
     title: '',
     address: '',
   });
-
   const [meetingAtData, setMeetingAtData] = useState({});
 
   const history = useHistory();
   const location = useLocation();
   const data = location.state;
-  const localMeetingData = JSON.parse(localStorage.getItem('meetingAtData'));
-  const localModifyData = JSON.parse(localStorage.getItem('myPageModifyData'));
 
   useEffect(() => {
     if (typeof location.state !== 'undefined') {
@@ -97,6 +94,8 @@ const MakeTaxiPot = () => {
       });
   };
 
+  console.log(myPageModifyData);
+
   return (
     <S.TaxiPotWrapper>
       <Link to="/" id="taxiPotLogoA">
@@ -110,8 +109,6 @@ const MakeTaxiPot = () => {
           <S.FirstFloorContainer>
             <SearchContainer
               data={data}
-              meetingAtData={meetingAtData}
-              myPageModifyData={myPageModifyData}
               onChangeEvent={onChangeEvent}
               path="/make-taxi-pot"
               id={1}
