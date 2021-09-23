@@ -15,7 +15,7 @@ const ModifyTaxiPot = () => {
       setMyPageModifyData((prevState) => ({
         ...prevState,
         adress: data.data.address_name,
-        data: data.data.place_name,
+        title: data.data.place_name,
         latitude: data.data.y,
         longitude: data.data.x,
       }));
