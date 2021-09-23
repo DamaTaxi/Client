@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import SearchListMap from './SearchListMap/SearchListMap';
 
 const SearchKakaoMap = () => {
+  const location = useLocation();
+  const path = location.state.path;
   const [onChagneSearchContent, setOnChagneSearchContent] = useState('');
   const [onSubmitSearchContent, setOnSubmitSearchContent] = useState('');
   const [clickPlaceData, setClickPlaceData] = useState([]);
@@ -46,8 +48,8 @@ const SearchKakaoMap = () => {
           contents="정확한 도착지를 찾아 선택해주세요!"
           buttonName="선택"
           cansleName="취소"
-          cansleLink="/modify-my-taxi-pot"
-          successLink="/modify-my-taxi-pot"
+          cansleLink={path}
+          successLink={path}
           clickPlaceData={clickPlaceData}
           data={clickPlaceData}
         />
