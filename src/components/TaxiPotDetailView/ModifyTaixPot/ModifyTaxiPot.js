@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import { Link, useLocation } from 'react-router-dom';
 import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
@@ -9,6 +9,26 @@ const ModifyTaxiPot = () => {
   const [myPageModifyData, setMyPageModifyData] = useState({});
   const location = useLocation();
   const data = location.state;
+
+  useEffect(() => {
+    if (typeof location.state !== 'undefined') {
+      setMyPageModifyData((prevState) => ({
+        ...prevState,
+        adress: data.data.address_name,
+        data: data.data.place_name,
+        latitude: data.data.y,
+        longitude: data.data.x,
+      }));
+    }
+  }, [data]);
+
+  useEffect(() => {
+    setMyPageModifyData((prevState) => ({
+      ...prevState,
+      amount: 1,
+    }));
+  }, []);
+
   console.log(data);
   console.log(myPageModifyData);
 
@@ -21,8 +41,6 @@ const ModifyTaxiPot = () => {
     setMyPageModifyData((prevState) => ({
       ...prevState,
       [name]: value,
-      adress: data.data.address_name,
-      data: data.data.place_name,
     }));
   };
 
@@ -42,7 +60,7 @@ const ModifyTaxiPot = () => {
         </div>
         <S.TaxiPotForm id="taxiPotForm" name="myForm" onSubmit={test}>
           <S.FirstFloorContainer>
-            <SearchContainer data={data} onChangeEvent={onChangeEvent} id={1} />
+            <SearchContainer data={data} onChangeEvent={onChangeEvent} path="/modify-my-taxi-pot" id={1} />
             <S.PromisePlaceContainer>
               <h1>약속 장소</h1>
               <input
