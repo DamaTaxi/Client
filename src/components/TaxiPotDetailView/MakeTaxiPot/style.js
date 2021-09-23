@@ -151,7 +151,7 @@ export const SecondFloorContainer = styled.div`
 `;
 
 export const ThirdFloorContainer = styled.div`
-  margin: 65px 0 0 90px;
+  margin: 65px 0 106px 90px;
   h1 {
     font-size: 24px;
     font-weight: bold;
