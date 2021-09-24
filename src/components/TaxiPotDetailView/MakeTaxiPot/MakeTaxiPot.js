@@ -5,6 +5,7 @@ import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import RadioWrapper from '../ModifyTaixPot/radioWrapper/RadioWrapper';
 import SearchContainer from '../ModifyTaixPot/searchContainer/SearchContainer';
 import { requestWithAccessToken } from '../../../lib/axios';
+import axios from 'axios';
 
 const MakeTaxiPot = () => {
   const [myPageModifyData, setMyPageModifyData] = useState({
@@ -78,13 +79,13 @@ const MakeTaxiPot = () => {
   };
 
   const handleSubmitEvent = (e) => {
-    const { amount, target, place, content, latitude, longitude, title, address } = myPageModifyData;
+    const { amount, target, place, content, latitude, longitude, title, address, meetingAt } = myPageModifyData;
     e.preventDefault();
     const ModifyData = Object.values(myPageModifyData);
     if (blankCheck(ModifyData)) return;
     requestWithAccessToken(
-      'post',
       '/taxi-pot',
+      'post',
       {},
       {
         amount: parseInt(amount),
@@ -95,22 +96,20 @@ const MakeTaxiPot = () => {
         longitude: parseFloat(longitude),
         title: title,
         address: address,
+        meetingAt: meetingAt,
       },
     )
       .then((res) => {
+        console.log(res);
         alert('택시팟이 생성되었습니다.');
         setTimeout(() => {
           history.push('/taxi-pot');
         }, 1000);
-        console.log(res);
       })
       .catch((err) => {
-        alert('실패');
         console.log(err);
       });
   };
-
-  console.log(myPageModifyData);
 
   return (
     <S.TaxiPotWrapper>
