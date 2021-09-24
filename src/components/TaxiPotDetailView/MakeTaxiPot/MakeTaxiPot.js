@@ -78,10 +78,25 @@ const MakeTaxiPot = () => {
   };
 
   const handleSubmitEvent = (e) => {
+    const { amount, target, place, content, latitude, longitude, title, address } = myPageModifyData;
     e.preventDefault();
     const ModifyData = Object.values(myPageModifyData);
     if (blankCheck(ModifyData)) return;
-    requestWithAccessToken('post', 'taxi-pot', {}, myPageModifyData)
+    requestWithAccessToken(
+      'post',
+      '/taxi-pot',
+      {},
+      {
+        amount: parseInt(amount),
+        target: target,
+        place: place,
+        content: content,
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
+        title: title,
+        address: address,
+      },
+    )
       .then((res) => {
         alert('택시팟이 생성되었습니다.');
         setTimeout(() => {
@@ -90,6 +105,7 @@ const MakeTaxiPot = () => {
         console.log(res);
       })
       .catch((err) => {
+        alert('실패');
         console.log(err);
       });
   };
@@ -107,12 +123,7 @@ const MakeTaxiPot = () => {
         </div>
         <S.TaxiPotForm id="taxiPotForm" name="myForm" onSubmit={handleSubmitEvent}>
           <S.FirstFloorContainer>
-            <SearchContainer
-              data={data}
-              onChangeEvent={onChangeEvent}
-              path="/make-taxi-pot"
-              id={1}
-            />
+            <SearchContainer data={data} onChangeEvent={onChangeEvent} path="/make-taxi-pot" id={1} />
             <S.PromisePlaceContainer>
               <h1>약속 장소</h1>
               <input

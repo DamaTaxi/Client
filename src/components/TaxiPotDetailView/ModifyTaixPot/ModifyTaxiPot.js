@@ -80,10 +80,25 @@ const ModifyTaxiPot = (props) => {
   };
 
   const handleSubmitEvent = (e) => {
+    const { amount, target, place, content, latitude, longitude, title, address } = myPageModifyData;
     e.preventDefault();
     const ModifyData = Object.values(myPageModifyData);
     if (blankCheck(ModifyData)) return;
-    requestWithAccessToken('patch', `/taxi-pot/${id}`, {}, myPageModifyData)
+    requestWithAccessToken(
+      'patch',
+      `/taxi-pot/${1}`,
+      {},
+      {
+        amount: parseInt(amount),
+        target: target,
+        place: place,
+        content: content,
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
+        title: title,
+        address: address,
+      },
+    )
       .then((res) => {
         alert('택시팟이 수정되었습니다.');
         setTimeout(() => {
@@ -92,6 +107,7 @@ const ModifyTaxiPot = (props) => {
         console.log(res);
       })
       .catch((err) => {
+        alert('실패');
         console.log(err);
       });
   };
