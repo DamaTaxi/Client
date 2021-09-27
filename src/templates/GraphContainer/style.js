@@ -13,7 +13,7 @@ export const GraphContainer = styled.div`
     width: ${(props) => `${props.width}px`};
     height: ${(props) => `${props.height}px`};
     border: #ffc044 1px solid;
-    p {
+    span {
       position: absolute;
       text-align: center;
       left: ${(props) => `${props.left}%`};

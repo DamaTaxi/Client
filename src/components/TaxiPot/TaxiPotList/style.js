@@ -89,12 +89,22 @@ export const TaxiPotList = styled.div`
 export const FirstFloorWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
   margin-bottom: 13.5px;
+  position: relative;
   p {
     font-family: 'NotoSansCJK';
     font-size: 20px;
     font-weight: bold;
+  }
+  p:first-child {
+    margin-left: 79px;
+  }
+  p:nth-child(2) {
+    margin-left: 160px;
+  }
+  p:nth-child(3) {
+    position: absolute;
+    right: 25px;
   }
 `;
 

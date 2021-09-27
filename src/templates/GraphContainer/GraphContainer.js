@@ -18,9 +18,9 @@ const GraphContainer = (props) => {
     <S.GraphContainer filled={percentFunc(reserve, all)} left={left} width={width} height={height}>
       <p>현재 인원수 : </p>
       <div className="yellowBorderBox">
-        <p>
+        <span>
           {reserve}/{all}
-        </p>
+        </span>
         <div className="filledBox"></div>
       </div>
     </S.GraphContainer>
