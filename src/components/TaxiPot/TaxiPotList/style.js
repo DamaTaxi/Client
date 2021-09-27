@@ -91,6 +91,9 @@ export const FirstFloorWrapper = styled.div`
   display: flex;
   margin-bottom: 13.5px;
   position: relative;
+  #marginRight {
+    margin-right: 67px;
+  }
   p {
     font-family: 'NotoSansCJK';
     font-size: 20px;
@@ -98,9 +101,6 @@ export const FirstFloorWrapper = styled.div`
   }
   p:first-child {
     margin-left: 79px;
-  }
-  p:nth-child(2) {
-    margin-left: 160px;
   }
   p:nth-child(3) {
     position: absolute;

@@ -61,8 +61,8 @@ const TaxiPotList = () => {
               </div>
               <div className="list-section-wrapper">
                 <S.FirstFloorWrapper>
-                  <p>모집자: {creator}</p>
-                  <GraphContainer reserve={reserve} all={all} width={250} left={45} height={15} />
+                  <p id="marginRight" >모집자: {creator}</p>
+                  <GraphContainer reserve={reserve} all={all} width={250} left={44} height={17} marginTop={5} />
                   <p>약속장소 : {place}</p>
                 </S.FirstFloorWrapper>
                 <S.SecondFloorWrapper>
