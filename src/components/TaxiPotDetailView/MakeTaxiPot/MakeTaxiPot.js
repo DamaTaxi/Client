@@ -5,7 +5,6 @@ import OptionWrapper from '../../../templates/OptionWrapper/OptionWrapper';
 import RadioWrapper from '../ModifyTaixPot/radioWrapper/RadioWrapper';
 import SearchContainer from '../ModifyTaixPot/searchContainer/SearchContainer';
 import { requestWithAccessToken } from '../../../lib/axios';
-import axios from 'axios';
 
 const MakeTaxiPot = () => {
   const [myPageModifyData, setMyPageModifyData] = useState({
