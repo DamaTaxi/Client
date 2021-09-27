@@ -12,13 +12,15 @@ export const GraphContainer = styled.div`
     margin-bottom: 4px;
     width: ${(props) => `${props.width}px`};
     height: ${(props) => `${props.height}px`};
+    margin-top: ${(props) => `${props.marginTop}px`};
     border: #ffc044 1px solid;
     span {
       position: absolute;
       text-align: center;
       left: ${(props) => `${props.left}%`};
       z-index: 10;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
   }
   .filledBox {
