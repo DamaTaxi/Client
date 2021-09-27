@@ -6,6 +6,7 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
+import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -73,7 +74,7 @@ const TaxiPotSlider = () => {
   //슬라이더 리스트 map 함수
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
-        const { title, target, reserve, all, price } = swiperSliderList;
+        const { title, target, reserve, all } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
             <Link to="/">
@@ -84,17 +85,8 @@ const TaxiPotSlider = () => {
                 <div>
                   <p>대상자 : {target}</p>
                   <p>km: 9.8km</p>
-                  <p>예상가격: {numberWithCommas(price)}원</p>
-                  <S.GraphContainer width={percentFunc(reserve, all)}>
-                    <p>현재 인원수 : </p>
-                    <div className="yellowBorderBox">
-                      <div className="filledBox">
-                        <p id="filledSection">
-                          {reserve}/{all}
-                        </p>
-                      </div>
-                    </div>
-                  </S.GraphContainer>
+                  <GraphContainer reserve={reserve} all={all} width={120} height={20} left={42} marginTop={15} />
+                  {/* reserve, all, width, height, left */}
                 </div>
               </div>
             </Link>
