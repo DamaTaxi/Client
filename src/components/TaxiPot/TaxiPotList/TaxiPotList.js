@@ -10,7 +10,6 @@ const taxiPotDataArr = [
     place: '기숙사 정문',
     all: 4,
     reserve: 3,
-    price: 4300,
     creator: '김재현',
     target: 'ALL',
     createdAt: '2021-03-15-00:00',
@@ -21,7 +20,6 @@ const taxiPotDataArr = [
     place: '기숙사 정문',
     all: 4,
     reserve: 3,
-    price: 4300,
     creator: '김재현',
     target: 'ALL',
     createdAt: '2021-03-15-00:00',
@@ -32,7 +30,6 @@ const taxiPotDataArr = [
     place: '기숙사 정문',
     all: 4,
     reserve: 3,
-    price: 4300,
     creator: '김재현',
     target: 'ALL',
     createdAt: '2021-03-15-00:00',
@@ -54,7 +51,7 @@ function numberWithCommas(x) {
 const TaxiPotList = () => {
   const taxiPotListItem = taxiPotDataArr.length
     ? taxiPotDataArr.map((taxiPotDataArr, index) => {
-        const { title, meetingAt, place, all, reserve, price, createdAt, target, creator } = taxiPotDataArr;
+        const { title, meetingAt, place, all, reserve, createdAt, target, creator } = taxiPotDataArr;
         return (
           <Link to="/taxi-pot" key={index}>
             <S.TaxiPotList>
@@ -65,7 +62,6 @@ const TaxiPotList = () => {
               <div className="list-section-wrapper">
                 <S.FirstFloorWrapper>
                   <p>모집자: {creator}</p>
-                  <p>예상가격: {numberWithCommas(price)}원</p>
                   <GraphContainer reserve={reserve} all={all} width={250} left={45} height={15} />
                   <p>약속장소 : {place}</p>
                 </S.FirstFloorWrapper>
