@@ -64,8 +64,6 @@ const MyTaxiPot = () => {
             </div>
             <S.LeftAsideSection>
               <p>대상자 : 2학년</p>
-              <p>km : 9.8km</p>
-              <p>예상가격 : 10,000원</p>
               <GraphContainer reserve={2} all={4} width={244} left={45} height={22} />
               <p>날짜와 시간 : 2021-03-01-16:00</p>
               <p>약속 장소 : 기숙사 정문</p>
