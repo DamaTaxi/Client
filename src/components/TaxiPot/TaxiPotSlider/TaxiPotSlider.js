@@ -50,7 +50,6 @@ const content = [
 const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
-
   //현재 인원수 %값 알려주는 함수
   const percentFunc = (reserve, all) => {
     if (reserve < 1 || reserve > all) {
