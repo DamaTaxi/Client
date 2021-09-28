@@ -84,7 +84,7 @@ const TaxiPotSlider = () => {
                 </div>
                 <div>
                   <p>대상자 : {target}</p>
-                  <p>km: 9.8km</p>
+                  {/* <p>km: 9.8km</p> */}
                   <GraphContainer reserve={reserve} all={all} width={120} height={20} left={42} marginTop={15} />
                   {/* reserve, all, width, height, left */}
                 </div>
@@ -124,7 +124,7 @@ const TaxiPotSlider = () => {
           }}
           navigation={true}
           className="mySwiper"
-          autoplay={{ delay: 3500 }}
+          autoplay={{ delay: 10000 }}
         >
           {SwiperSlideList}
         </Swiper>
