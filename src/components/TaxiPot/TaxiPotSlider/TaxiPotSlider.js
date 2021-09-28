@@ -1,61 +1,54 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './style';
+import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
-import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
+import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
+import TaxiPotPageLine from './TaxiPotPageLine/TaxiPotPageLine';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
+//더미 데이터
 const swiperSliderList = [
   {
-    title: '대덕소프트웨어마이스터고등학교 니엄마 13시 레게노 ㅁㄴ안마ㅁㄴㅇㅁㄴㅁㄴㄴㅇㅁㄴㅁㄴㅁ',
+    title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
     reserve: 3,
     all: 4,
-    price: 10000,
   },
   {
     title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
     reserve: 3,
     all: 4,
-    price: 10000,
   },
   {
     title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
     reserve: 3,
     all: 4,
-    price: 10000,
   },
   {
     title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
     reserve: 3,
     all: 4,
-    price: 10000,
   },
   {
     title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
     reserve: 3,
     all: 4,
-    price: 10000,
   },
 ];
 
 const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
-
-  //3자리수 마다 콤마 찍어주는 함수
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
 
   //현재 인원수 %값 알려주는 함수
   const percentFunc = (reserve, all) => {
@@ -74,21 +67,27 @@ const TaxiPotSlider = () => {
   //슬라이더 리스트 map 함수
   const SwiperSlideList = swiperSliderList.length
     ? swiperSliderList.map((swiperSliderList, index) => {
-        const { title, target, reserve, all } = swiperSliderList;
+        const { title, target, reserve, all, latitude, longitude } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
             <Link to="/">
-              <div className="slideSection">
-                <div id="titleBox">
+              <>
+                <CreateKakaoMap
+                  lat={37.5534058965367}
+                  lng={126.925802180069}
+                  width={`95%`}
+                  height={`201px`}
+                  className="kakaoMap"
+                ></CreateKakaoMap>
+              </>
+              <>
+                <div className="slideSection">
                   <h1>{title}</h1>
-                </div>
-                <div>
+                  <p>주소 : 대전 중구 중구보건소</p>
                   <p>대상자 : {target}</p>
-                  {/* <p>km: 9.8km</p> */}
-                  <GraphContainer reserve={reserve} all={all} width={120} height={20} left={42} marginTop={15} />
-                  {/* reserve, all, width, height, left */}
+                  <GraphContainer reserve={reserve} all={all} left={40} width={118} height={20} marginTop={11} />
                 </div>
-              </div>
+              </>
             </Link>
           </SwiperSlide>
         );
@@ -97,16 +96,7 @@ const TaxiPotSlider = () => {
 
   return (
     <S.TaxiPotSlideBox>
-      <S.TaxiPotPageLine width={percentFunc(current, total)}>
-        <div className="currentContainer">
-          <div>
-            <p>{current}번째</p>
-          </div>
-        </div>
-        <div className="allContainer">
-          <div>{total}개</div>
-        </div>
-      </S.TaxiPotPageLine>
+      <TaxiPotPageLine percentFunc={percentFunc} current={current} total={total} />
       <>
         <Swiper
           slidesPerView={4}
