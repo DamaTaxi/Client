@@ -8,12 +8,21 @@ import List from '../../templates/List/List';
 import LoginModal from '../../Modal/LoginModal/LoginModal';
 import ListModal from '../../Modal/ListModal/ListModal';
 import UseLocalStorage from '../../templates/UseLocalStorage/UseLocalStorage';
+import { request, requestWithAccessToken } from '../../lib/axios';
 
 const AdminMain = () => {
   const [isCheckLogin, setIsCheckLogin] = UseLocalStorage('isCheckLogin', false);
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
   const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
+
+  useEffect(() => {
+    requestWithAccessToken('GET', '/error-report?size=5&page=0')
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {});
+  }, []);
 
   const showLoginModal = () => {
     setIsShowLoginModal(true);
