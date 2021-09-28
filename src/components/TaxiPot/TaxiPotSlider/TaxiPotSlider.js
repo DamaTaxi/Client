@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
@@ -9,11 +9,12 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
 import TaxiPotPageLine from './TaxiPotPageLine/TaxiPotPageLine';
+import { requestWithAccessToken } from '../../../lib/axios';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 //더미 데이터
-const swiperSliderList = [
+const content = [
   {
     title: '둔산동 꿀잼동전노래연습장',
     target: '2학년',
@@ -60,13 +61,19 @@ const TaxiPotSlider = () => {
     return result;
   };
 
-  /*   useEffect(()=> {
-    api.getlist();
-  }, [page]) */
+  useEffect(() => {
+    requestWithAccessToken('get', `/taxi-pot/slide?size=${4}&page=${current}`, {}, {})
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      }); //method, url, headers, data
+  }, [current]);
 
   //슬라이더 리스트 map 함수
-  const SwiperSlideList = swiperSliderList.length
-    ? swiperSliderList.map((swiperSliderList, index) => {
+  const SwiperSlideList = content.length
+    ? content.map((swiperSliderList, index) => {
         const { title, target, reserve, all, latitude, longitude } = swiperSliderList;
         return (
           <SwiperSlide key={index}>
@@ -124,7 +131,7 @@ const TaxiPotSlider = () => {
 };
 
 TaxiPotSlider.defaultProps = {
-  swiperSliderList: [],
+  content: [],
 };
 
 export default TaxiPotSlider;
