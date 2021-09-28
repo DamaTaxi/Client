@@ -2,7 +2,8 @@ import React from 'react';
 import * as S from './style';
 
 const GraphContainer = (props) => {
-  const { reserve, all, width, height, left } = props;
+  const { reserve, all, width, height, left, marginTop } = props;
+  /* 모든 props는 정수로 보내주시면 됩니다. */
 
   const percentFunc = (reserve, all) => {
     //%값 계산해주는 함수
@@ -15,12 +16,18 @@ const GraphContainer = (props) => {
   };
 
   return (
-    <S.GraphContainer filled={percentFunc(reserve, all)} left={left} width={width} height={height}>
+    <S.GraphContainer
+      filled={percentFunc(reserve, all)}
+      marginTop={marginTop}
+      left={left}
+      width={width}
+      height={height}
+    >
       <p>현재 인원수 : </p>
       <div className="yellowBorderBox">
-        <p>
+        <span>
           {reserve}/{all}
-        </p>
+        </span>
         <div className="filledBox"></div>
       </div>
     </S.GraphContainer>
