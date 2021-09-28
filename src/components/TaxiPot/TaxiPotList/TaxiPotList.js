@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
+import { requestWithAccessToken } from '../../../lib/axios';
 
-const taxiPotDataArr = [
+const content = [
   {
     title: '둔산동 꿀잼동전노래연습장',
     meetingAt: '2021-12-03-00:00',
@@ -25,8 +26,41 @@ function dateSplit(string) {
 }
 
 const TaxiPotList = () => {
-  const taxiPotListItem = taxiPotDataArr.length
-    ? taxiPotDataArr.map((taxiPotDataArr, index) => {
+  const [isScrollEnd, setIsScrollEnd] = useState(false);
+  const [scrollPage, setScrollPage] = useState(0);
+
+  //스크롤이 맨끝인가?
+  useEffect(() => {
+    function onScroll() {
+      if (window.scrollY + document.documentElement.clientHeight === document.documentElement.scrollHeight) {
+        setIsScrollEnd(true);
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  });
+
+  useEffect(() => {
+    if (isScrollEnd === true) {
+      requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
+        .then((res) => {
+          console.log(res);
+          setIsScrollEnd(false);
+          setScrollPage(scrollPage + 1);
+          console.log('불러왔어용');
+        })
+        .catch((err) => {
+          console.log(err);
+        }); //method, url, headers, data
+    } else {
+      return;
+    }
+  }, [isScrollEnd]);
+
+  const taxiPotListItem = content.length
+    ? content.map((taxiPotDataArr, index) => {
         const { title, meetingAt, place, all, reserve, createdAt, target, creator, adress } = taxiPotDataArr;
         return (
           <Link to="/taxi-pot" key={index}>
@@ -70,7 +104,5 @@ const TaxiPotList = () => {
     </S.TaxiPotListWrapper>
   );
 };
-
-TaxiPotList.defaultProps = {};
 
 export default TaxiPotList;
