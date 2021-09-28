@@ -4,8 +4,8 @@ import prevButton from '../../../assets/images/TaxiPot/prev-button.png';
 import slideYellowBox from '../../../assets/images/TaxiPot/slide-yellow-box.png';
 import slideGrayBox from '../../../assets/images/TaxiPot/slide-gray-box.png';
 import SlideSection from '../../../assets/images/TaxiPot/slider-section.png';
-import taxiOnBar from '../../../assets/images/taxi_on_bar.svg';
-import locationOnBar from '../../../assets/images/TaxiPot/location_on_bar.png';
+
+
 
 export const TaxiPotSlideBox = styled.div`
   position: relative;
@@ -32,14 +32,9 @@ export const TaxiPotSlideBox = styled.div`
     width: 299px;
     height: 378px;
     border-radius: 15px;
-    .kakaoMap {
-      background-image: url(${slideGrayBox});
-      width: 100%;
-      height: 270px;
-      background-size: cover;
-      object-fit: cover;
-      text-align: center;
-      padding-top: 50px;
+    .map {
+      margin: 7px 0 0 7px;
+      border-radius: 8px;
     }
     .swiper-pagination-current {
       color: red;
@@ -53,6 +48,9 @@ export const TaxiPotSlideBox = styled.div`
       background-size: cover;
       width: 278px;
       height: 153px;
+      p {
+        padding-top: 8px;
+      }
       h1 {
         font-size: 0.9375rem;
         text-overflow: ellipsis;
@@ -60,10 +58,11 @@ export const TaxiPotSlideBox = styled.div`
         font-family: 'NotoSansKR';
         font-weight: bold;
         margin-top: 12px;
+        margin-bottom: 10px;
         padding-top: 2px;
       }
-      p:nth-child(-1+3) {
-        padding-top: 6px;
+      p:nth-child(-1 + 3) {
+        padding-top: 12px;
         font-family: 'NotoSansKR';
         font-weight: 540;
         font-size: 0.875rem;
@@ -101,63 +100,6 @@ export const TaxiPotSlideBox = styled.div`
   a:active {
     text-decoration: none;
     background-color: #f59000;
-  }
-`;
-
-export const TaxiPotPageLine = styled.div`
-  position: relative;
-  display: flex;
-  width: 1400px;
-  height: 34px;
-  background-color: #f4e458;
-  border-radius: 20px;
-  .currentContainer {
-    transition: 1.23s;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    height: 100%;
-    width: ${(props) => (props.width ? `${props.width}%` : `0`)};
-    border-radius: 20px;
-    background-color: #ffc044;
-    z-index: 10;
-    div {
-      position: absolute;
-      top: -10px;
-      right: -20px;
-      display: flex;
-      align-items: center;
-      background-image: url(${taxiOnBar});
-      width: 93px;
-      height: 55px;
-      text-align: center;
-      p {
-        font-size: 1.25rem;
-        font-family: 'NotoSansKR';
-        font-weight: bold;
-        color: #ffffff;
-        padding-left: 6.5px;
-      }
-    }
-  }
-  .allContainer {
-    div {
-      position: absolute;
-      width: 79px;
-      height: 105px;
-      background-size: cover;
-      right: 0;
-      top: -65px;
-      background-image: url(${locationOnBar});
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 10px;
-      font-size: 1.25rem;
-      font-family: 'NotoSansKR';
-      font-weight: bold;
-      color: #ffffff;
-    }
   }
 `;
 
