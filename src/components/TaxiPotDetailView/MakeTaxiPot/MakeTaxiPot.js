@@ -106,7 +106,13 @@ const MakeTaxiPot = () => {
         }, 1000);
       })
       .catch((err) => {
-        console.log(err);
+        switch (err.status) {
+          case 401:
+            alert('이미 택시팟이 있습니다')
+            break;
+          default:
+            break;
+        }
       });
   };
 
