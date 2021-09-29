@@ -15,14 +15,21 @@ const AdminMain = () => {
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
   const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [reportPageIndex, setReportPageIndex] = useState(0);
+  const [reportData, setReportData] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
 
   useEffect(() => {
-    requestWithAccessToken('GET', '/error-report?size=5&page=0')
+    requestWithAccessToken('GET', `/error-report?size=5&page=${reportPageIndex}`)
       .then((res) => {
         console.log(res);
+        setReportData(res.content);
+        setTotalPage(res.totalPages);
       })
-      .catch((err) => {});
-  }, []);
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [reportPageIndex]);
 
   const showLoginModal = () => {
     setIsShowLoginModal(true);
@@ -95,29 +102,6 @@ const AdminMain = () => {
     suggestion: '건의 사항 리스트',
   };
 
-  const list = [
-    {
-      id: 1,
-      title: '오류신고가 되지 않습니다.',
-    },
-    {
-      id: 2,
-      title: '오류신고가 진짜 되지 않습니다.',
-    },
-    {
-      id: 3,
-      title: '오류신고가 되지 않습니다.',
-    },
-    {
-      id: 4,
-      title: '오류신고가 진짜 되지 않습니다.',
-    },
-    {
-      id: 5,
-      title: '오류신고가 되지 않습니다.',
-    },
-  ];
-
   const pageNum = [1, 2, 3, 4, 5];
 
   return (
@@ -125,8 +109,16 @@ const AdminMain = () => {
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
       {isCheckLogin && (
         <>
-          <List getListModal={getListModal} title={titles.error} list={list} pageNum={pageNum} />
-          <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} />
+          <List
+            getListModal={getListModal}
+            title={titles.error}
+            list={reportData}
+            pageNum={pageNum}
+            reportPageIndex={reportPageIndex}
+            setReportPageIndex={setReportPageIndex}
+            totalPage={totalPage}
+          />
+          {/* <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} /> */}
         </>
       )}
       <LoginModal setIsCheckLogin={setIsCheckLogin} isShowModal={isShowLoginModal} closeModal={closeModal} />
