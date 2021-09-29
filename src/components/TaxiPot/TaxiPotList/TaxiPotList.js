@@ -4,19 +4,7 @@ import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import { requestWithAccessToken } from '../../../lib/axios';
 
-const content = [
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    meetingAt: '2021-12-03-00:00',
-    place: '기숙사 정문',
-    all: 4,
-    reserve: 3,
-    creator: '김재현',
-    target: 'ALL',
-    createdAt: '2021-03-15-00:00',
-    adress: '대전중구 유천1동',
-  },
-];
+let content = [];
 
 //date문자열 짤라서 가공하는 함수
 function dateSplit(string) {
@@ -28,8 +16,27 @@ function dateSplit(string) {
 const TaxiPotList = () => {
   const [scrollPage, setScrollPage] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
-  const [moreListData, setMoreListData] = useState(false);
   /* const [] */
+
+  const getList = async () => {
+    setIsFetching(true);
+    await requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
+      .then((res) => {
+        //totalElements: 0, totalPages: 0, content: Array(0)
+        console.log(res.content);
+        content = content.concat(res.content);
+        setScrollPage(scrollPage + 1);
+        console.log('불러왔어용');
+      })
+      .catch((err) => {
+        console.log(err);
+      }); //method, url, headers, data
+    setIsFetching(false);
+  };
+
+  useEffect(() => {
+    getList();
+  }, []);
 
   //스크롤이 맨끝인가?
   useEffect(() => {
@@ -43,26 +50,6 @@ const TaxiPotList = () => {
       window.removeEventListener('scroll', onScroll);
     };
   });
-
-  const getList = async () => {
-    setIsFetching(true);
-    await requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
-      .then((res) => {
-        //totalElements: 0, totalPages: 0, content: Array(0)
-        console.log(res);
-        if (res.totalPages == scrollPage) {
-          moreListData = false;
-        } else {
-          setScrollPage(scrollPage + 1);
-          moreListData = true;
-        }
-        console.log('불러왔어용');
-      })
-      .catch((err) => {
-        console.log(err);
-      }); //method, url, headers, data
-    setIsFetching(false);
-  };
 
   const taxiPotListItem = content.length
     ? content.map((taxiPotDataArr, index) => {
