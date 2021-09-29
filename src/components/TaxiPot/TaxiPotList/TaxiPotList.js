@@ -26,14 +26,16 @@ function dateSplit(string) {
 }
 
 const TaxiPotList = () => {
-  const [isScrollEnd, setIsScrollEnd] = useState(false);
   const [scrollPage, setScrollPage] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
+  const [moreListData, setMoreListData] = useState(false);
+  /* const [] */
 
   //스크롤이 맨끝인가?
   useEffect(() => {
     function onScroll() {
-      if (window.scrollY + document.documentElement.clientHeight === document.documentElement.scrollHeight) {
-        setIsScrollEnd(true);
+      if (window.scrollY + window.innerHeight === document.documentElement.scrollHeight && isFetching === false) {
+        getList();
       }
     }
     window.addEventListener('scroll', onScroll);
@@ -42,22 +44,25 @@ const TaxiPotList = () => {
     };
   });
 
-  useEffect(() => {
-    if (isScrollEnd === true) {
-      requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
-        .then((res) => {
-          console.log(res);
-          setIsScrollEnd(false);
+  const getList = async () => {
+    setIsFetching(true);
+    await requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
+      .then((res) => {
+        //totalElements: 0, totalPages: 0, content: Array(0)
+        console.log(res);
+        if (res.totalPages == scrollPage) {
+          moreListData = false;
+        } else {
           setScrollPage(scrollPage + 1);
-          console.log('불러왔어용');
-        })
-        .catch((err) => {
-          console.log(err);
-        }); //method, url, headers, data
-    } else {
-      return;
-    }
-  }, [isScrollEnd]);
+          moreListData = true;
+        }
+        console.log('불러왔어용');
+      })
+      .catch((err) => {
+        console.log(err);
+      }); //method, url, headers, data
+    setIsFetching(false);
+  };
 
   const taxiPotListItem = content.length
     ? content.map((taxiPotDataArr, index) => {
