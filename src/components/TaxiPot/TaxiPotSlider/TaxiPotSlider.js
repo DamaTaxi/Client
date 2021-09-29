@@ -14,45 +14,16 @@ import { requestWithAccessToken } from '../../../lib/axios';
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 //더미 데이터
-const content = [
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-  },
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-  },
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-  },
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-  },
-  {
-    title: '둔산동 꿀잼동전노래연습장',
-    target: '2학년',
-    reserve: 3,
-    all: 4,
-  },
-];
+let content = [];
 
 const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(1);
   //현재 인원수 %값 알려주는 함수
   const percentFunc = (reserve, all) => {
     if (reserve < 1 || reserve > all) {
+      console.log(reserve);
+      console.log(all);
       console.log(`올바른 값이 아닙니다`);
       return;
     }
@@ -61,14 +32,24 @@ const TaxiPotSlider = () => {
   };
 
   useEffect(() => {
+    getSlideList();
+  }, [current]);
+
+  function getSlideList() {
     requestWithAccessToken('get', `/taxi-pot/slide?size=${4}&page=${current}`, {}, {})
       .then((res) => {
         console.log(res);
+        content = content.concat(res.content);
+        if (current === 0) {
+          const swiper = document.querySelector('.swiper-container').swiper;
+          swiper.update();
+          swiper.slideTo(1);
+        }
       })
       .catch((err) => {
         console.log(err);
       }); //method, url, headers, data
-  }, [current]);
+  }
 
   //슬라이더 리스트 map 함수
   const SwiperSlideList = content.length
@@ -79,8 +60,8 @@ const TaxiPotSlider = () => {
             <Link to="/">
               <>
                 <CreateKakaoMap
-                  lat={37.5534058965367}
-                  lng={126.925802180069}
+                  lat={latitude}
+                  lng={longitude}
                   width={`95%`}
                   height={`201px`}
                   className="kakaoMap"
@@ -114,7 +95,11 @@ const TaxiPotSlider = () => {
             type: 'custom',
             renderCustom: function (swiper, current, total) {
               setCurrent(current);
-              setTotal(total);
+              if (total === 0) {
+                setTotal(1);
+              } else {
+                setTotal(total);
+              }
               return current + total;
             },
           }}
