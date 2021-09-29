@@ -48,7 +48,7 @@ export const ListHeader = styled.div`
 export const ListContainer = styled.div`
   width: 1487px;
   height: auto;
-  margin-top: 20px;
+  margin-top: 20px; //20ㅔㅌ
   display: flex;
   flex-direction: column;
   align-items: center;
