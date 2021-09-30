@@ -67,6 +67,19 @@ export const TaxiPotList = styled.div`
   border: solid #ffc044 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   align-items: center;
+  .loding-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: 'NotoSansCJK';
+      font-size: 25px;
+      font-weight: bold;
+
+    }
+  }
   .list-title-wrapper {
     display: flex;
     margin: 20px 0 22px 79px;
