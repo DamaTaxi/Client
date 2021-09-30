@@ -19,6 +19,7 @@ let content = [];
 const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(1);
+  const [aleady, setAleady] = useState([]);
   //현재 인원수 %값 알려주는 함수
   const percentFunc = (reserve, all) => {
     if (reserve < 1 || reserve > all) {
@@ -33,17 +34,21 @@ const TaxiPotSlider = () => {
 
   useEffect(() => {
     getSlideList();
+    console.log(content);
+    console.log(aleady);
   }, [current]);
 
   function getSlideList() {
-    requestWithAccessToken('get', `/taxi-pot/slide?size=${4}&page=${current}`, {}, {})
+    requestWithAccessToken('get', `/taxi-pot/slide?size=${5}&page=${current}`, {}, {})
       .then((res) => {
         console.log(res);
-        content = content.concat(res.content);
-        if (current === 0) {
+        if (res.content.length === 0) {
+          console.log('더이상 불러올것이 없습니다.');
+        } else {
+          content = content.concat(res.content);
           const swiper = document.querySelector('.swiper-container').swiper;
+          console.log(swiper);
           swiper.update();
-          swiper.slideTo(1);
         }
       })
       .catch((err) => {
@@ -95,17 +100,13 @@ const TaxiPotSlider = () => {
             type: 'custom',
             renderCustom: function (swiper, current, total) {
               setCurrent(current);
-              if (total === 0) {
-                setTotal(1);
-              } else {
-                setTotal(total);
-              }
+              setTotal(total);
               return current + total;
             },
           }}
           navigation={true}
           className="mySwiper"
-          autoplay={{ delay: 10000 }}
+          autoplay={{ delay: 1000 }}
         >
           {SwiperSlideList}
         </Swiper>
