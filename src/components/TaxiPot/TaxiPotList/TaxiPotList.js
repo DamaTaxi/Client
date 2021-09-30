@@ -34,10 +34,6 @@ const TaxiPotList = () => {
     setIsFetching(false);
   };
 
-  useEffect(() => {
-    getList();
-  }, []);
-
   //스크롤이 맨끝인가?
   useEffect(() => {
     function onScroll() {
@@ -45,39 +41,46 @@ const TaxiPotList = () => {
         getList();
       }
     }
+
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
   });
 
-  const taxiPotListItem = content.length
-    ? content.map((taxiPotDataArr, index) => {
-        const { title, meetingAt, place, all, reserve, createdAt, target, creator, adress } = taxiPotDataArr;
-        return (
-          <Link to="/taxi-pot" key={index}>
-            <S.TaxiPotList>
-              <div className="list-title-wrapper">
-                <h1>{title}</h1>
-                <p>{dateSplit(createdAt)}</p>
-              </div>
-              <div className="list-section-wrapper">
-                <S.FirstFloorWrapper>
-                  <p id="marginRight">모집자: {creator}</p>
-                  <GraphContainer reserve={reserve} all={all} width={250} left={44} height={17} marginTop={5} />
-                  <p>약속장소 : {place}</p>
-                </S.FirstFloorWrapper>
-                <S.SecondFloorWrapper>
-                  <p>대상자 : {target}</p>
-                  <p>주소 : {adress}</p>
-                  <p>날짜와 시간: {meetingAt}</p>
-                </S.SecondFloorWrapper>
-              </div>
-            </S.TaxiPotList>
-          </Link>
-        );
-      })
-    : '로딩중';
+  const taxiPotListItem = content.length ? (
+    content.map((taxiPotDataArr, index) => {
+      const { title, meetingAt, place, all, reserve, createdAt, target, creator, adress, id } = taxiPotDataArr;
+      return (
+        <Link to={{ pathname: '/taxi-pot', state: { id: id } }} key={index}>
+          <S.TaxiPotList>
+            <div className="list-title-wrapper">
+              <h1>{title}</h1>
+              <p>{dateSplit(createdAt)}</p>
+            </div>
+            <div className="list-section-wrapper">
+              <S.FirstFloorWrapper>
+                <p id="marginRight">모집자: {creator}</p>
+                <GraphContainer reserve={reserve} all={all} width={250} left={44} height={17} marginTop={5} />
+                <p>약속장소 : {place}</p>
+              </S.FirstFloorWrapper>
+              <S.SecondFloorWrapper>
+                <p>대상자 : {target}</p>
+                <p>주소 : {adress}</p>
+                <p>날짜와 시간: {meetingAt}</p>
+              </S.SecondFloorWrapper>
+            </div>
+          </S.TaxiPotList>
+        </Link>
+      );
+    })
+  ) : (
+    <S.TaxiPotList>
+      <div className="loding-wrapper">
+        <h1>불러오는 중입니다</h1>
+      </div>
+    </S.TaxiPotList>
+  );
 
   return (
     <S.TaxiPotListWrapper>
