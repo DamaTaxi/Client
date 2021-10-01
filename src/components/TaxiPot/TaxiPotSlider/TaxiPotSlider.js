@@ -29,6 +29,21 @@ const TaxiPotSlider = () => {
     return result;
   };
 
+  const targetFunc = (target) => {
+    switch (target) {
+      case 'FRESHMAN':
+        return '1학년';
+      case 'SOPHOMORE':
+        return '2학년';
+      case 'SENIOR':
+        return '3학년';
+      case 'ALL':
+        return '전체';
+      default:
+        break;
+    }
+  };
+
   useEffect(() => {
     getSlideList();
   }, []);
@@ -71,7 +86,7 @@ const TaxiPotSlider = () => {
                 <div className="slideSection">
                   <h1>{title}</h1>
                   <p>주소 : 대전 중구 중구보건소</p>
-                  <p>대상자 : {target}</p>
+                  <p>대상자 : {targetFunc(target)}</p>
                   <GraphContainer reserve={reserve} all={all} left={40} width={118} height={20} marginTop={11} />
                 </div>
               </>
@@ -101,7 +116,7 @@ const TaxiPotSlider = () => {
           }}
           navigation={true}
           className="mySwiper"
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 2500 }}
         >
           {SwiperSlideList}
         </Swiper>

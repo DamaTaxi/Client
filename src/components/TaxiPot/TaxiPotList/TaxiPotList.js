@@ -16,7 +16,22 @@ function dateSplit(string) {
 const TaxiPotList = () => {
   const [scrollPage, setScrollPage] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
-  
+
+  const targetFunc = (target) => {
+    switch (target) {
+      case 'FRESHMAN':
+        return '1학년';
+      case 'SOPHOMORE':
+        return '2학년';
+      case 'SENIOR':
+        return '3학년';
+      case 'ALL':
+        return '전체';
+      default:
+        break;
+    }
+  };
+
   useEffect(() => {
     console.log(`scrollPage: ${scrollPage}`);
   }, [scrollPage]);
@@ -74,7 +89,7 @@ const TaxiPotList = () => {
                 <p>약속장소 : {place}</p>
               </S.FirstFloorWrapper>
               <S.SecondFloorWrapper>
-                <p>대상자 : {target}</p>
+                <p>대상자 : {targetFunc(target)}</p>
                 <p>주소 : {adress}</p>
                 <p>날짜와 시간: {meetingAt}</p>
               </S.SecondFloorWrapper>
