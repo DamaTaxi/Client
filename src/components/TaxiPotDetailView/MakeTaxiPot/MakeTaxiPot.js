@@ -83,8 +83,8 @@ const MakeTaxiPot = () => {
     const ModifyData = Object.values(myPageModifyData);
     if (blankCheck(ModifyData)) return;
     requestWithAccessToken(
-      '/taxi-pot',
       'post',
+      '/taxi-pot',
       {},
       {
         amount: parseInt(amount),
@@ -106,13 +106,7 @@ const MakeTaxiPot = () => {
         }, 1000);
       })
       .catch((err) => {
-        switch (err.status) {
-          case 401:
-            alert('이미 택시팟이 있습니다')
-            break;
-          default:
-            break;
-        }
+        console.log(err);
       });
   };
 
