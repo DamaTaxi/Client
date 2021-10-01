@@ -18,13 +18,10 @@ let content = [];
 
 const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
-  const [total, setTotal] = useState(1);
-  const [aleady, setAleady] = useState([]);
+  const [total, setTotal] = useState(0);
   //현재 인원수 %값 알려주는 함수
   const percentFunc = (reserve, all) => {
     if (reserve < 1 || reserve > all) {
-      console.log(reserve);
-      console.log(all);
       console.log(`올바른 값이 아닙니다`);
       return;
     }
@@ -34,22 +31,20 @@ const TaxiPotSlider = () => {
 
   useEffect(() => {
     getSlideList();
-    console.log(content);
-    console.log(aleady);
-  }, [current]);
+  }, []);
+
+  useEffect(() => {
+    if (content.length !== 0) {
+      const swiper = document.querySelector('.swiper-container').swiper;
+      swiper.update();
+    }
+  }, [content]);
 
   function getSlideList() {
-    requestWithAccessToken('get', `/taxi-pot/slide?size=${5}&page=${current}`, {}, {})
+    requestWithAccessToken('get', `/taxi-pot/slide`, {}, {})
       .then((res) => {
         console.log(res);
-        if (res.content.length === 0) {
-          console.log('더이상 불러올것이 없습니다.');
-        } else {
-          content = content.concat(res.content);
-          const swiper = document.querySelector('.swiper-container').swiper;
-          console.log(swiper);
-          swiper.update();
-        }
+        content = content.concat(res);
       })
       .catch((err) => {
         console.log(err);
@@ -58,8 +53,8 @@ const TaxiPotSlider = () => {
 
   //슬라이더 리스트 map 함수
   const SwiperSlideList = content.length
-    ? content.map((swiperSliderList, index) => {
-        const { title, target, reserve, all, latitude, longitude } = swiperSliderList;
+    ? content.map((content, index) => {
+        const { title, target, reserve, all, latitude, longitude } = content;
         return (
           <SwiperSlide key={index}>
             <Link to="/">
@@ -106,7 +101,7 @@ const TaxiPotSlider = () => {
           }}
           navigation={true}
           className="mySwiper"
-          autoplay={{ delay: 1000 }}
+          autoplay={{ delay: 3000 }}
         >
           {SwiperSlideList}
         </Swiper>
