@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
+import { requestWithAccessToken } from '../../lib/axios';
 import * as S from './styles';
 
-const List = ({ getListModal, title, list, pageNum, reportPageIndex, setReportPageIndex, totalPage }) => {
+const List = ({ getListModal, title, pageNum }) => {
+  const [reportPageIndex, setReportPageIndex] = useState(0);
+  const [reportData, setReportData] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
+
+  useEffect(() => {
+    requestWithAccessToken('GET', `/error-report?size=5&page=${reportPageIndex}`)
+      .then((res) => {
+        setReportData(res.content);
+        setTotalPage(res.totalPages);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [reportPageIndex]);
+
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
       <S.ListContainer>
-        {list.map((ele) => (
+        {reportData.map((ele) => (
           <S.List
             onClick={() => {
               getListModal(ele.id);
@@ -29,13 +45,20 @@ const List = ({ getListModal, title, list, pageNum, reportPageIndex, setReportPa
           </span>
           <span
             onClick={() => {
-              setReportPageIndex(reportPageIndex - 1);
+              if (reportPageIndex > 0) {
+                setReportPageIndex(reportPageIndex - 1);
+              } else {
+                setReportPageIndex(0);
+              }
             }}
           >
             <S.Left />
           </span>
           {pageNum.map((ele, index) => (
             <span
+              onClick={() => {
+                setReportPageIndex(index);
+              }}
               key={index}
               style={
                 index === reportPageIndex
@@ -48,14 +71,18 @@ const List = ({ getListModal, title, list, pageNum, reportPageIndex, setReportPa
           ))}
           <span
             onClick={() => {
-              setReportPageIndex(reportPageIndex + 1);
+              if (reportPageIndex < totalPage - 1) {
+                setReportPageIndex(reportPageIndex + 1);
+              } else {
+                setReportPageIndex(totalPage - 1);
+              }
             }}
           >
             <S.Right />
           </span>
           <span
             onClick={() => {
-              setReportPageIndex(totalPage);
+              setReportPageIndex(totalPage - 1);
             }}
           >
             <S.Right />
