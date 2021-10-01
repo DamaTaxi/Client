@@ -15,32 +15,23 @@ const AdminMain = () => {
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
   const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
-  const [reportPageIndex, setReportPageIndex] = useState(0);
-  const [reportData, setReportData] = useState([]);
-  const [totalPage, setTotalPage] = useState(0);
-
-  useEffect(() => {
-    requestWithAccessToken('GET', `/error-report?size=5&page=${reportPageIndex}`)
-      .then((res) => {
-        console.log(res);
-        setReportData(res.content);
-        setTotalPage(res.totalPages);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [reportPageIndex]);
 
   const showLoginModal = () => {
     setIsShowLoginModal(true);
   };
 
   const getListModal = (id) => {
-    // await res = async api호출하는함수(id)
-    /* setModalContent({
-      ...res
-    }) */
-    setIsShowListModal(true);
+    requestWithAccessToken('GET', `/error-report/${id}`)
+      .then((res) => {
+        console.log(res);
+        setModalContent({
+          ...res,
+        });
+        setIsShowListModal(true);
+      })
+      .then((err) => {
+        console.log(err);
+      });
   };
 
   const closeModal = () => {
@@ -109,15 +100,7 @@ const AdminMain = () => {
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
       {isCheckLogin && (
         <>
-          <List
-            getListModal={getListModal}
-            title={titles.error}
-            list={reportData}
-            pageNum={pageNum}
-            reportPageIndex={reportPageIndex}
-            setReportPageIndex={setReportPageIndex}
-            totalPage={totalPage}
-          />
+          <List getListModal={getListModal} title={titles.error} pageNum={pageNum} />
           {/* <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} /> */}
         </>
       )}
