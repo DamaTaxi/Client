@@ -6,7 +6,7 @@ import TaxiPotSlider from './TaxiPotSlider/TaxiPotSlider';
 import TaxiPotList from './TaxiPotList/TaxiPotList';
 
 const TaxiPot = () => {
-  return (
+  return ( 
     <>
       <S.Header>
         <img src={headerLogoYellow} alt="header-logo-yellow" />

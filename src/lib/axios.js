@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const ACCESS_TOKEN_NAME = 'Authorization';
 
 export const request = (method, url, headers, data) => {
   return axios({
@@ -34,4 +35,8 @@ export const requestWithAccessToken = (method, url, headers, data) => {
     .catch((err) => {
       throw err.response;
     });
+    return res.data;
+  } catch (err) {
+    throw err.response;
+  }
 };
