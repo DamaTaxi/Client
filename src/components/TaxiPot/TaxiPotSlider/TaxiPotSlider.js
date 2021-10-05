@@ -45,15 +45,16 @@ const TaxiPotSlider = () => {
   };
 
   useEffect(() => {
+    content = [];
     getSlideList();
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (content.length !== 0) {
       const swiper = document.querySelector('.swiper-container').swiper;
       swiper.update();
     }
-  }, [content]);
+  }, [content]); */
 
   function getSlideList() {
     requestWithAccessToken('get', `/taxi-pot/slide`, {}, {})
@@ -69,10 +70,17 @@ const TaxiPotSlider = () => {
   //슬라이더 리스트 map 함수
   const SwiperSlideList = content.length
     ? content.map((content, index) => {
-        const { title, target, reserve, all, latitude, longitude } = content;
+        const { title, target, reserve, all, latitude, longitude, id } = content;
         return (
           <SwiperSlide key={index}>
-            <Link to="/">
+            <Link
+              to={{
+                pathname: `/user-taxi-pot:${id}`,
+                state: {
+                  id: id,
+                },
+              }}
+            >
               <>
                 <CreateKakaoMap
                   lat={latitude}
