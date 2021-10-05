@@ -9,6 +9,9 @@ export const TaxiPotWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  #TaxiPotLogoLink {
+    align-self: flex-start;
+  }
 `;
 
 export const BackgroundColor = styled.div`
@@ -25,7 +28,6 @@ export const TaxiPotLogo = styled.div`
   height: 78px;
   background-size: cover;
   object-fit: cover;
-  align-self: flex-start;
   margin: 17px 0 0 35px;
 `;
 

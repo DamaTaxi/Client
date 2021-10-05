@@ -112,7 +112,7 @@ const MakeTaxiPot = () => {
 
   return (
     <S.TaxiPotWrapper>
-      <Link to="/" id="taxiPotLogoA">
+      <Link id="TaxiPotLogoLink" to={{pathname: '/taxi-pot'}}>
         <S.TaxiPotLogo />
       </Link>
       <S.TaxiPotArticle>
