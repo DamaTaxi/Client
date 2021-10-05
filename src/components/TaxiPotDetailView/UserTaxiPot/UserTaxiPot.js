@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { request, requestWithAccessToken } from '../../../lib/axios';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
@@ -63,7 +63,7 @@ const UserTaxiPot = () => {
       });
   }, []);
 
-  function test(e) {
+  function taxiPotApplication(e) {
     e.preventDefault();
     requestWithAccessToken('post', `/taxi-pot/sub/${data.id}`, {}, {})
       .then((res) => {
@@ -86,8 +86,10 @@ const UserTaxiPot = () => {
 
   return (
     <S.TaxiPotWrapper>
-      <S.TaxiPotLogo />
-      <S.TaxiPotArticle onSubmit={test}>
+      <Link id="TaxiPotLogoLink" to={{ pathname: '/taxi-pot' }}>
+        <S.TaxiPotLogo />
+      </Link>
+      <S.TaxiPotArticle onSubmit={taxiPotApplication}>
         {isFetching ? (
           <S.TaxiPotMainContainer>
             <S.LeftAside isClick={isClick}>
