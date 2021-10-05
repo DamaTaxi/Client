@@ -5,6 +5,7 @@ import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import { requestWithAccessToken } from '../../../lib/axios';
 
 let content = [];
+let scrollPage = 0;
 
 //date문자열 짤라서 가공하는 함수
 function dateSplit(string) {
@@ -14,7 +15,6 @@ function dateSplit(string) {
 }
 
 const TaxiPotList = () => {
-  const [scrollPage, setScrollPage] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
 
   const targetFunc = (target) => {
@@ -44,7 +44,7 @@ const TaxiPotList = () => {
           console.log('비어있어요');
         } else {
           content = content.concat(res.content);
-          setScrollPage(scrollPage + 1);
+          scrollPage = scrollPage + 1;
         }
       })
       .catch((err) => {
@@ -76,7 +76,15 @@ const TaxiPotList = () => {
     content.map((taxiPotDataArr, index) => {
       const { title, meetingAt, place, all, reserve, createdAt, target, creator, adress, id } = taxiPotDataArr;
       return (
-        <Link to={{ pathname: '/taxi-pot', state: { id: id } }} key={index}>
+        <Link
+          to={{
+            pathname: `/user-taxi-pot:${id}`,
+            state: {
+              id: id,
+            },
+          }}
+          key={index}
+        >
           <S.TaxiPotList>
             <div className="list-title-wrapper">
               <h1>{title}</h1>
