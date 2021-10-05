@@ -5,6 +5,7 @@ import MyTaxiPot from './components/TaxiPotDetailView/MyTaxiPot/MyTaxiPot';
 import ModifyTaxiPot from './components/TaxiPotDetailView/ModifyTaixPot/ModifyTaxiPot';
 import MakeTaxiPot from './components/TaxiPotDetailView/MakeTaxiPot/MakeTaxiPot';
 import SearchKakaoMap from './components/TaxiPotDetailView/SearchKakaoMap/SearchKakaoMap';
+import UserTaxiPot from './components/TaxiPotDetailView/UserTaxiPot/UserTaxiPot';
 
 const Routing = () => {
   return (
@@ -15,6 +16,7 @@ const Routing = () => {
         <Route path="/modify-my-taxi-pot" exact component={ModifyTaxiPot} />
         <Route path="/make-taxi-pot" exact component={MakeTaxiPot} />
         <Route path="/search-kakao:id" exact component={SearchKakaoMap} />
+        <Route path="/user-taxi-pot:id" exact component={UserTaxiPot} />
       </Switch>
     </>
   );
