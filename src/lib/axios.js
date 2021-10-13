@@ -14,14 +14,14 @@ export const request = (method, url, headers, data) => {
       return res.data;
     })
     .catch((err) => {
-      throw err.response;
+      throw err;
     });
 };
 
 export const requestWithAccessToken = (method, url, headers, data) => {
   const ACCESS_TOKEN =
     'Bearer ' +
-    'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MzMwNTkzMTYsImlhdCI6MTYzMzA1MjExNiwic3ViIjoiaGVsbG9oZWxsb0BnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.b48vhZaE3RKasHWLmwD6Wv6ypBBHtGza-YCl-Lw8eykHaSg-yhn36z9f_sAe8aeGfqzwpDaKMzSyQj3SRKIG6Q';
+    'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MzQxMTA3MDYsImlhdCI6MTYzNDEwMzUwNiwic3ViIjoiaGVsbG9oZWxsb0BnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.IC9-IHhqkehopkI8esuN7MiTYl3dZzTN_U5uEcECL39QxHcEKv92BnCas5zjSGgtCKByzmCrSE1PvwzOGAi6Ow';
   /* const ACCESS_TOKEN = 'Bearer ' + localStorage.getItem('accessToken'); */
   return axios({
     method,
@@ -33,10 +33,6 @@ export const requestWithAccessToken = (method, url, headers, data) => {
       return res.data;
     })
     .catch((err) => {
-      throw err.response;
+      throw err;
     });
-    return res.data;
-  } catch (err) {
-    throw err.response;
-  }
 };

@@ -69,6 +69,9 @@ const MyTaxiPot = () => {
     requestWithAccessToken('delete', `/taxi-pot/${data.id}`, {}, {})
       .then((res) => {
         console.log(res);
+        setTimeout(() => {
+          history.push('taxi-pot');
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
@@ -77,7 +80,7 @@ const MyTaxiPot = () => {
 
   return (
     <S.TaxiPotWrapper>
-      <Link id="TaxiPotLogoLink" to={{pathname: '/taxi-pot'}}>
+      <Link id="TaxiPotLogoLink" to={{ pathname: '/taxi-pot' }}>
         <S.TaxiPotLogo />
       </Link>
       <S.TaxiPotArticle onSubmit={deleteTaxiPot}>
