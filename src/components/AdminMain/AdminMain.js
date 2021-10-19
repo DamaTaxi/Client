@@ -8,7 +8,7 @@ import List from '../../templates/List/List';
 import LoginModal from '../../Modal/LoginModal/LoginModal';
 import ListModal from '../../Modal/ListModal/ListModal';
 import UseLocalStorage from '../../templates/UseLocalStorage/UseLocalStorage';
-import { request, requestWithAccessToken } from '../../lib/axios';
+import { requestWithAccessToken } from '../../lib/axios';
 
 const AdminMain = () => {
   const [isCheckLogin, setIsCheckLogin] = UseLocalStorage('isCheckLogin', false);
@@ -20,16 +20,15 @@ const AdminMain = () => {
     setIsShowLoginModal(true);
   };
 
-  const getListModal = (id) => {
-    requestWithAccessToken('GET', `/error-report/${id}`)
+  const getListModal = (id, type) => {
+    requestWithAccessToken('GET', `/${type}/${id}`)
       .then((res) => {
-        console.log(res);
         setModalContent({
           ...res,
         });
         setIsShowListModal(true);
       })
-      .then((err) => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -93,15 +92,13 @@ const AdminMain = () => {
     suggestion: '건의 사항 리스트',
   };
 
-  const pageNum = [1, 2, 3, 4, 5];
-
   return (
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
       {isCheckLogin && (
         <>
-          <List getListModal={getListModal} title={titles.error} pageNum={pageNum} />
-          {/* <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} /> */}
+          <List getListModal={getListModal} title={titles.error} type="error-report" />
+          <List getListModal={getListModal} title={titles.suggestion} type="suggestion" />
         </>
       )}
       <LoginModal setIsCheckLogin={setIsCheckLogin} isShowModal={isShowLoginModal} closeModal={closeModal} />

@@ -3,30 +3,64 @@ import { useEffect } from 'react/cjs/react.development';
 import { requestWithAccessToken } from '../../lib/axios';
 import * as S from './styles';
 
-const List = ({ getListModal, title, pageNum }) => {
-  const [reportPageIndex, setReportPageIndex] = useState(0);
-  const [reportData, setReportData] = useState([]);
+const List = ({ getListModal, title, type }) => {
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageData, setPageData] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
+  const [pageDepth, setPageDepth] = useState(0);
+  const FinalPage = [];
+  const pageLengthArray = [];
 
   useEffect(() => {
-    requestWithAccessToken('GET', `/error-report?size=5&page=${reportPageIndex}`)
+    requestWithAccessToken('GET', `/${type}?size=5&page=${pageIndex}`)
       .then((res) => {
-        setReportData(res.content);
+        setPageData(res.content);
         setTotalPage(res.totalPages);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [reportPageIndex]);
+  }, [pageIndex]);
+
+  useEffect(() => {
+    console.log(pageIndex);
+  }, [pageIndex]);
+
+  for (let i = 0; i < totalPage; i++) {
+    pageLengthArray.push(i + 1);
+  }
+  for (let i = 0; i < pageLengthArray.length; i += 5) {
+    FinalPage.push(pageLengthArray.slice(i, i + 5));
+  }
+
+  const nextPage = () => {
+    if (pageIndex >= totalPage) {
+      return;
+    } else {
+      setPageIndex(pageIndex + 1);
+    }
+  };
+
+  const pageClick = (e) => {
+    setPageIndex(e.target.innerHTML - 1);
+  };
+
+  const prevPage = () => {
+    if (pageIndex < 1) {
+      return;
+    } else {
+      setPageIndex(pageIndex - 1);
+    }
+  };
 
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
       <S.ListContainer>
-        {reportData.map((ele) => (
+        {pageData.map((ele) => (
           <S.List
             onClick={() => {
-              getListModal(ele.id);
+              getListModal(ele.id, type);
             }}
             key={ele.id}
           >
@@ -37,52 +71,42 @@ const List = ({ getListModal, title, pageNum }) => {
         <S.PageNum>
           <span
             onClick={() => {
-              setReportPageIndex(0);
+              setPageIndex(0);
             }}
           >
             <S.Left />
             <S.Left />
           </span>
-          <span
-            onClick={() => {
-              if (reportPageIndex > 0) {
-                setReportPageIndex(reportPageIndex - 1);
-              } else {
-                setReportPageIndex(0);
-              }
-            }}
-          >
+          <span onClick={prevPage}>
             <S.Left />
           </span>
-          {pageNum.map((ele, index) => (
-            <span
-              onClick={() => {
-                setReportPageIndex(index);
-              }}
-              key={index}
-              style={
-                index === reportPageIndex
-                  ? { backgroundColor: '#FFC044', color: 'white' }
-                  : { backgroundColor: 'white', color: '#080606' }
+          {FinalPage[0] &&
+            FinalPage[pageDepth].map((ele, index) => {
+              if (pageIndex >= Math.max(...FinalPage[pageDepth])) {
+                setPageDepth(pageDepth + 1);
+              } else if (pageIndex + 1 < Math.min(...FinalPage[pageDepth]) && pageDepth !== 0) {
+                setPageDepth(pageDepth - 1);
               }
-            >
-              {ele}
-            </span>
-          ))}
-          <span
-            onClick={() => {
-              if (reportPageIndex < totalPage - 1) {
-                setReportPageIndex(reportPageIndex + 1);
-              } else {
-                setReportPageIndex(totalPage - 1);
-              }
-            }}
-          >
+              return (
+                <span
+                  onClick={pageClick}
+                  key={index}
+                  style={
+                    index + pageDepth * 5 === pageIndex
+                      ? { backgroundColor: '#FFC044', color: 'white' }
+                      : { backgroundColor: 'white', color: '#080606' }
+                  }
+                >
+                  {ele}
+                </span>
+              );
+            })}
+          <span onClick={nextPage}>
             <S.Right />
           </span>
           <span
             onClick={() => {
-              setReportPageIndex(totalPage - 1);
+              setPageIndex(totalPage - 1);
             }}
           >
             <S.Right />
