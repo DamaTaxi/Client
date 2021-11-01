@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD:src/components/TaxiPot/TaxiPotSlider/TaxiPotSlider.js
 import * as S from './style';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
+=======
+import * as S from './styles';
+>>>>>>> userMain:src/components/TaxiPotPreview/TaxiPotSlide/TaxiPotSlide.js
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
@@ -16,7 +20,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 //더미 데이터
 let content = [];
 
-const TaxiPotSlider = () => {
+const TaxiPotSlide = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
   //현재 인원수 %값 알려주는 함수
@@ -133,8 +137,13 @@ const TaxiPotSlider = () => {
   );
 };
 
+<<<<<<< HEAD:src/components/TaxiPot/TaxiPotSlider/TaxiPotSlider.js
 TaxiPotSlider.defaultProps = {
   content: [],
+=======
+TaxiPotSlide.defaultProps = {
+  swiperSliderList: [],
+>>>>>>> userMain:src/components/TaxiPotPreview/TaxiPotSlide/TaxiPotSlide.js
 };
 
-export default TaxiPotSlider;
+export default TaxiPotSlide;
