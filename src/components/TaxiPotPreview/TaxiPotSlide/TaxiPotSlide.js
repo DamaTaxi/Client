@@ -16,7 +16,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 //더미 데이터
 let content = [];
 
-const TaxiPotSlider = () => {
+const TaxiPotSlide = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
   //현재 인원수 %값 알려주는 함수
@@ -133,8 +133,8 @@ const TaxiPotSlider = () => {
   );
 };
 
-TaxiPotSlider.defaultProps = {
-  content: [],
+TaxiPotSlide.defaultProps = {
+  swiperSliderList: [],
 };
 
-export default TaxiPotSlider;
+export default TaxiPotSlide;

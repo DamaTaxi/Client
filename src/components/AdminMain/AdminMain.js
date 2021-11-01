@@ -7,26 +7,35 @@ import UpToggle from '../../assets/images/up_toggle.svg';
 import List from '../../templates/List/List';
 import LoginModal from '../../Modal/LoginModal/LoginModal';
 import ListModal from '../../Modal/ListModal/ListModal';
+import UseLocalStorage from '../../templates/UseLocalStorage/UseLocalStorage';
+import { requestWithAccessToken } from '../../lib/axios';
 
 const AdminMain = () => {
-  const [isShowLogin, setIsShowLogin] = useState(true);
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isCheckLogin, setIsCheckLogin] = UseLocalStorage('isCheckLogin', false);
+  const [isShowLoginModal, setIsShowLoginModal] = useState(false);
+  const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
 
   const showLoginModal = () => {
-    setIsShowModal(true);
+    setIsShowLoginModal(true);
   };
 
-  const getListModal = (id) => {
-    // await res = async api호출하는함수(id)
-    /* setModalContent({
-      ...res
-    }) */
-    setIsShowModal(true);
+  const getListModal = (id, type) => {
+    requestWithAccessToken('GET', `/${type}/${id}`)
+      .then((res) => {
+        setModalContent({
+          ...res,
+        });
+        setIsShowListModal(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const closeModal = () => {
-    setIsShowModal(false);
+    setIsShowLoginModal(false);
+    setIsShowListModal(false);
   };
 
   const toTopPage = () => {
@@ -53,7 +62,7 @@ const AdminMain = () => {
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
       <S.LinkButton to="/1">DATA 페이지로 이동</S.LinkButton>
-      {isShowLogin || <S.LoginButton onClick={showLoginModal}>LOGIN</S.LoginButton>}
+      {isCheckLogin || <S.LoginButton onClick={showLoginModal}>LOGIN</S.LoginButton>}
     </S.HeaderRightWrapper>
   );
 
@@ -83,42 +92,17 @@ const AdminMain = () => {
     suggestion: '건의 사항 리스트',
   };
 
-  const list = [
-    {
-      id: 1,
-      title: '오류신고가 되지 않습니다.',
-    },
-    {
-      id: 2,
-      title: '오류신고가 진짜 되지 않습니다.',
-    },
-    {
-      id: 3,
-      title: '오류신고가 되지 않습니다.',
-    },
-    {
-      id: 4,
-      title: '오류신고가 진짜 되지 않습니다.',
-    },
-    {
-      id: 5,
-      title: '오류신고가 되지 않습니다.',
-    },
-  ];
-
-  const pageNum = [1, 2, 3, 4, 5];
-
   return (
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
-      {isShowLogin && (
+      {isCheckLogin && (
         <>
-          <List getListModal={getListModal} title={titles.error} list={list} pageNum={pageNum} />
-          <List getListModal={getListModal} title={titles.suggestion} list={list} pageNum={pageNum} />
+          <List getListModal={getListModal} title={titles.error} type="error-report" />
+          <List getListModal={getListModal} title={titles.suggestion} type="suggestion" />
         </>
       )}
-      <LoginModal isShowModal={isShowModal} closeModal={closeModal} />
-      <ListModal modalContent={modalContent} isShowModal={isShowModal} closeModal={closeModal} />
+      <LoginModal setIsCheckLogin={setIsCheckLogin} isShowModal={isShowLoginModal} closeModal={closeModal} />
+      <ListModal modalContent={modalContent} isShowModal={isShowListModal} closeModal={closeModal} />
     </S.Wrapper>
   );
 };
