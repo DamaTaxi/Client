@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD:src/components/TaxiPot/TaxiPotSlider/TaxiPotSlider.js
 import * as S from './style';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
-=======
-import * as S from './styles';
->>>>>>> userMain:src/components/TaxiPotPreview/TaxiPotSlide/TaxiPotSlide.js
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
@@ -137,13 +133,8 @@ const TaxiPotSlide = () => {
   );
 };
 
-<<<<<<< HEAD:src/components/TaxiPot/TaxiPotSlider/TaxiPotSlider.js
-TaxiPotSlider.defaultProps = {
-  content: [],
-=======
 TaxiPotSlide.defaultProps = {
   swiperSliderList: [],
->>>>>>> userMain:src/components/TaxiPotPreview/TaxiPotSlide/TaxiPotSlide.js
 };
 
 export default TaxiPotSlide;
