@@ -18,6 +18,25 @@ export const request = (method, url, headers, data) => {
     });
 };
 
+export const refresh = () => {
+  const refresh = localStorage.getItem('refreshToken');
+  request('patch', '/token-refresh', {}, { refreshToken: refresh })
+    .then((res) => {
+      localStorage.setItem('accessToken', res.data['accessToken']);
+      localStorage.setItem('refreshToken', res.data['refreshToken']);
+    })
+    .catch((err) => {
+      switch (err.response.status) {
+        case 401:
+          localStorage.setItem('isCheckLogin', false);
+          window.location.href = '/admin-main';
+          break;
+        default:
+          throw err.response;
+      }
+    });
+};
+
 export const requestWithAccessToken = (method, url, headers, data) => {
   const ACCESS_TOKEN =
     'Bearer ' +
@@ -33,6 +52,12 @@ export const requestWithAccessToken = (method, url, headers, data) => {
       return res.data;
     })
     .catch((err) => {
-      throw err;
+      switch (err.response.status) {
+        case 401:
+          refresh();
+          break;
+        default:
+          throw err.response;
+      }
     });
 };
