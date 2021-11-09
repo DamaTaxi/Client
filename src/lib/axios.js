@@ -31,7 +31,7 @@ export const refresh = () => {
           window.location.href = '/admin-main';
           break;
         default:
-          throw err.response;
+          throw err;
       }
     });
 };
@@ -50,10 +50,10 @@ export const requestWithAccessToken = (method, url, headers, data) => {
     .catch((err) => {
       switch (err.response.status) {
         case 401:
-          refresh();
+          // refresh();
           break;
         default:
-          throw err.response;
+          throw err;
       }
     });
 };

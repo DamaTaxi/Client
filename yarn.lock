@@ -7007,11 +7007,6 @@ jsprim@^1.2.2:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
-kakao.maps.d.ts@^0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/kakao.maps.d.ts/-/kakao.maps.d.ts-0.1.9.tgz#4211c394a1da7f7f4f7f3a5cbf9937dbad381bd2"
-  integrity sha512-xmG8M6HoetKhJs4lp/BFgkeB2gRfu38GjcVVHzkX85Rr1PKLvU6n0V7xzIdZOBmyEAXtBXmkk1zmJxaUF1Dy1w==
-
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -9289,16 +9284,6 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-<<<<<<< HEAD
-react-kakao-maps-sdk@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/react-kakao-maps-sdk/-/react-kakao-maps-sdk-0.0.20.tgz#1b15ee2b2a53d42057ff1f4dc2fc57836cdc47f2"
-  integrity sha512-68jSUpRdGT4ONjWuaJIklaMlfvDUSZTR9NiRf7c/qyd4D1o2OwcBGxhkdv2MCHe1lwXjA2SZdBPH/3nNFSQ+Cg==
-  dependencies:
-    kakao.maps.d.ts "^0.1.9"
-    react "^17.0.2"
-    react-dom "^17.0.2"
-=======
 react-live-clock@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-live-clock/-/react-live-clock-5.2.0.tgz#964ea6c81edb44412161bcd291c23dbe154c0de4"
@@ -9308,7 +9293,6 @@ react-moment@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-1.1.1.tgz#5fe9fb257039590c804e2b3aedfc3ceb0a6ffb16"
   integrity sha512-WjwvxBSnmLMRcU33do0KixDB+9vP3e84eCse+rd+HNklAMNWyRgZTDEQlay/qK6lcXFPRuEIASJTpEt6pyK7Ww==
->>>>>>> userMain
 
 react-refresh@^0.8.3:
   version "0.8.3"
