@@ -15,12 +15,16 @@ const AdminMain = () => {
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
   const [isShowListModal, setIsShowListModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [id, setId] = useState(null);
+  const [type, setType] = useState('');
 
   const showLoginModal = () => {
     setIsShowLoginModal(true);
   };
 
   const getListModal = (id, type) => {
+    setId(id);
+    setType(type);
     requestWithAccessToken('GET', `/${type}/${id}`)
       .then((res) => {
         setModalContent({
@@ -102,7 +106,13 @@ const AdminMain = () => {
         </>
       )}
       <LoginModal setIsCheckLogin={setIsCheckLogin} isShowModal={isShowLoginModal} closeModal={closeModal} />
-      <ListModal modalContent={modalContent} isShowModal={isShowListModal} closeModal={closeModal} />
+      <ListModal
+        modalContent={modalContent}
+        isShowModal={isShowListModal}
+        closeModal={closeModal}
+        id={id}
+        type={type}
+      />
     </S.Wrapper>
   );
 };

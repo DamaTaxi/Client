@@ -1,9 +1,37 @@
 import React from 'react';
+import { useHistory } from 'react-router';
+import { requestWithAccessToken } from '../../lib/axios';
 import * as S from './styles';
 
-const ListModal = ({ modalContent, isShowModal, closeModal }) => {
-  const deleteContent = () => {};
+const ListModal = ({ modalContent, isShowModal, closeModal, id, type }) => {
+  const history = useHistory();
 
+  const deleteContent = () => {
+    switch (type) {
+      case 'error-report':
+        requestWithAccessToken('delete', `/error-report/${id}`)
+          .then((res) => {
+            console.log(res);
+            history.go(0);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        break;
+      case 'suggestion':
+        requestWithAccessToken('delete', `/suggestion/${id}`)
+          .then((res) => {
+            console.log(res);
+            history.go(0);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        break;
+      default:
+        console.log('?');
+    }
+  };
   return (
     isShowModal && (
       <>

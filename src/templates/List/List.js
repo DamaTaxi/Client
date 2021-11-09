@@ -22,10 +22,6 @@ const List = ({ getListModal, title, type }) => {
       });
   }, [pageIndex]);
 
-  useEffect(() => {
-    console.log(pageIndex);
-  }, [pageIndex]);
-
   for (let i = 0; i < totalPage; i++) {
     pageLengthArray.push(i + 1);
   }
