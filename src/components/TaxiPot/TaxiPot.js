@@ -6,8 +6,8 @@ import TaxiPotSlider from './TaxiPotSlider/TaxiPotSlider';
 import TaxiPotList from './TaxiPotList/TaxiPotList';
 
 const TaxiPot = () => {
-  return ( 
-    <>
+  return (
+    <S.TaxiPotWrapper>
       <S.Header>
         <img src={headerLogoYellow} alt="header-logo-yellow" />
         <img src={headerLineYellow} alt="header-line-yellow" />
@@ -17,7 +17,7 @@ const TaxiPot = () => {
       </S.MiddleHeaderTitle>
       <TaxiPotSlider></TaxiPotSlider>
       <TaxiPotList></TaxiPotList>
-    </>
+    </S.TaxiPotWrapper>
   );
 };
 
