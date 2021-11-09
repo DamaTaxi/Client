@@ -33,12 +33,31 @@ const TaxiPotList = () => {
   };
 
   useEffect(() => {
+    if (scrollPage === 0) {
+      getList();
+    }
+  }, [scrollPage]);
+
+  //스크롤이 맨끝인가?
+  useEffect(() => {
+    function onScroll() {
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight && isFetching === false) {
+        getList();
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  });
+
+  useEffect(() => {
     console.log(`scrollPage: ${scrollPage}`);
   }, [scrollPage]);
 
   const getList = async () => {
     setIsFetching(true);
-    await requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
+    await requestWithAccessToken('get', `/taxi-pot/?size=${2}&page=${scrollPage}`, {}, {})
       .then((res) => {
         if (res.content.length === 0) {
           console.log('비어있어요');
@@ -52,25 +71,6 @@ const TaxiPotList = () => {
       });
     setIsFetching(false);
   };
-
-  useEffect(() => {
-    if (scrollPage === 0) {
-      getList();
-    }
-  }, [scrollPage]);
-
-  //스크롤이 맨끝인가?
-  useEffect(() => {
-    function onScroll() {
-      if (window.scrollY + window.innerHeight === document.documentElement.scrollHeight && isFetching === false) {
-        getList();
-      }
-    }
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  });
 
   const taxiPotListItem = content.length ? (
     content.map((taxiPotDataArr, index) => {
