@@ -62,7 +62,7 @@ const TaxiPotList = () => {
   //스크롤이 맨끝인가?
   useEffect(() => {
     function onScroll() {
-      if (window.scrollY + window.innerHeight === document.documentElement.scrollHeight && isFetching === false) {
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight && isFetching === false) {
         getList();
       }
     }
