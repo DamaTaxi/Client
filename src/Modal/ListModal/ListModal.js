@@ -11,7 +11,7 @@ const ListModal = ({ modalContent, isShowModal, closeModal, id, type }) => {
       case 'error-report':
         requestWithAccessToken('delete', `/error-report/${id}`)
           .then((res) => {
-            console.log(res);
+            alert('게시물 삭제에 성공했습니다.');
             history.go(0);
           })
           .catch((err) => {
@@ -21,7 +21,7 @@ const ListModal = ({ modalContent, isShowModal, closeModal, id, type }) => {
       case 'suggestion':
         requestWithAccessToken('delete', `/suggestion/${id}`)
           .then((res) => {
-            console.log(res);
+            alert('게시물 삭제에 성공했습니다.');
             history.go(0);
           })
           .catch((err) => {
