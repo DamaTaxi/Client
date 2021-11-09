@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const TaxiPotWrapper = styled.div`
+  overflow-x: hidden;
+`;
+
 export const Header = styled.div`
   width: 100%;
   height: 127px;
