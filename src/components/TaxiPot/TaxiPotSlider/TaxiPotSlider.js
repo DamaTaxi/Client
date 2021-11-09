@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './styles';
+import * as S from './style';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
@@ -8,7 +8,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
-import TaxiPotPageLine from '../../TaxiPot/TaxiPotSlider/TaxiPotPageLine/TaxiPotPageLine';
+import TaxiPotPageLine from './TaxiPotPageLine/TaxiPotPageLine';
 import { requestWithAccessToken } from '../../../lib/axios';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
@@ -16,7 +16,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 //더미 데이터
 let content = [];
 
-const TaxiPotSlide = () => {
+const TaxiPotSlider = () => {
   const [current, setCurrent] = useState(0);
   const [total, setTotal] = useState(0);
   //현재 인원수 %값 알려주는 함수
@@ -133,8 +133,8 @@ const TaxiPotSlide = () => {
   );
 };
 
-TaxiPotSlide.defaultProps = {
-  swiperSliderList: [],
+TaxiPotSlider.defaultProps = {
+  content: [],
 };
 
-export default TaxiPotSlide;
+export default TaxiPotSlider;
