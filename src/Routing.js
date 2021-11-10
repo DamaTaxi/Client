@@ -8,6 +8,7 @@ import SearchKakaoMap from './components/TaxiPotDetailView/SearchKakaoMap/Search
 import UserTaxiPot from './components/TaxiPotDetailView/UserTaxiPot/UserTaxiPot';
 import AdminMain from './components/AdminMain/AdminMain';
 import UserMain from './components/UserMain/UserMain';
+import DeveloperPage from './components/DeveloperPage/DeveloperPage';
 
 const Routing = () => {
   return (
@@ -21,6 +22,7 @@ const Routing = () => {
         <Route path="/user-taxi-pot:id" exact component={UserTaxiPot} />
         <Route path="/admin-main" exact component={AdminMain} />
         <Route path="/user-main" exact component={UserMain} />
+        <Route path="/developer-information" exact component={DeveloperPage} />
       </Switch>
     </>
   );
