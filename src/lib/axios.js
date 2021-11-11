@@ -21,7 +21,7 @@ export const request = (method, url, headers, data) => {
 export const requestWithAccessToken = (method, url, headers, data) => {
   const ACCESS_TOKEN =
     'Bearer ' +
-    'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MzY0NzE4NzUsImlhdCI6MTYzNjQ2NDY3NSwic3ViIjoiaGVsbG9oZWxsb0BnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.fgHrYXHwn_OstjL-nVi_kqHfd2osNU-gVfbO0a-gZZwED6FyiutXGJkmcKxHjn8Glf_v9eCj_fRlmK0Xf5X_uw';
+    'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MzY2MzY2ODIsImlhdCI6MTYzNjYyOTQ4Miwic3ViIjoiaGVsbG9oZWxsb0BnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIn0.NwnTVxcOCLZuwk9chY_v6jmqqAleoDgeC8kMuBA1923mQArKXSNTjfNYnkCpVBgdbiTBNIyVTYVuJnFCdeJCLA';
   /* const ACCESS_TOKEN = 'Bearer ' + localStorage.getItem('accessToken'); */
   return axios({
     method,
