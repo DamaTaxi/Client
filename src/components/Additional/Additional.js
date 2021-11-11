@@ -3,7 +3,7 @@ import * as S from './styles';
 import Developer from '../../assets/images/developer_information.svg';
 import Error from '../../assets/images/error_report.svg';
 import Suggestion from '../../assets/images/suggestion.svg';
-import ReportModal from '../../modal/ReportModal/ReportModal';
+import ReportModal from '../../Modal/ReportModal/ReportModal';
 import { useHistory } from 'react-router';
 
 const Additional = () => {
@@ -59,8 +59,18 @@ const Additional = () => {
           <p>대마택시에 추가되었으면 하는 기능</p>
         </S.MenuButton>
       </S.Content>
-      <ReportModal contentTexts={contentTexts[0]} isShowModal={isShowSuggestionModal} closeModal={closeModal} />
-      <ReportModal contentTexts={contentTexts[1]} isShowModal={isShowReportModal} closeModal={closeModal} />
+      <ReportModal
+        contentTexts={contentTexts[0]}
+        isShowModal={isShowSuggestionModal}
+        closeModal={closeModal}
+        type="report"
+      />
+      <ReportModal
+        contentTexts={contentTexts[1]}
+        isShowModal={isShowReportModal}
+        closeModal={closeModal}
+        type="suggestion"
+      />
     </S.Wrapper>
   );
 };

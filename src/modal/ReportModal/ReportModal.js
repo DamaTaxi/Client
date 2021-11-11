@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 
-const ReportModal = ({ contentTexts, isShowModal, closeModal }) => {
+const ReportModal = ({ isShowModal, contentTexts, closeModal }) => {
   return (
     isShowModal && (
       <>
