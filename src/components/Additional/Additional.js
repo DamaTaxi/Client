@@ -3,7 +3,7 @@ import * as S from './styles';
 import Developer from '../../assets/images/developer_information.svg';
 import Error from '../../assets/images/error_report.svg';
 import Suggestion from '../../assets/images/suggestion.svg';
-import ReportModal from '../../modal/ReportModal/Modal';
+import ReportModal from '../../modal/ReportModal/ReportModal';
 import { useHistory } from 'react-router';
 
 const Additional = () => {
