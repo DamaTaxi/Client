@@ -25,7 +25,8 @@ export const Graphs = styled.div`
     width: 100px;
   }
 
-  & div span {
+  & div span,
+  p {
     width: 100px;
     text-align: center;
     position: absolute;
@@ -47,7 +48,7 @@ export const Graphs = styled.div`
     color: white;
   }
 
-  & div span:last-child {
+  & div p {
     width: 180px;
     position: absolute;
     left: -40px;
