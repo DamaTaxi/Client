@@ -3,12 +3,10 @@ import * as S from './styles';
 import Background from '../../assets/images/taxi_background.jpg';
 import Arrow from '../../assets/images/graph_arrow.svg';
 
-const RecentTaxi = () => {
-  const all = 8;
-  const reserved = 2;
-  const gathering = all - reserved;
+const RecentTaxi = ({ all, reserve }) => {
+  const gathering = all - reserve;
   const allPercent = all <= 0 ? 0 : 100;
-  const reservedPercent = all <= 0 ? 0 : Math.round((reserved / all) * 100);
+  const reservedPercent = all <= 0 ? 0 : Math.round((reserve / all) * 100);
   const gatheringPercent = allPercent - reservedPercent;
 
   return (
@@ -18,18 +16,18 @@ const RecentTaxi = () => {
           <S.All height={allPercent}>
             <span>{all}개</span>
             {allPercent > 0 && <span>{allPercent}%</span>}
-            <span>모든 택시 팟</span>
+            <p>모든 택시 팟</p>
           </S.All>
           <S.Reserved height={reservedPercent}>
-            <span>{reserved}개</span>
+            <span>{reserve}개</span>
             {reservedPercent > 0 && <span>{reservedPercent}%</span>}
-            <span>예약 완료</span>
+            <p>예약 완료</p>
           </S.Reserved>
           <S.Gathering height={gatheringPercent} bottom={reservedPercent}>
             <span>{gathering}개</span>
             {gatheringPercent > 0 && <span>{gatheringPercent}%</span>}
             <img src={Arrow} alt="" />
-            <span>모집 중</span>
+            <p>모집 중</p>
           </S.Gathering>
         </S.Graphs>
         <S.BottomBar />

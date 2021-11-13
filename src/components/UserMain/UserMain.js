@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Background from '../../templates/Background/Background';
 import * as S from './styles';
 import UpToggle from '../../assets/images/up_toggle.svg';
@@ -8,9 +8,24 @@ import MyPage from '../MyPage/MyPage';
 import Additional from '../Additional/Additional';
 import Footer from '../Footer/Footer';
 import TaxiPotPreview from '../TaxiPotPreview/TaxiPotPreview';
+import { request } from '../../lib/axios';
+import useLocalStorage from '../../hook/useLocalStorage';
 
 const UserMain = () => {
-  const [isUserLogin, setIsUserLogin] = useState(true);
+  const [isUserLogin, setIsUserLogin] = useLocalStorage('isUserLogin', false);
+  const [all, setAll] = useState(0);
+  const [reserve, setReserve] = useState(0);
+
+  useEffect(() => {
+    request('get', '/taxi-pot/info')
+      .then((res) => {
+        setAll(res.all);
+        setReserve(res.reserve);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
 
   const toTopPage = () => {
     window.scrollTo({
@@ -47,12 +62,32 @@ const UserMain = () => {
     }
   };
 
+  const login = () => {
+    request('post', '/login/test')
+      .then((res) => {
+        alert('로그인에 성공했습니다.');
+        setIsUserLogin(true);
+        localStorage.setItem('accessToken', res['accessToken']);
+        localStorage.setItem('refreshToken', res['refreshToken']);
+      })
+      .catch((err) => {
+        alert('로그인에 실패했습니다.');
+        throw err;
+      });
+  };
+
+  const logout = () => {
+    alert('로그아웃에 성공했습니다.');
+    setIsUserLogin(false);
+    localStorage.clear();
+  };
+
   const HeaderRightTag = (
     <S.HeaderRightWrapper>
       <button onClick={toTaxiPot}>택시 팟</button>
       {isUserLogin && <button onClick={toMyPage}>마이페이지</button>}
       <button onClick={toAdditional}>부가 기능</button>
-      {isUserLogin ? <button>LOGOUT</button> : <button>LOGIN</button>}
+      {isUserLogin ? <button onClick={logout}>LOGOUT</button> : <button onClick={login}>LOGIN</button>}
     </S.HeaderRightWrapper>
   );
 
@@ -79,7 +114,7 @@ const UserMain = () => {
   return (
     <S.Wrapper>
       <Background HeaderRightTag={HeaderRightTag} BottomLeftTag={BottomLeftTag} AsideToggleTag={AsideToggleTag} />
-      <RecentTaxi />
+      <RecentTaxi all={all} reserve={reserve} />
       <TaxiPotPreview />
       {isUserLogin && <MyPage />}
       <Additional />

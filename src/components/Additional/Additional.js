@@ -59,8 +59,18 @@ const Additional = () => {
           <p>대마택시에 추가되었으면 하는 기능</p>
         </S.MenuButton>
       </S.Content>
-      <ReportModal contentTexts={contentTexts[0]} isShowModal={isShowSuggestionModal} closeModal={closeModal} />
-      <ReportModal contentTexts={contentTexts[1]} isShowModal={isShowReportModal} closeModal={closeModal} />
+      <ReportModal
+        contentTexts={contentTexts[0]}
+        isShowModal={isShowSuggestionModal}
+        closeModal={closeModal}
+        type="report"
+      />
+      <ReportModal
+        contentTexts={contentTexts[1]}
+        isShowModal={isShowReportModal}
+        closeModal={closeModal}
+        type="suggestion"
+      />
     </S.Wrapper>
   );
 };

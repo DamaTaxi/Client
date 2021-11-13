@@ -7,7 +7,7 @@ export const Background = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 10;
 `;
 
 export const ModalContainer = styled.div`
@@ -26,7 +26,7 @@ export const ModalContainer = styled.div`
   padding: 40px 50px;
   background: #fff;
   border-radius: 30px;
-  z-index: 2;
+  z-index: 11;
 
   & span {
     font-size: 50px;
