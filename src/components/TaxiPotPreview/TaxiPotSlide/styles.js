@@ -5,8 +5,6 @@ import slideYellowBox from '../../../assets/images/TaxiPot/slide-yellow-box.png'
 import slideGrayBox from '../../../assets/images/TaxiPot/slide-gray-box.png';
 import SlideSection from '../../../assets/images/TaxiPot/slider-section.png';
 
-
-
 export const TaxiPotSlideBox = styled.div`
   position: relative;
   width: 100%;
