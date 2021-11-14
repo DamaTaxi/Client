@@ -134,7 +134,7 @@ const TaxiPotSlide = () => {
 };
 
 TaxiPotSlide.defaultProps = {
-  swiperSliderList: [],
+  content: [],
 };
 
 export default TaxiPotSlide;
