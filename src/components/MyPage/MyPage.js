@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 import Modify from '../../assets/images/modify.svg';
+import CreateKakaoMap from '../../templates/CreateKakaoMap/CreateKakaoMap';
 
 const MyPage = () => {
   return (
@@ -46,7 +47,7 @@ const MyPage = () => {
             <span>예상가격: 10,000원</span>
             <span>현재 인원 수 : 2/4</span>
           </S.LeftBox>
-          <S.KakaoMap src="" alt="" />
+          <CreateKakaoMap /* lat={latitude} lng={longitude} */ width={`400px`} height={`216px`}></CreateKakaoMap>
         </S.Content>
       </S.TaxiPotContainer>
     </S.Wrapper>
