@@ -74,13 +74,7 @@ const UserTaxiPot = () => {
         }, 1000);
       })
       .catch((err) => {
-        switch (err.response.status) {
-          case 401:
-            alert('이미 신청하였거나 택시팟을 만들었습니다');
-            break;
-          default:
-            throw err.response;
-        }
+        console.log(err);
       });
   }
 
