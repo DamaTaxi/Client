@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 import TaxiPotSlide from './TaxiPotSlide/TaxiPotSlide';
+import { Link } from 'react-router-dom';
 
 const TaxiPotPreview = () => {
   return (
@@ -11,11 +12,15 @@ const TaxiPotPreview = () => {
       </S.MiddleHeaderTitle>
       <TaxiPotSlide />
       <S.ButtonContainer>
-        <S.MakeTaxiPotButton>
-          <p>+</p>
-          <p>택시 팟 만들기</p>
-        </S.MakeTaxiPotButton>
-        <S.ToTaxiPotPage>택시팟 페이지로 이동</S.ToTaxiPotPage>
+        <Link to="/make-taxi-pot">
+          <S.MakeTaxiPotButton>
+            <p>+</p>
+            <p>택시 팟 만들기</p>
+          </S.MakeTaxiPotButton>
+        </Link>
+        <S.ToTaxiPotPage>
+          <Link to="taxi-pot">택시팟 페이지로 이동</Link>
+        </S.ToTaxiPotPage>
       </S.ButtonContainer>
     </>
   );
