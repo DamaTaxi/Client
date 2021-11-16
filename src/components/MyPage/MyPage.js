@@ -1,16 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 import Modify from '../../assets/images/modify.svg';
 import CreateKakaoMap from '../../templates/CreateKakaoMap/CreateKakaoMap';
+import { requestWithAccessToken, request } from '../../../src/lib/axios';
+import { Link } from 'react-router-dom';
 
 const MyPage = () => {
+  const [myPageApiData, setMyPageApiData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const { gcn, name, tel, email, latitude, longitude, potId } = myPageApiData;
+
+  console.log(myPageApiData);
+
+  useEffect(() => {
+    getMypageInfo();
+  }, []);
+
+  useEffect(() => {
+    getSignUpData();
+  }, [isLoading]);
+
+  const getMypageInfo = () => {
+    requestWithAccessToken('get', `/mypage`, {}, {})
+      .then((res) => {
+        setMyPageApiData(res);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getSignUpData = () => {
+    if (typeof potId === 'undefined') {
+      setIsLoading(false);
+    } else {
+      if (potId === null) {
+        console.log('예약된 팟이 없습니다.');
+      } else {
+        request('get', `/mypage/taxi-pot/${potId}`, {}, {})
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+  };
+
   return (
     <S.Wrapper>
-      <S.UserName>2110 권민정</S.UserName>
+      <S.UserName>
+        {gcn} {name}
+      </S.UserName>
       <S.NumberContainer>
         <S.Title>전화번호</S.Title>
         <S.Content>
-          <div>010-2809-3338</div>
+          <div>{typeof tel === 'undefined' ? '' : tel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)}</div>
           <S.ModifyBox>
             <img src={Modify} alt="" />
             <span>수정</span>
@@ -20,7 +67,7 @@ const MyPage = () => {
       <S.EmailContainer>
         <S.Title>이메일</S.Title>
         <S.Content>
-          <div>kodohyeon71@gmail.com</div>
+          <div>{email}</div>
           <S.ModifyBox>
             <img src={Modify} alt="" />
             <span>수정</span>
@@ -39,16 +86,27 @@ const MyPage = () => {
       </S.PlaceContainer>
       <S.TaxiPotContainer>
         <S.Title>현재 예약된 팟</S.Title>
-        <S.Content>
-          <S.LeftBox>
-            <p>둔산동 꿀잼동전노래연습장</p>
-            <span>대상자: 2학년</span>
-            <span>km: 9.8km</span>
-            <span>예상가격: 10,000원</span>
-            <span>현재 인원 수 : 2/4</span>
-          </S.LeftBox>
-          <CreateKakaoMap /* lat={latitude} lng={longitude} */ width={`400px`} height={`216px`}></CreateKakaoMap>
-        </S.Content>
+        {potId === null ? (
+          <Link className="isNull">현재 예약된 팟이 없습니다.</Link>
+        ) : (
+          <Link
+            to={{
+              pathname: `sign-taxi-pot${potId}`,
+              state: {
+                id: potId,
+              },
+            }}
+          >
+            <S.LeftBox>
+              <p>둔산동 꿀잼동전노래연습장</p>
+              <span>대상자: 2학년</span>
+              <span>km: 9.8km</span>
+              <span>예상가격: 10,000원</span>
+              <span>현재 인원 수 : 2/4</span>
+            </S.LeftBox>
+            <CreateKakaoMap lat={latitude} lng={longitude} width={`400px`} height={`216px`}></CreateKakaoMap>
+          </Link>
+        )}
       </S.TaxiPotContainer>
     </S.Wrapper>
   );
