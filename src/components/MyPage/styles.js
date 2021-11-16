@@ -26,21 +26,42 @@ export const EmailContainer = styled(NumberContainer)``;
 
 export const PlaceContainer = styled(NumberContainer)``;
 
-export const TaxiPotContainer = styled(NumberContainer)`
-  height: 350px;
-`;
-
-export const Title = styled.p`
-  width: 30%;
+export const TaxiPotContainer = styled.div`
+  width: 70%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #ffc044;
-  color: white;
-  font-size: 36px;
-  font-family: 'NotoSansKR';
-  font-weight: bold;
-  border-radius: 20px 0 0 20px;
+  margin-bottom: 25px;
+  height: 350px;
+  .isNull {
+    font-family: 'DoHyeon';
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+  }
+  a {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    border: 3px solid #ffc044;
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: #000;
+    }
+
+    & div {
+      display: flex;
+      align-items: center;
+      font-family: 'DoHyeon';
+      font-size: 36px;
+      font-weight: 400;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -58,6 +79,19 @@ export const Content = styled.div`
     font-size: 36px;
     font-weight: 400;
   }
+`;
+
+export const Title = styled.p`
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc044;
+  color: white;
+  font-size: 36px;
+  font-family: 'NotoSansKR';
+  font-weight: bold;
+  border-radius: 20px 0 0 20px;
 `;
 
 export const ModifyBox = styled.div`
