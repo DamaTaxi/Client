@@ -31,7 +31,16 @@ export const ButtonContainer = styled.div`
   padding: 0px 120px;
   margin-top: 100px;
   margin-bottom: 200px;
-
+  & a {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+  }
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: #fff;
+  }
   & div {
     width: 320px;
     height: 70px;
@@ -63,4 +72,14 @@ export const MakeTaxiPotButton = styled.div`
 export const ToTaxiPotPage = styled.div`
   font-size: 30px;
   font-weight: bold;
+  a {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+  }
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: #fff;
+  }
 `;
