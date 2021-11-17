@@ -9,8 +9,8 @@ const MyPage = () => {
   const [myPageApiData, setMyPageApiData] = useState({});
   const [myTaxiApiData, setMyTaxiApiData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { gcn, name, tel, email, latitude, longitude, potId } = myPageApiData;
-  const { title, target, reserve, all, meetingAt } = myTaxiApiData;
+  const { gcn, name, tel, email, potId } = myPageApiData;
+  const { title, target, reserve, all, meetingAt, latitude, longitude } = myTaxiApiData;
 
   console.log(myPageApiData);
 
