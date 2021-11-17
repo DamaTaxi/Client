@@ -123,7 +123,7 @@ const MyPage = () => {
               </span>
               <span>날짜와 시간 : {meetingAt}</span>
             </S.LeftBox>
-            <CreateKakaoMap lat={latitude} lng={longitude} width={`400px`} height={`216px`}></CreateKakaoMap>
+            <CreateKakaoMap lat={36.32782} lng={127.427272} width={`400px`} height={`216px`}></CreateKakaoMap>
           </Link>
         )}
       </S.TaxiPotContainer>
