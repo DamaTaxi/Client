@@ -31,7 +31,6 @@ const UserMain = () => {
     if (localStorage.getItem('code')) {
       request('post', '/login/test')
         .then((res) => {
-          alert('로그인에 성공했습니다.');
           setIsUserLogin(true);
           localStorage.setItem('accessToken', res['accessToken']);
           localStorage.setItem('refreshToken', res['refreshToken']);
@@ -41,7 +40,7 @@ const UserMain = () => {
           throw err;
         });
     }
-  });
+  }, []);
 
   const toTopPage = () => {
     window.scrollTo({
