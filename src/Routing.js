@@ -10,6 +10,7 @@ import AdminMain from './components/AdminMain/AdminMain';
 import UserMain from './components/UserMain/UserMain';
 import DeveloperPage from './components/DeveloperPage/DeveloperPage';
 import SignUpTaxiPot from './components/TaxiPotDetailView/SignUpTaxiPot/SignUpTaxiPot';
+import Callback from './components/Callback/Callback';
 
 const Routing = () => {
   return (
@@ -25,6 +26,7 @@ const Routing = () => {
         <Route path="/admin-main" exact component={AdminMain} />
         <Route path="/user-main" exact component={UserMain} />
         <Route path="/developer-information" exact component={DeveloperPage} />
+        <Route path="/callback" exact component={Callback} />
       </Switch>
     </>
   );

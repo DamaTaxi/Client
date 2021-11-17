@@ -7,6 +7,10 @@ export const HeaderRightWrapper = styled.div`
   gap: 30px;
   margin: 120 0 0 120;
 
+  & a {
+    z-index: 1;
+  }
+
   & button {
     width: 240px;
     height: 70px;
