@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom';
 
 const MyPage = () => {
   const [myPageApiData, setMyPageApiData] = useState({});
+  const [myTaxiApiData, setMyTaxiApiData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { gcn, name, tel, email, latitude, longitude, potId } = myPageApiData;
+  const { title, target, reserve, all, meetingAt } = myTaxiApiData;
 
   console.log(myPageApiData);
 
@@ -38,14 +40,30 @@ const MyPage = () => {
       if (potId === null) {
         console.log('예약된 팟이 없습니다.');
       } else {
-        request('get', `/mypage/taxi-pot/${potId}`, {}, {})
+        requestWithAccessToken('get', `/mypage/taxi-pot`, {}, {})
           .then((res) => {
             console.log(res);
+            setMyTaxiApiData(res);
           })
           .catch((err) => {
             console.log(err);
           });
       }
+    }
+  };
+
+  const targetFunc = (target) => {
+    switch (target) {
+      case 'FRESHMAN':
+        return '1학년';
+      case 'SOPHOMORE':
+        return '2학년';
+      case 'SENIOR':
+        return '3학년';
+      case 'ALL':
+        return '전체';
+      default:
+        break;
     }
   };
 
@@ -98,11 +116,12 @@ const MyPage = () => {
             }}
           >
             <S.LeftBox>
-              <p>둔산동 꿀잼동전노래연습장</p>
-              <span>대상자: 2학년</span>
-              <span>km: 9.8km</span>
-              <span>예상가격: 10,000원</span>
-              <span>현재 인원 수 : 2/4</span>
+              <p>{title}</p>
+              <span>대상자: {targetFunc(target)}</span>
+              <span>
+                현재 인원 수 : {reserve}/{all}
+              </span>
+              <span>날짜와 시간 : {meetingAt}</span>
             </S.LeftBox>
             <CreateKakaoMap lat={latitude} lng={longitude} width={`400px`} height={`216px`}></CreateKakaoMap>
           </Link>
