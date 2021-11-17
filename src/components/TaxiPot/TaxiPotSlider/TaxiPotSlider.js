@@ -70,7 +70,7 @@ const TaxiPotSlider = () => {
   //슬라이더 리스트 map 함수
   const SwiperSlideList = content.length
     ? content.map((content, index) => {
-        const { title, target, reserve, all, latitude, longitude, id } = content;
+        const { title, target, reserve, all, latitude, longitude, id,address } = content;
         return (
           <SwiperSlide key={index}>
             <Link
@@ -93,7 +93,7 @@ const TaxiPotSlider = () => {
               <>
                 <div className="slideSection">
                   <h1>{title}</h1>
-                  <p>주소 : 대전 중구 중구보건소</p>
+                  <p>주소 : {address}</p>
                   <p>대상자 : {targetFunc(target)}</p>
                   <GraphContainer reserve={reserve} all={all} left={40} width={118} height={20} marginTop={11} />
                 </div>

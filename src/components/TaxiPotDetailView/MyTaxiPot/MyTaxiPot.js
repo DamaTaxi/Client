@@ -19,7 +19,7 @@ const MyTaxiPot = () => {
   /* const data = location.state; */
   const data = { id: 2 };
 
-  const { adress, all, content, creator, latitude, longitude, meetingAt, place, target, reserve, title } =
+  const { address, all, content, creator, latitude, longitude, meetingAt, place, target, reserve, title } =
     userTaxiPotData;
 
   const memberListMap = memberList.length
@@ -95,7 +95,7 @@ const MyTaxiPot = () => {
                 <h1>{title}</h1>
               </div>
               <S.LeftAsideSection>
-                <p>주소 : {adress}</p>
+                <p>주소 : {address}</p>
                 <p>대상자 : {targetFunc(target)}</p>
                 <GraphContainer reserve={reserve} all={all} width={244} left={45} height={22} />
                 <p>날짜와 시간 : {meetingAt}</p>

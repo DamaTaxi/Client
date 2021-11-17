@@ -38,8 +38,9 @@ const TaxiPotList = () => {
 
   const getList = async () => {
     setIsFetching(true);
-    await requestWithAccessToken('get', `/taxi-pot/?size=${4}&page=${scrollPage}`, {}, {})
+    await requestWithAccessToken('get', `/taxi-pot/?size=${1}&page=${scrollPage}`, {}, {})
       .then((res) => {
+        console.log(res);
         if (res.content.length === 0) {
           console.log('비어있어요');
         } else {
@@ -74,7 +75,7 @@ const TaxiPotList = () => {
 
   const taxiPotListItem = content.length ? (
     content.map((taxiPotDataArr, index) => {
-      const { title, meetingAt, place, all, reserve, createdAt, target, creator, adress, id } = taxiPotDataArr;
+      const { title, meetingAt, place, all, reserve, createdAt, target, creator, address, id } = taxiPotDataArr;
       return (
         <Link
           to={{
@@ -98,7 +99,7 @@ const TaxiPotList = () => {
               </S.FirstFloorWrapper>
               <S.SecondFloorWrapper>
                 <p>대상자 : {targetFunc(target)}</p>
-                <p>주소 : {adress}</p>
+                <p>주소 : {address}</p>
                 <p>날짜와 시간: {meetingAt}</p>
               </S.SecondFloorWrapper>
             </div>
