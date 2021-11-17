@@ -114,6 +114,7 @@ export const LeftBox = styled.div`
 
   & p {
     margin-bottom: 120px;
+    align-self: flex-start;
   }
 
   & span {
