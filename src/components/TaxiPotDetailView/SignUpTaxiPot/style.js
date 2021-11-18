@@ -32,7 +32,7 @@ export const TaxiPotLogo = styled.div`
 `;
 
 export const TaxiPotArticle = styled.form`
-  margin-top: 35px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
 `;

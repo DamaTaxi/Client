@@ -53,6 +53,7 @@ export const TaxiPotArticle = styled.article`
 export const TaxiPotForm = styled.form`
   width: 100%;
   height: 640px;
+  margin-top: 50px;
   background-color: #ffffff;
   border-radius: 40px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 16%);
