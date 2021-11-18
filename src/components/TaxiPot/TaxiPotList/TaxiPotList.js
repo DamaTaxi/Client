@@ -38,7 +38,7 @@ const TaxiPotList = () => {
 
   const getList = async () => {
     setIsFetching(true);
-    await requestWithAccessToken('get', `/taxi-pot/?size=${1}&page=${scrollPage}`, {}, {})
+    await requestWithAccessToken('get', `/taxi-pot/?size=${3}&page=${scrollPage}`, {}, {})
       .then((res) => {
         console.log(res);
         if (res.content.length === 0) {
