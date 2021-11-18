@@ -5,8 +5,8 @@ import ErrorReport from '../../assets/images/error_report.svg';
 import Suggestion from '../../assets/images/suggestion.svg';
 import UpToggle from '../../assets/images/up_toggle.svg';
 import List from '../../templates/List/List';
-import LoginModal from '../../modal/LoginModal/LoginModal';
-import ListModal from '../../modal/ListModal/ListModal';
+import LoginModal from '../../Modal/LoginModal/LoginModal';
+import ListModal from '../../Modal/ListModal/ListModal';
 import UseLocalStorage from '../../templates/UseLocalStorage/UseLocalStorage';
 import { requestWithAccessToken } from '../../lib/axios';
 

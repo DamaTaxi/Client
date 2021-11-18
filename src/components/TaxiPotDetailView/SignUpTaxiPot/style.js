@@ -67,7 +67,7 @@ export const LeftAside = styled.aside`
     margin-top: 16px;
     width: 460px;
     h1 {
-      font-size: 38px;
+      font-size: 34px;
       border-bottom: solid 6px #ffc044;
       font-family: 'DoHyeon';
       margin-right: 23px;
