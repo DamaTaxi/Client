@@ -43,7 +43,7 @@ export const TaxiPotContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 40px;
     border: 3px solid #ffc044;
     color: #000;
     text-decoration: none;
