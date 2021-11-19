@@ -11,6 +11,7 @@ import UserMain from './components/UserMain/UserMain';
 import DeveloperPage from './components/DeveloperPage/DeveloperPage';
 import SignUpTaxiPot from './components/TaxiPotDetailView/SignUpTaxiPot/SignUpTaxiPot';
 import Callback from './components/Callback/Callback';
+import SignUpPage from './components/SignUp/SignUpPage';
 
 const Routing = () => {
   return (
@@ -25,6 +26,7 @@ const Routing = () => {
         <Route path="/sign-taxi-pot:id" exact component={SignUpTaxiPot} />
         <Route path="/admin-main" exact component={AdminMain} />
         <Route path="/user-main" exact component={UserMain} />
+        <Route path="/sign-up" exact component={SignUpPage} />
         <Route path="/developer-information" exact component={DeveloperPage} />
         <Route path="/callback" exact component={Callback} />
       </Switch>
