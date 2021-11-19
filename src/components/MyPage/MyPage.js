@@ -75,7 +75,7 @@ const MyPage = () => {
       <S.NumberContainer>
         <S.Title>전화번호</S.Title>
         <S.Content>
-          <div>{typeof tel === 'undefined' ? '' : tel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)}</div>
+          <div>{tel && tel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)}</div>
           <S.ModifyBox>
             <img src={Modify} alt="" />
             <span>수정</span>
