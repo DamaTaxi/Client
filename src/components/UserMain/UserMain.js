@@ -10,11 +10,13 @@ import Footer from '../Footer/Footer';
 import TaxiPotPreview from '../TaxiPotPreview/TaxiPotPreview';
 import { request } from '../../lib/axios';
 import useLocalStorage from '../../hook/useLocalStorage';
+import { useHistory } from 'react-router';
 
 const UserMain = () => {
-  const [isUserLogin, setIsUserLogin] = useLocalStorage('isUserLogin', false);
+  const isUserLogin = localStorage.getItem('isUserLogin');
   const [all, setAll] = useState(0);
   const [reserve, setReserve] = useState(0);
+  const { push } = useHistory();
 
   useEffect(() => {
     request('get', '/taxi-pot/info')
@@ -25,21 +27,6 @@ const UserMain = () => {
       .catch((err) => {
         throw err;
       });
-  }, []);
-
-  useEffect(() => {
-    if (localStorage.getItem('code')) {
-      request('post', '/login/test')
-        .then((res) => {
-          setIsUserLogin(true);
-          localStorage.setItem('accessToken', res['accessToken']);
-          localStorage.setItem('refreshToken', res['refreshToken']);
-        })
-        .catch((err) => {
-          alert('로그인에 실패했습니다.');
-          throw err;
-        });
-    }
   }, []);
 
   const toTopPage = () => {
@@ -77,12 +64,10 @@ const UserMain = () => {
     }
   };
 
-  const login = () => {};
-
   const logout = () => {
     alert('로그아웃에 성공했습니다.');
-    setIsUserLogin(false);
     localStorage.clear();
+    push(0);
   };
 
   const HeaderRightTag = (
@@ -94,7 +79,7 @@ const UserMain = () => {
         <button onClick={logout}>LOGOUT</button>
       ) : (
         <a href="https://dsm-auth.vercel.app/external/login?redirect_url=http://127.0.0.1:3000/callback&client_id=bc9cad9475bf475ba24c9d3b31af6e6c">
-          <button onClick={login}>LOGIN</button>
+          <button>LOGIN</button>
         </a>
       )}
     </S.HeaderRightWrapper>
