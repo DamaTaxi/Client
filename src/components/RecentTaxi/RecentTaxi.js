@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './styles';
 import Background from '../../assets/images/taxi_background.jpg';
 import Arrow from '../../assets/images/graph_arrow.svg';
+import { Link } from 'react-router-dom';
 
 const RecentTaxi = ({ all, reserve }) => {
   const gathering = all - reserve;
@@ -37,7 +38,9 @@ const RecentTaxi = ({ all, reserve }) => {
         <div>
           <span>앗 놓치겠다! 택시 팟!</span>
           <span>모집 중인 택시 팟을 신청하러 갑시다</span>
-          <button>택시 팟 페이지로 이동</button>
+          <button>
+            <Link to="/taxi-pot">택시 팟 페이지로 이동</Link>
+          </button>
         </div>
       </S.ImageContainer>
     </S.Wrapper>

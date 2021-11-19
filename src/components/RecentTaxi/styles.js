@@ -115,6 +115,11 @@ export const ImageContainer = styled.div`
     background-color: rgba(255, 255, 255, 0.77);
   }
 
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+
   & span,
   & button {
     font-family: 'NotoSansKR';
