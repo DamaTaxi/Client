@@ -12,7 +12,7 @@ const SignUpPage = () => {
   const location = useLocation();
   const data = location.state;
 
-  console.log(inputData);
+  console.log(data);
 
   const blankCheck = (values) => {
     return values.some((ele) => {
