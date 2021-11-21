@@ -1,20 +1,47 @@
 import React from 'react';
+import { useHistory } from 'react-router';
+import { requestWithAccessToken } from '../../lib/axios';
 import * as S from './styles';
 
-const ListModal = ({ ModalContent, isShowModal, closeModal }) => {
+const ListModal = ({ modalContent, isShowModal, closeModal, id, type }) => {
+  const history = useHistory();
+
+  const deleteContent = () => {
+    switch (type) {
+      case 'error-report':
+        requestWithAccessToken('delete', `/error-report/${id}`)
+          .then((res) => {
+            alert('게시물 삭제에 성공했습니다.');
+            history.go(0);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        break;
+      case 'suggestion':
+        requestWithAccessToken('delete', `/suggestion/${id}`)
+          .then((res) => {
+            alert('게시물 삭제에 성공했습니다.');
+            history.go(0);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        break;
+      default:
+        console.log('?');
+    }
+  };
   return (
     isShowModal && (
       <>
         <S.Background onClick={closeModal} />
         <S.ModalContainer>
-          <span>택시팟이 안 만들어져요 ㅠㅠ</span>
-          <S.ContentContainer>
-            입력칸 다 채우고 생성 버튼 눌렀는데도 제가 만든 팟이 안 보이네요 ㅠㅠ 오류 고쳐주세요!! 저 제주도
-            가야합니다.
-          </S.ContentContainer>
+          <span>{modalContent.title}</span>
+          <S.ContentContainer>{modalContent.content}</S.ContentContainer>
           <S.ButtonContainer>
             <button onClick={closeModal}>확인</button>
-            <button>삭제</button>
+            <button onClick={deleteContent}>삭제</button>
           </S.ButtonContainer>
         </S.ModalContainer>
       </>

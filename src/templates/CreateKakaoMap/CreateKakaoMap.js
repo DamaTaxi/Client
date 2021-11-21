@@ -17,7 +17,7 @@ const CreateKakaoMap = (props) => {
 
   return (
     <div>
-      <div className="map" style={{ width: width, height: height, borderRadius: '31px ' }} ref={container}></div>
+      <div className="map" style={{ width: width, height: height }} ref={container}></div>
     </div>
   );
 };
