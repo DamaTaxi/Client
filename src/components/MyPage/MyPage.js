@@ -9,7 +9,7 @@ const MyPage = () => {
   const [myPageApiData, setMyPageApiData] = useState({});
   const [myTaxiApiData, setMyTaxiApiData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { gcn, name, tel, email, potId } = myPageApiData;
+  const { gcn, name, tel, email, potId, address } = myPageApiData;
   const { title, target, reserve, all, meetingAt, latitude, longitude } = myTaxiApiData;
 
   console.log(myPageApiData);
@@ -95,7 +95,7 @@ const MyPage = () => {
       <S.PlaceContainer>
         <S.Title>자주 가는 곳</S.Title>
         <S.Content>
-          <div>대전광역시 유성구 가정북로 76</div>
+          <div>{address}</div>
           <S.ModifyBox>
             <img src={Modify} alt="" />
             <span>수정</span>
