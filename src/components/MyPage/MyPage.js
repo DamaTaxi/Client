@@ -56,7 +56,7 @@ const MyPage = () => {
 
   const goModify = () => {
     setTimeout(() => {
-      history.push('/sign-up');
+      history.push({ pathname: '/sign-up' });
     }, 100);
   };
 
