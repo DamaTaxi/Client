@@ -3,7 +3,7 @@ import * as S from './styles';
 import Modify from '../../assets/images/modify.svg';
 import CreateKakaoMap from '../../templates/CreateKakaoMap/CreateKakaoMap';
 import { requestWithAccessToken, request } from '../../../src/lib/axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const MyPage = () => {
   const [myPageApiData, setMyPageApiData] = useState({});
@@ -13,6 +13,8 @@ const MyPage = () => {
   const { title, target, reserve, all, meetingAt, latitude, longitude } = myTaxiApiData;
 
   console.log(myPageApiData);
+
+  const history = useHistory();
 
   useEffect(() => {
     getMypageInfo();
@@ -52,6 +54,12 @@ const MyPage = () => {
     }
   };
 
+  const goModify = () => {
+    setTimeout(() => {
+      history.push('/sign-up');
+    }, 100);
+  };
+
   const targetFunc = (target) => {
     switch (target) {
       case 'FRESHMAN':
@@ -76,7 +84,7 @@ const MyPage = () => {
         <S.Title>전화번호</S.Title>
         <S.Content>
           <div>{tel && tel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)}</div>
-          <S.ModifyBox>
+          <S.ModifyBox onClick={goModify}>
             <img src={Modify} alt="" />
             <span>수정</span>
           </S.ModifyBox>
@@ -86,7 +94,7 @@ const MyPage = () => {
         <S.Title>이메일</S.Title>
         <S.Content>
           <div>{email}</div>
-          <S.ModifyBox>
+          <S.ModifyBox onClick={goModify}>
             <img src={Modify} alt="" />
             <span>수정</span>
           </S.ModifyBox>
@@ -96,7 +104,7 @@ const MyPage = () => {
         <S.Title>자주 가는 곳</S.Title>
         <S.Content>
           <div>{address}</div>
-          <S.ModifyBox>
+          <S.ModifyBox onClick={goModify}>
             <img src={Modify} alt="" />
             <span>수정</span>
           </S.ModifyBox>
