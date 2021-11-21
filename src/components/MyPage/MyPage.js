@@ -56,7 +56,7 @@ const MyPage = () => {
 
   const goModify = () => {
     setTimeout(() => {
-      history.push({ pathname: '/sign-up' });
+      history.push({ pathname: '/signup' });
     }, 100);
   };
 
@@ -94,10 +94,6 @@ const MyPage = () => {
         <S.Title>이메일</S.Title>
         <S.Content>
           <div>{email}</div>
-          <S.ModifyBox onClick={goModify}>
-            <img src={Modify} alt="" />
-            <span>수정</span>
-          </S.ModifyBox>
         </S.Content>
       </S.EmailContainer>
       <S.PlaceContainer>

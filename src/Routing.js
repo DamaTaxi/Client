@@ -26,7 +26,7 @@ const Routing = () => {
         <Route path="/sign-taxi-pot:id" exact component={SignUpTaxiPot} />
         <Route path="/admin-main" exact component={AdminMain} />
         <Route path="/user-main" exact component={UserMain} />
-        <Route path="/sign-up" exact component={SignUpPage} />
+        <Route path="/signup" exact component={SignUpPage} />
         <Route path="/developer-information" exact component={DeveloperPage} />
         <Route path="/callback" exact component={Callback} />
       </Switch>
