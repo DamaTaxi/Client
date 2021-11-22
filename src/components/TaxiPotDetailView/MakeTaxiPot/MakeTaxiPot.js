@@ -107,6 +107,9 @@ const MakeTaxiPot = () => {
       })
       .catch((err) => {
         console.log(err);
+        if(err.data.status){
+          alert('이미 택시팟을 생성하였거나 신청하였습니다.')
+        }
       });
   };
 

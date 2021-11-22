@@ -9,7 +9,7 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import CreateKakaoMap from '../../../templates/CreateKakaoMap/CreateKakaoMap';
 import TaxiPotPageLine from './TaxiPotPageLine/TaxiPotPageLine';
-import { requestWithAccessToken } from '../../../lib/axios';
+import { request, requestWithAccessToken } from '../../../lib/axios';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -49,15 +49,8 @@ const TaxiPotSlider = () => {
     getSlideList();
   }, []);
 
-  /*   useEffect(() => {
-    if (content.length !== 0) {
-      const swiper = document.querySelector('.swiper-container').swiper;
-      swiper.update();
-    }
-  }, [content]); */
-
   function getSlideList() {
-    requestWithAccessToken('get', `/taxi-pot/slide`, {}, {})
+    request('get', `/taxi-pot/slide`, {}, {})
       .then((res) => {
         console.log(res);
         content = content.concat(res);
@@ -70,7 +63,8 @@ const TaxiPotSlider = () => {
   //슬라이더 리스트 map 함수
   const SwiperSlideList = content.length
     ? content.map((content, index) => {
-        const { title, target, reserve, all, latitude, longitude, id,address } = content;
+        const { title, target, reserve, all, latitude, longitude, id, address } = content;
+        console.log(content);
         return (
           <SwiperSlide key={index}>
             <Link

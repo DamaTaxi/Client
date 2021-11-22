@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 const CreateKakaoMap = (props) => {
+  console.log(props);
   const { lat, lng, width, height } = props;
   const container = useRef(null);
+
+  console.log(lat, lng);
 
   const options = {
     //지도를 생성할 때 필요한 기본 옵션
@@ -13,7 +16,7 @@ const CreateKakaoMap = (props) => {
   useEffect(() => {
     new window.kakao.maps.Map(container.current, options); //지도 생성 및 객체 리턴
     return () => {};
-  }, []);
+  }, [lat, lng]);
 
   return (
     <div>

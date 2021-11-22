@@ -75,6 +75,9 @@ const UserTaxiPot = () => {
       })
       .catch((err) => {
         console.log(err);
+        if (err.data.status) {
+          alert('이미 택시팟을 신청하였거나 만들었습니다.');
+        }
       });
   }
 
