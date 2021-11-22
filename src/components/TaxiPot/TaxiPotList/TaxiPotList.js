@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
 import GraphContainer from '../../../templates/GraphContainer/GraphContainer';
-import { requestWithAccessToken } from '../../../lib/axios';
+import { request, requestWithAccessToken } from '../../../lib/axios';
 
 let content = [];
 let scrollPage = 0;
@@ -38,7 +38,7 @@ const TaxiPotList = () => {
 
   const getList = async () => {
     setIsFetching(true);
-    await requestWithAccessToken('get', `/taxi-pot/?size=${1}&page=${scrollPage}`, {}, {})
+    await request('get', `/taxi-pot/?size=${1}&page=${scrollPage}`, {}, {})
       .then((res) => {
         console.log(res);
         if (res.content.length === 0) {
