@@ -8,7 +8,7 @@ export const TaxiPotWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
   #TaxiPotLogoLink {
     align-self: flex-start;
   }
